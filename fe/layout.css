@@ -1,0 +1,85 @@
+.width_100_vw {
+    width: 100vw;
+}
+
+.max_width {
+    max-width: 1200px;
+    width: 1200px;
+}
+
+.width_100_percent {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.width_66_percent {
+    display: block;
+    width: 66%;
+    height: auto;
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.center_flex {
+    display: flex;
+    justify-content: center;
+}
+
+.center_block {
+    display: grid;
+    justify-content: center;
+}
+
+.left {
+    display: grid;
+    width: 100%;
+    justify-content: left;
+}
+
+.fit_parent {
+    object-fit: cover;
+    width: 100%;
+}
+
+/* flex with even height on all elements? */
+.flex_row {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100%;
+    margin: 0;
+    width: 100%;
+    padding: 0;
+}
+
+.grid_5_columns {
+    display: grid;
+    grid-template-columns: 1fr 400px 400px 400px 1fr;
+    grid-gap: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.grid_2_columns {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.three_columns_four_rows_grid {
+    display: grid;
+    max-width: 100%;
+    grid-template-rows: repeat(4, auto);
+    grid-auto-columns: minmax(0, 1fr);
+    grid-auto-flow: column;
+    gap: 2vw;
+}
+
