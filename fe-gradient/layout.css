@@ -2,6 +2,10 @@
     width: 100vw;
 }
 
+.height_100_vw {
+    height: 100vh;
+}
+
 .max_width {
     max-width: 1200px;
     width: 1200px;
@@ -11,6 +15,10 @@
     display: block;
     width: 100%;
     height: auto;
+}
+
+.vertical_center {
+    align-items: center;
 }
 
 .width_66_percent {
