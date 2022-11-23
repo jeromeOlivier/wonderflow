@@ -1,0 +1,475 @@
+/* fonts */
+@font-face {
+  font-family: "rale100";
+  src: url("../font/raleway-extralight-webfont.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "rale200";
+  src: url("../font/raleway-light-webfont.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "rale300";
+  src: url("../font/raleway-regular-webfont.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "rale500";
+  src: url("../font/raleway-medium-webfont.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "rale700";
+  src: url("../font/raleway-bold-webfont.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "rale900";
+  src: url("../font/raleway-extrabold-webfont.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "rale1000";
+  src: url("../font/raleway-black-webfont.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "slab100";
+  src: url("../font/museo_slab_100-webfont.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "slab300";
+  src: url("../font/museo_slab_300-webfont.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "slab500";
+  src: url("../font/museo_slab_500-webfont.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "slab700";
+  src: url("../font/museo_slab_700-webfont.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "slab900";
+  src: url("../font/museo_slab_900-webfont.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "slab1000";
+  src: url("../font/museo_slab_1000-webfont.woff2") format("woff2");
+  font-display: swap;
+}
+
+.rale100 {
+  font-family: rale100, sans-serif;
+  font-display: swap;
+}
+
+.rale200 {
+  font-family: rale200, sans-serif;
+  font-display: swap;
+}
+
+.rale300 {
+  font-family: rale300, sans-serif;
+  font-display: swap;
+}
+
+.rale500 {
+  font-family: rale500, sans-serif;
+  font-display: swap;
+}
+
+.rale700 {
+  font-family: rale700, sans-serif;
+  font-display: swap;
+}
+
+.rale900 {
+  font-family: rale900, sans-serif;
+  font-display: swap;
+}
+
+.rale1000 {
+  font-family: rale1000, sans-serif;
+  font-display: swap;
+}
+
+.slab100 {
+  font-family: slab100, sans-serif;
+  font-display: swap;
+
+}
+
+.slab300 {
+  font-family: slab300, sans-serif;
+  font-display: swap;
+}
+
+.slab500 {
+  font-family: slab500, sans-serif;
+  font-display: swap;
+}
+
+.slab700 {
+  font-family: slab700, sans-serif;
+  font-display: swap;
+}
+
+.slab900 {
+  font-family: slab900, sans-serif;
+  font-display: swap;
+}
+
+.slab1000 {
+  font-family: slab1000, sans-serif;
+  font-display: swap;
+}
+
+.large_title {
+  font-size: clamp(2rem, 7vw, 5rem);
+  line-height: clamp(2rem, 7vw, 5rem);
+}
+
+.medium_title {
+  font-size: clamp(1.25rem, 4.5vw, 3rem);
+  line-height: clamp(1.5rem, 4.5vw, 3.5rem);
+}
+
+.small_title {
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  line-height: clamp(1.5rem, 2.5vw, 2rem);
+}
+
+.size_1 {
+  font-size: 1rem;
+}
+
+.size_125 {
+  font-size: 1.25rem;
+}
+
+.size_15 {
+  font-size: 1.5rem;
+}
+
+.size_175 {
+  font-size: 1.75rem;
+}
+
+.hero {
+  background-image: url("../img/ateliers_1920.jpg");
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+}
+
+.hero_text {
+  background-color: #fffc;
+  border: #fff 2px solid;
+  color: #333;
+  width: fit-content;
+  padding: clamp(10px, 2vw, 60px) clamp(20px, 3vw, 80px);;
+}
+
+#wrapper {
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  perspective: 10px;
+}
+
+#hero {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  transform-style: preserve-3d;
+  z-index: -1;
+}
+
+.background {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  transform: translateZ(-10px);
+}
+
+a {
+  color: #333;
+}
+
+/* color variables */
+:root {
+  --c0: #fff;
+  --c1: #FEF590;
+  --c2: #ABDA8E;
+  --c3: #67B892;
+  --c4: #39938D;
+  --c5: #2D6D7A;
+  --c6: #2F4858;
+  --c7: #1b2f3b;
+  --nav: rgb(0, 0, 0);
+  --c8: #000;
+
+  --blue: #71ABD0;
+  --pink: #F6ACBB;
+  --beige: #FEF8E8;
+  --yellow: #FEF590;
+  --orange: #db752c;
+}
+
+/* foreground colors */
+.c0 {
+  color: var(--c0);
+}
+
+.c1 {
+  color: var(--c1);
+}
+
+.c2 {
+  color: var(--c2);
+}
+
+.c3 {
+  color: var(--c3);
+}
+
+.c4 {
+  color: var(--c4);
+}
+
+.c5 {
+  color: var(--c5);
+}
+
+.c6 {
+  color: var(--c6);
+}
+
+.c7 {
+  color: var(--c7);
+}
+
+.c_black {
+  color: var(--c8);
+}
+
+/* background colors */
+.back_c0 {
+  background-color: var(--c0);
+}
+
+.back_c1 {
+  background-color: var(--c1);
+}
+
+.back_c2 {
+  background-color: var(--c2);
+}
+
+.back_c3 {
+  background-color: var(--c3);
+}
+
+.back_c4 {
+  background-color: var(--c4);
+}
+
+.back_c5 {
+  background-color: var(--c5);
+}
+
+.back_c6 {
+  background-color: var(--c6);
+}
+
+.back_c7 {
+  background-color: var(--c7);
+}
+
+.back_nav {
+  background-color: #fff9;
+}
+
+/* opacity */
+.translucent {
+  opacity: 90%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  backface-visibility: hidden
+}
+
+.overlay_mix {
+  mix-blend-mode: overlay;
+}
+
+.lumi_mix {
+  mix-blend-mode: luminosity;
+}
+
+.multi_mix {
+  mix-blend-mode: normal;
+}
+
+.isolate {
+  isolation: isolate;
+}
+
+.navColor {
+  color: #C96321FF;
+}
+
+.gradient01 {
+  background: linear-gradient(-45deg, #b43c10, #b46710);
+}
+
+.gradient02 {
+  background: linear-gradient(45deg, #36b5b1, #16638a);
+}
+
+.gradient03 {
+  background: linear-gradient(-45deg, #8ab535, #1e7554);
+}
+
+.gradient04 {
+  background: linear-gradient(45deg, #d676a9, #993994);
+}
+
+.gradient05 {
+  background: linear-gradient(135deg, #cf752b, #ba3200);
+}
+
+.fadeIn {
+  -webkit-animation: fadeIn 2s;
+  -moz-animation: fadeIn 2s;
+  -o-animation: fadeIn 2s;
+  -ms-animation: fadeIn 2s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(.9);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* blur */
+.back_blur {
+  backdrop-filter: blur(3px);
+}
+
+/* general */
+html {
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  display: block;
+}
+
+img:hover {
+  cursor: pointer;
+  /*animation: khoverAnimation 1s forwards ease-in-out;*/
+  /*border: white 3px solid;*/
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no_scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.no_scroll {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+a {
+  text-decoration: none;
+}
+
+.nav {
+  text-transform: uppercase;
+  height: 50px;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  background: #fffc;
+  border-bottom: 2px #fff solid;
+}
+
+h1, h2 {
+  font-size: 2rem;
+  line-height: 1.2;
+}
+
+h3 {
+  font-family: "bold", sans-serif;
+  font-size: 1rem;
+  line-height: 1rem;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.picture_frame {
+  padding: 5px;
+}
+
+.rounded_corners {
+  border-radius: 12px;
+}
+
+.convert_to_circle {
+  border-radius: 50%;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+
+hr {
+  height: 1px;
+  border: 0;
+}
