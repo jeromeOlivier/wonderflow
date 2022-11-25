@@ -59,23 +59,28 @@
 }
 
 .horizontal_pad_large {
-  padding: 0 100px;
+  padding-right: 100px;
+  padding-left: 100px;
 }
 
 .horizontal_pad_med {
-  padding: 0 50px;
+  padding-right: 50px;
+  padding-left: 50px;
 }
 
 .horizontal_pad_small {
-  padding: 0 25px;
+  padding-right: 25px;
+  padding-left: 25px;
 }
 
 .horizontal_pad_exSmall {
-  padding: 0 5px;
+  padding-right: 5px;
+  padding-left: 5px;
 }
 
 .vertical_pad_large {
-  padding: 75px 0;
+  padding-top: 75px;
+  padding-bottom: 75px;
 }
 
 .vertical_pad_med {

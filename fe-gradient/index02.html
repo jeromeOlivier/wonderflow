@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <title>WonderFlow</title>
-  <link rel="stylesheet" href="css/reset.css">
-  <link href="css/style03.css" rel="stylesheet">
+  <link href="css/reset.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
   <link href="css/layout.css" rel="stylesheet">
   <link href="css/padding.css" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="description"
         content="Les ateliers Wonderflow s'adressent à tout gestionnaire ou leader qui souhaite développer sa confiance créative.">
 </head>
-<body class="no_scroll">
+<body>
 <header>
   <div class="nav flex_center width_100_vw">
     <div class="nav_blur"></div>
@@ -25,35 +25,39 @@
     </ul>
   </div>
 </header>
-<main id="wrapper">
+<main id="wrapper" style="background: #FFFFFF">
+
+  <!-- splash page -->
   <section style="height: 110vh; position: relative">
     <div id="heroImage" class="horizontal_pad_small flex_center vertical_center">
       <div class="max_width">
         <div class="flex_left">
           <div class="hero_text fadeIn">
-            <span class="rale700 large_title">Respirer.</span><br>
-            <span class="rale300 medium_title">Écouter.</span>
-            <span class="rale900 medium_title">Créer.</span><br>
-            <span class="rale300 small_title">Temps de </span>
-            <span class="rale900 small_title">faire une pause</span><br>
-            <span class="rale300 small_title">pour vous (re)connecter<br>à votre </span>
-            <span class="rale900 small_title">créativité</span>
+            <span class="rale100 hero_large">Respirer.</span><br>
+            <span class="rale100 hero_medium">Écouter.</span>
+            <span class="rale100 hero_medium">Créer.</span><br>
+            <span class="rale100 hero_small">Temps de </span>
+            <span class="rale700 hero_small">faire une pause</span><br>
+            <span class="rale100 hero_small">pour vous (re)connecter<br>à votre </span>
+            <span class="rale700 hero_small">créativité</span>
           </div>
         </div>
       </div>
     </div>
-    <div class="custom-shape-divider-bottom-1668737981">
+    <div class="wave">
       <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
         <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
               class="shape-fill"></path>
       </svg>
     </div>
   </section>
-  <section style="background: white">
+
+  <!-- introduce wonderflow -->
+  <section>
     <div class="flex_center width_100_vw">
       <div class="horizontal_pad_small flex_center vertical_center">
-        <div class="max_width upper_pad_small">
-          <div class="grid_2_columns">
+        <div class="max_width upper_pad_med">
+          <div class="r1c2">
             <div class="rale300">
               <p>
                 <span class="rale700">Notre environnement de travail</span> est en pleine mutation avec une demande
@@ -68,121 +72,164 @@
               </p>
             </div>
             <div class="flex_center vertical_center">
-              <img src="svg/flow_creatif_en_action.svg" style="width: 15vw; height: auto;"
+              <img src="svg/flow_creatif_en_action.svg" style="width: 20vw; height: auto;"
                    alt="">
             </div>
           </div>
           <div>
-            <h3 class="rale700 medium_title upper_pad_exSmall">Wonderflow, c'est quoi?</h3>
-            <p class="rale300 upper_pad_small"><span class="rale700">Des ateliers ludiques et originaux</span> pour
-              enforcer votre confiance créative dans votre milieu professionnel. Abordez la créativité différemment!</p>
-            <button href="" class="dark_button">Découvrez notre approche</button>
+            <h1 class="rale100 large_title upper_pad_exSmall">Wonderflow</h1>
           </div>
-          <div class="grid_2_columns upper_pad_small">
-            <div class="flex_center vertical_center right_pad_med">
-              <img src="svg/dot_pink.svg" style="width: 10vw; height: auto;"
-                   alt="">
+          <div class="r3c3_row lower_pad_med upper_pad_small">
+            <!--  what is it -->
+            <div class="relative_grid">
+              <!-- icon -->
+              <div class="center_grid blue_bkgnd circle disc">
+                C'est quoi?
+              </div>
+              <img src="svg/ring.svg" alt="" class="ring">
             </div>
-            <div>
-            <h3 class="rale700 medium_title">Pour qui?</h3>
-            <p class="rale300 upper_pad_small">Les ateliers Wonderflow s'adressent à tout <span class="rale700">gestionnaire
+
+            <div class="vertical_center">
+              <p class="rale300 upper_pad_small"><span class="rale700">Des ateliers ludiques et originaux</span> pour
+                enforcer votre confiance créative dans votre milieu professionnel. Abordez la créativité
+                différemment!<br>
+                <a href="" class="link">Découvrez notre approche</a>
+              </p>
+            </div>
+            <div></div>
+            <!--  for who is it  -->
+            <div></div>
+            <div class="vertical_center">
+              <p class="rale300 upper_pad_small">Les ateliers Wonderflow s'adressent à tout <span class="rale700">gestionnaire
               ou leader</span> qui souhaite développer sa confiance créative.</p>
             </div>
-          </div>
-          <div class="grid_2_columns lower_pad_small">
-            <div style="text-align: right">
-              <h3 class="rale700 medium_title upper_pad_small">Pour quoi?</h3>
-              <p class="rale300 upper_pad_small">
+            <!-- icon -->
+            <div class="relative_grid">
+              <div class="center_grid pink_bkgnd circle disc">
+                C'est<br>pour qui?
+              </div>
+              <img src="svg/ring.svg" alt="" class="ring">
+            </div>
+            <!--  for who is it  -->
+            <div class="relative_grid">
+              <div class="center_grid yellow_bkgnd circle disc">
+                Pourquoi?
+              </div>
+              <img src="svg/ring.svg" alt="" class="ring">
+            </div>
+            <div class="vertical_center">
+              <p class="rale300">
                 Se (re)connecter à sa créativité.<br>Apprendre des stratégies pour faire émerger de nouvelles idées et
                 des solutions à vos problématiques.<br>Repartir avec des outils pour faire de sa créativité un état
                 d'esprit quotidien.
               </p>
             </div>
-            <div class="flex_center vertical_center left_pad_small">
-              <img src="svg/dot_blue.svg" style="width: 10vw; height: auto;"
-                   alt="">
-            </div>
+            <div></div>
           </div>
         </div>
       </div>
     </div>
-    <div>
-      <svg width="100%" height="100%" viewBox="0 0 800 80" style="fill-rule: evenodd; clip-rule: evenodd;
-      stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 1.5;">
-        <path d="M0,35.099l0,64.901l800,0l0,-60c0,0 -97.674,-29.108 -245.587,-29.108c-135.73,0 -252.559,47.187
-        -364.843,47.187c-112.284,0 -189.57,-22.98 -189.57,-22.98Z" style="fill:#fef590;"/>
-        <g id="Layer1">
-          <path d="M809.081, 48.301c-17.822, 5.193 -56.492, 7.37 -105.748,18.468c-40.012, 9.015 -136.784,
-          6.352 -184.666,3.345c-38.603,-2.425 -134.892,-13.882 -163.85,-21.813c-21.824,-5.978 -45.117,-10.664 -70.464,
-          -17.192c-26.248,-6.76 -51.741,-8.359 -83.314,-9.575c-31.698,-1.222 -70.758,-2.082 -109.985,
-          4.895c-29.81,5.303 -63.248,8.899 -100.135,16.651" style="fill: none; stroke:#666; stroke-width: 2px;"/>
-        </g>
-      </svg>
-    </div>
   </section>
-  <section style="background-color: #FEF590;">
-    <div class="flex_center width_100_vw">
-        <div class="grid_of_questions max_width horizontal_pad_small">
-          <div class="bubble S5 QA5">Comment renforcer ma confiance créative?</div>
-          <div class="bubble S4 QA4"></div>
-          <div class="bubble S3 QA3"></div>
-          <div class="bubble S2 QA2"></div>
-          <img class="question S1 QA1" src="img/question_01_600px.png" alt="Une personne qui se pose des questions">
-          <div class="bubble S5 QB5">Comment trouver des idées ou des solutions inédites?</div>
-          <div class="bubble S4 QB4"></div>
-          <div class="bubble S3 QB3"></div>
-          <div class="bubble S2 QB2"></div>
-          <img class="question S1 QB1" src="img/question_02_600px.png" alt="Une deuxième personne qui se pose des questions">
-          <div class="bubble S5 QC5">Comment prendre du recul, voir clairement la situation?</div>
-          <div class="bubble S4 QC4"></div>
-          <div class="bubble S3 QC3"></div>
-          <div class="bubble S2 QC2"></div>
-          <img class="question S1 QC1" src="img/question_03_600px.png" alt="Une troisième personne qui se pose des questions">
+
+  <!-- the workshops -->
+  <section>
+    <div class="flex_center width_100_vw upper_pad_small">
+      <div class="max_width horizontal_pad_small">
+        <h2 class="rale100 ">
+          <span class="large_title">Découvrez</span><br><span class="medium_title">nos ateliers expérientiels</span>
+        </h2>
+        <div class="r4c3 upper_pad_med">
+
+          <!-- intuition -->
+          <div class="r8c2">
+            <div class="bubble Q4">Comment prendre du recul, voir clairement la situation ?</div>
+            <div class="bubble Q3"></div>
+            <div class="bubble Q2"></div>
+            <img class="circle Q1 blue_bkgnd"
+                 src="img/question_01_600px.png"
+                 alt="Une personne qui se pose des questions">
+          </div>
+          <h3 class="rale700 small_title flex_center">Créativité et intuition</h3>
+          <div class="text rale300 horizontal_pad_exSmall upper_pad_exSmall">Reconcilier la tête et le cœur</div>
+          <a href="#" class="link">En savoir plus</a>
+
+          <!-- quotidien -->
+          <div class="r8c2">
+            <div class="bubble Q4">Comment trouver des idées ou des solutions inédites ?</div>
+            <div class="bubble Q3"></div>
+            <div class="bubble Q2"></div>
+            <img class="circle Q1 yellow_bkgnd"
+                 src="img/question_02_600px.png"
+                 alt="Une deuxième personne qui se pose des questions">
+          </div>
+          <h3 class="rale700 small_title flex_center">Créativité au quotidien</h3>
+          <div class="text rale300 horizontal_pad_exSmall upper_pad_exSmall">Reconnecter à sa pensée creative et en
+            faire un atout professionnel au quotidien
+          </div>
+          <a href="#" class="link">En savoir plus</a>
+
+          <!-- courage -->
+          <div class="r8c2">
+            <div class="bubble Q4">Comment renforcer ma confiance créative ?</div>
+            <div class="bubble Q3"></div>
+            <div class="bubble Q2"></div>
+            <img class="circle Q1 pink_bkgnd"
+                 src="img/question_03_600px.png"
+                 alt="Une troisième personne qui se pose des questions">
+          </div>
+          <h3 class="rale700 small_title flex_center">Créativité et courage</h3>
+          <div class="text rale300 horizontal_pad_exSmall upper_pad_exSmall">Oser la créativité en période d'incertitude
+          </div>
+          <a href="#" class="link">En savoir plus</a>
+
         </div>
       </div>
-    <div>
-      <svg width="100%" height="100%" viewBox="0 0 1024 100" style="fill-rule:evenodd; clip-rule:evenodd;
-      stroke-linecap:round; stroke-linejoin:round; stroke-miterlimit:1.5;">
-        <g transform="matrix(-1.3011,0,0,1.17454,1032.31,-28.6993)">
-          <path d="M0,55.099L0,804.223C282.352,763.409 527.226,925.63 800,811.176L800,60C800,60 748.064,34.049 670.304,26.239C635.686,22.762 599.499,24.309 554.413,30.892C468.978,43.366 415.266,92.428 338.291,102.731C296.795,108.284 230.684,86.163 189.57,78.079C152.168,70.726 99.979,79.106 71.574,75.697C16.305,69.064 0,55.099 0,55.099Z"
-                style="fill:rgb(246,172,187);"/>
-        </g>
-        <g transform="matrix(-1.28194,0,0,0.829793,1038.46,-39.6562)">
-          <path d="M811.628,76.531C771.274,99.464 724.331,116.883 637.399,119.848C581.273,121.762 489.483,90.917 412.077,92.337C345.86,93.551 297.536,161.019 229.579,159.797C175.077,158.816 123.196,36.739 -5.371,70.225"
-                style="fill:none;stroke: #666; stroke-width: 2px;"/>
-        </g>
-      </svg>
     </div>
   </section>
-  <section style="height: fit-content; position: relative; background: #F6ACBB">
-    <div class="flex_center width_100_vw height_100_vh"></div>
 
+  <!-- take a break, give it a chance -->
+  <section style="position: relative">
+    <div class="flex_center width_100_vw upper_pad_large lower_pad_large">
+      <div class="max_width horizontal_pad_small">
+        <h2 class="rale100 lower_pad_small">
+          <span class="medium_title">Et si vous faisiez une "pause" Wonderflow?</span>
+        </h2>
+        <p class="rale300 text">
+          Cette pause en mouvement va vous permettre une connexion avec votre espace intérieur, votre créativité, vous
+          donner des clés pour un quotidien plus créatif et qui sait… une prise de conscience, une meilleure
+          connaissance
+          de vous-même, un déclic, un éclair de génie!
+        </p>
+        <div class="flex_center">
+          <img src="img/yellowSweater900px.jpg" alt="" class="circle" style="width: 33vw">
+        </div>
+      </div>
+    </div>
+    <div>
+      <svg width="100%"
+           height="100%"
+           viewBox="0 0 800 36"
+           xmlns="http://www.w3.org/2000/svg"
+           xml:space="preserve"
+           style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
+    <g transform="matrix(-1.00355,0,0,0.379915,801.604,-8.55121)">
+        <path d="M0,55.099L0,120L800,120L800,80C800,80 692.762,22.204 554.413,27.726C417.161,33.204 301.441,111.727 189.57,78.079C82.044,45.739 0,55.099 0,55.099Z"
+              style="fill:rgb(254,245,144);"/>
+    </g>
+        <g transform="matrix(-0.988258,0,0,0.466266,781.279,-12.8751)">
+        <g id="Layer1">
+            <path d="M812.791,75.446C794.968,80.639 756.299,82.817 707.043,93.915C667.031,102.929 570.258,100.266 522.377,97.259C483.773,94.835 387.485,83.377 358.527,75.446C336.703,69.469 313.41,64.782 288.062,58.255C261.815,51.495 236.322,49.896 204.748,48.679C173.05,47.458 133.99,46.598 94.764,53.575C64.953,58.877 -1.319,71.755 -43.185,84.713"
+                  style="fill:none;stroke:black;stroke-width:2px;"/>
+        </g>
+    </g>
+</svg>
+    </div>
   </section>
 
-  <!--  <section style="background: linear-gradient(45deg, #36b5b1, #16638a)">-->
-  <!--    &lt;!&ndash;  <section class="four_corner_gradient">&ndash;&gt;-->
-  <!--    <div class="flex_center width_100_vw height_100_vh vertical_center">-->
-  <!--      <div class="max_width horizontal_pad_med c0">-->
-  <!--        <h2 class="rale700"><span class="large_title">Découvrez</span><br><span class="medium_title overlay_mix">nos ateliers expérientiels</span>-->
-  <!--        </h2>-->
-  <!--        <div class="three_columns_four_rows_grid upper_pad_large">-->
-  <!--          <h3 class="rale700 small_title overlay_mix">créativité au quotidien</h3>-->
-  <!--          <img alt="" class="white_frame fit_parent image_button" src="img/experientiel_01.jpg">-->
-  <!--          <p class="horizontal_pad_exSmall rale300 text">Comment se (re)connecter à sa pensée creative et en faire un-->
-  <!--            atout professionnel au quotidien</p>-->
-  <!--          <button href="" class="center_block">En savoir plus</button>-->
-  <!--          <h3 class="rale700 small_title overlay_mix">créativité et courage</h3>-->
-  <!--          <img alt="" class="white_frame fit_parent image_button" src="img/experientiel_02.jpg">-->
-  <!--          <p class="horizontal_pad_exSmall rale300 text">Oser la créativité en période d'incertitude</p>-->
-  <!--          <button href="" class="center_block">En savoir plus</button>-->
-  <!--          <h3 class="rale700 small_title overlay_mix">créativité et intuition</h3>-->
-  <!--          <img alt="" class="white_frame fit_parent image_button" src="img/experientiel_03.jpg">-->
-  <!--          <p class="horizontal_pad_exSmall rale300 text">Comment concilier la tête et le coeur</p>-->
-  <!--          <button href="" class="center_block">En savoir plus</button>-->
-  <!--        </div>-->
-  <!--      </div>-->
-  <!--    </div>-->
-  <!--  </section>-->
+  <!-- join mailing list and other foot fetish things -->
+  <footer class="yellow_bkgnd" style="height: 25vh">
+
+  </footer>
 
 </main>
 </body>
