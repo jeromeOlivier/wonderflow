@@ -1,0 +1,23 @@
+div.wave.mt-5
+
+div.footer-elements
+    div.social-icons
+        a(href='https://www.instagram.com/', target='_blank')
+            img(src='/img/svgFolder/instagram.svg', alt='instagram' style='width: 8vw; max-width: 48px; height: auto;')
+        a(href='https://linkedin.com/', target='_blank')
+            img(src='/img/svgFolder/linkedin.svg', alt='linkedin' style='width: 8vw; max-width: 48px; height: auto;')
+
+    img(src='/img/svgFolder/logo.svg', alt='logo' style='width: 30vw; max-width: 180px; height: auto;')
+
+    div#newsletter
+        if !isSubscribed
+            include newsletter-form
+    div
+        h4 Contact
+        a(href='mailto:info@wonderflow.ca') info@wonderflow.ca
+        a(href='/policy') Politique de confidentialité
+
+    div.center.mb-1
+        p &copy; 2023 Wonderflow. Tous droits réservés.
+
+// Path: src/views/footer.pug
