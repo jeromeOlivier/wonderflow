@@ -3,15 +3,15 @@ nav
         li
             img(src='/img/svgFolder/wonderflow.svg' alt='logo' width='160px')
         li
-            a(href='/' hx-boost="true" hx-target="main") Accueil
+            a(hx-target="main" hx-get="/content_index" hx-swap='show:window:top' hx-push-url='/' href='/') Accueil
         li
-            a(href='/approach' hx-boost="true" hx-target="main") Notre Approche
+            a(hx-target="main" hx-get="/content_approach" hx-push-url='/approach' href='/approach' hx-swap='show:window:top') Notre Approche
         li
-            a(href='/workshops' hx-boost="true" hx-target="main") Nos Ateliers
+            a(hx-target="main" hx-get="/content_workshops" hx-push-url='/workshops' href='/workshops' hx-swap='show:window:top') Nos Ateliers
         li
-            a(href='/about' hx-boost="true" hx-target="main") À propos
+            a(hx-target="main" hx-get="/content_about" hx-push-url='/about' href='/about' hx-swap='show:window:top') À propos
         li
-            a(href='/contact' hx-boost="true" hx-target="main") Contact
+            a(hx-target="main" hx-get="/content_contact" hx-push-url='/contact' href='/contact' hx-swap='show:window:top') Contact
         //li
         //    a(href='/blog' hx-boost="true") Blog
 

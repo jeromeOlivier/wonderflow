@@ -32,7 +32,7 @@
 :root {
     --white: #FFF;
     --black: #333;
-    --grey: #777;
+    --grey: #BBB;
     --yellow: #FFF590;
     --translucent: #FFFA;
 }
@@ -128,11 +128,17 @@ h4 {
     font-size: 1rem;
     margin-top: 1rem;
 }
-p, q {
+p, q, label {
     font-style: normal;
     margin-top: 1rem;
     padding: 0;
     display: block;
+}
+p, q {
+    font-style: normal;
+}
+label {
+    font-family: rBold, "Arial Black", sans-serif;
 }
 cite {
     font-style: normal;
@@ -201,7 +207,7 @@ button {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--grey);
+    background: var(--black);
     color: var(--white);
     font-family: rRegular, sans-serif;
     font-size: 1rem;
@@ -224,19 +230,25 @@ button:hover {
 button > svg {
     margin-left: .5rem;
 }
-input {
+
+input, textarea {
     display: block;
-    width: auto;
+    width: 100%;
     padding: .35rem .5rem;
-    margin-top: 1rem;
-    border: 0.09375rem solid var(--black);
+    margin-top: .5rem;
+    border: 0.09375rem solid var(--grey);
     border-radius: 0.5rem;
     font-family: rRegular, sans-serif;
     font-size: 1rem;
     color: var(--black);
 }
-input:focus {
+input:focus, textarea:focus {
     outline: none;
+}
+
+textarea {
+    resize: vertical;
+    overflow: hidden;
 }
 
 /* layout */
@@ -244,6 +256,12 @@ input:focus {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.container {
+    width: 90%;
+    max-width: 960px;
+    position: relative;
 }
 
 /* footer */
@@ -321,8 +339,4 @@ footer a {
     padding: 0;
     margin: 0;
 }
-.index-container {
-    width: 90%;
-    max-width: 960px;
-    position: relative;
-}
+

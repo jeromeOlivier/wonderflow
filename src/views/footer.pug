@@ -15,7 +15,7 @@ div.footer-elements
     div
         h4 Contact
         a(href='mailto:info@wonderflow.ca') info@wonderflow.ca
-        a(href='/policy') Politique de confidentialité
+        a(hx-target="main" hx-get="/content_policy" hx-swap='show:window:top' hx-push-url='/policy' href='/policy') Politique de confidentialité
 
     div.center.mb-1
         p &copy; 2023 Wonderflow. Tous droits réservés.

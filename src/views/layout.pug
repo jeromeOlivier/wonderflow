@@ -6,7 +6,20 @@ html(lang='en')
         header
             include header.pug
         main
-            block content
+            if content === 'about'
+                include about.pug
+            else if content === 'approach'
+                include approach.pug
+            else if content === 'blog'
+                include blog.pug
+            else if content === 'contact'
+                include contact.pug
+            else if content === 'policy'
+                include policy.pug
+            else if content === 'workshops'
+                include workshops.pug
+            else
+                include index.pug
         footer
             include footer.pug
 // Path: views/layout.pug

@@ -1,14 +1,11 @@
-//extends layout
-
-block content
+div.container.mt-3
     h1 Contact
     form(method='POST' action='/contact')
-        label(for='name') Nom:
+        label.mt-1(for='name') Nom:
         input#name.form-control(type='text' name='name' placeholder='Votre nom')
-        label(for='email') Courriel:
+        label.mt-1(for='email') Courriel:
         input#email.form-control(type='email' name='email' placeholder='Votre courriel')
-        label(for='message') Question ou commentaire:
-        textarea#message.form-control(name='message' placeholder='Vos questions ou commentaire')
+        label.mt-1(for='message') Question ou commentaire:
+        textarea#message.form-control(name='message' rows='5' placeholder='Vos questions ou commentaire')
         button.btn.btn-primary(type='submit') Envoyer
-
-    // Path: src/views/contact.pug
+// Path: src/views/contact.pug
