@@ -1,0 +1,500 @@
+/* woff */
+@font-face {
+    font-family : "rRegular";
+    src         : url("../woff/raleway-medium.woff") format("woff"),
+    url("../woff/raleway-medium.woff");
+    font-weight : normal;
+    font-style  : normal;
+}
+
+@font-face {
+    font-family : "rBold";
+    src         : url("../woff/raleway-semi-bold.woff") format("woff"),
+    url("../woff/raleway-semi-bold.woff");
+    font-weight : normal;
+    font-style  : normal;
+}
+
+@font-face {
+    font-family : "rItalic";
+    src         : url("../woff/raleway-medium-italic.woff") format("woff"),
+    url("../woff/raleway-medium-italic.woff");
+    font-weight : normal;
+    font-style  : normal;
+}
+
+@font-face {
+    font-family : "rBoldItalic";
+    src         : url("../woff/raleway-semi-bold-italic.woff") format("woff"),
+    url("../woff/raleway-semi-bold-italic.woff");
+    font-weight : normal;
+    font-style  : normal;
+}
+
+/* colors */
+:root {
+    --black       : #333333;
+    --grey        : #BBBBBB;
+    --translucent : #FFFA;
+    --white       : #FFFFFF;
+    --yellow      : #FFF590;
+}
+
+.white {
+    color : var(--white);
+}
+
+.black {
+    color : var(--black);
+}
+
+.yellow {
+    color : var(--yellow);
+}
+
+.translucent {
+    color : var(--translucent);
+}
+
+/* margins */
+.mt-1 {
+    margin-top : 1rem;
+}
+
+.mt-2 {
+    margin-top : 2rem;
+}
+
+.mt-3 {
+    margin-top : 3rem;
+}
+
+.mt-4 {
+    margin-top : 4rem;
+}
+
+.mt-5 {
+    margin-top : 5rem;
+}
+
+.mb-1 {
+    margin-bottom : 1rem;
+}
+
+.mb-2 {
+    margin-bottom : 2rem;
+}
+
+.mb-3 {
+    margin-bottom : 3rem;
+}
+
+/* defaults & resets */
+* {
+    box-sizing  : border-box;
+    color       : var(--black);
+    font-family : rRegular, Arial, sans-serif;
+    font-size   : 1rem;
+    font-style  : normal;
+    font-weight : normal;
+    line-height : 1.25;
+    margin      : 0;
+    padding     : 0;
+}
+
+body {
+    background-color : var(--white);
+    display          : flex;
+    flex-direction   : column;
+    height           : 100vh;
+    justify-content  : space-between;
+}
+
+main {
+    align-items    : center;
+    display        : flex;
+    flex-direction : column;
+}
+
+.container {
+    max-width : 60rem;
+    width     : 90%;
+}
+
+/* typography */
+h1, h2, h3, h4, h5, h6 {
+    font-family : rBold, Arial, sans-serif;
+    font-style  : normal;
+    font-weight : normal;
+}
+
+h1 {
+    font-size  : 2rem;
+    margin-top : 1rem;
+}
+
+h2 {
+    font-size  : 1.5rem;
+    margin-top : 1rem;
+}
+
+h3 {
+    font-size  : 1.25rem;
+    margin-top : 1rem;
+}
+
+h4 {
+    font-size  : 1rem;
+    margin-top : 1rem;
+}
+
+p, q, label {
+    display    : block;
+    font-style : normal;
+    margin-top : 1rem;
+    padding    : 0;
+}
+
+p, q {
+    font-style : normal;
+}
+
+label {
+    font-family : rBold, "Arial Black", sans-serif;
+}
+
+cite {
+    font-family : rBold, Arial, sans-serif;
+    font-style  : normal;
+    margin-left : 2rem;
+}
+
+.inline {
+    display : inline;
+}
+
+ul {
+    list-style : none;
+    position   : relative;
+}
+
+ul.yellow-list li {
+    margin-bottom : 2.5rem;
+    margin-top    : 1rem;
+    padding-left  : 1.2rem; /* adjust as needed */
+    position      : relative;
+}
+
+ul.yellow-list li::before {
+    content  : url("../img/svg/yellow-dot.svg");
+    height   : 40px; /* adjust as needed */
+    left     : 0;
+    position : absolute;
+    top      : -1rem;
+    width    : 40px; /* adjust as needed */
+    z-index  : -1; /* pushes it back */
+}
+
+/* header */
+header {
+    align-items     : flex-start;
+    backdrop-filter : blur(5px);
+    background      : var(--translucent);
+    display         : flex;
+    flex-direction  : row;
+    height          : 3rem;
+    justify-content : center;
+    position        : fixed;
+    width           : 100vw;
+    z-index         : 3;
+}
+
+nav img {
+    position : absolute;
+}
+
+
+
+/* navigation desktop */
+@media (min-width : 960px) {
+    #hamburger { display : none; }
+
+    .hamburger-line { display : none; }
+
+    nav {
+        margin    : .7rem 0 .5rem;
+        max-width : 60rem;
+        width     : 90%;
+    }
+
+    nav > ul {
+        display         : flex;
+        flex-direction  : row;
+        gap             : 1.5rem;
+        justify-content : flex-end;
+        list-style-type : none;
+        margin          : 0;
+        padding         : 0;
+    }
+
+    /*nav > ul > li:first-child {*/
+    /*    margin-right : auto; !* Pushes the rest of the items towards the end *!*/
+    /*}*/
+    /*nav > ul > li:last-child {*/
+    /*    margin-right : 1rem;*/
+    /*}*/
+    nav > ul > li > a {
+        color           : var(--black);
+        text-decoration : none;
+    }
+}
+
+/* navigation mobile */
+@media (max-width : 959px) {
+
+    #hamburger {
+        cursor          : pointer;
+        display         : flex;
+        flex-direction  : column;
+        height          : 28px;
+        justify-content : space-between;
+        position        : absolute;
+        right           : 3rem;
+        top             : 1rem;
+        transition      : all 0.3s ease;
+        z-index         : 5;
+    }
+
+    #hamburger > div {
+        background-color : var(--black);
+        border-radius    : 2px;
+        height           : 3px;
+        transition       : all 0.3s ease;
+        width            : 28px;
+    }
+
+    #hamburger.close div:nth-child(1) {
+        transform : rotate(90deg) translate(12px, 1px);
+        width     : 36px;
+    }
+
+    #hamburger.close div:nth-child(2) {
+        opacity   : 0;
+        transform : rotate(-90deg);
+        width     : 36px;
+    }
+
+    #hamburger.close div:nth-child(3) {
+        transform : translate(-1px, -13px);
+        width     : 36px;
+    }
+
+    #hamburger.close {
+        transform : rotate(-225deg);
+    }
+
+    nav {
+        background : var(--yellow);
+        width      : 100%;
+    }
+
+    nav > ul {
+        align-items     : center;
+        background      : var(--yellow);
+        display         : flex;
+        flex-direction  : column;
+        height          : 100vh;
+        justify-content : center;
+        list-style-type : none;
+        padding         : 0;
+        position        : absolute;
+        right           : 0;
+        top             : 0;
+        transform       : translateX(100%);
+        transition      : transform 0.5s ease-in-out;
+        width           : 100vw;
+    }
+
+    nav > ul > li:first-child {
+        align-self  : flex-start;
+        margin-left : 0; /* Pushes the rest of the items towards the end */
+    }
+
+    nav > ul > li > a {
+        color           : var(--black);
+        font-family     : rBold, Arial, sans-serif;
+        font-size       : 1.5rem;
+        text-decoration : none;
+    }
+}
+
+.hide {
+    transform  : translateX(10%);
+    transition : none;
+}
+
+.slide-out {
+    transform  : translateX(10%);
+    transition : transform 0.3s;
+}
+
+.slide-in {
+    transform  : translateX(-100%);
+    transition : transform 0.3s;
+}
+
+/* interactions */
+button {
+    align-items         : center;
+    background          : var(--black);
+    border              : 0.09375rem solid var(--black);
+    border-radius       : 1.25rem;
+    color               : var(--white);
+    cursor              : pointer;
+    display             : flex;
+    fill                : var(--yellow);
+    font-family         : rRegular, sans-serif;
+    font-size           : 1rem;
+    justify-content     : center;
+    margin-top          : 1rem;
+    padding             : .5rem 1rem;
+    transition-duration : 500ms;
+    width               : fit-content;
+}
+
+button:hover {
+    background : var(--yellow);
+    color      : var(--black);
+}
+
+button:hover {
+    fill : var(--black);
+}
+
+button > svg {
+    margin-left : .5rem;
+}
+
+input, textarea {
+    border        : 0.09375rem solid var(--grey);
+    border-radius : 0.5rem;
+    color         : var(--black);
+    display       : block;
+    font-family   : rRegular, sans-serif;
+    font-size     : 1rem;
+    margin-top    : .5rem;
+    padding       : .35rem .5rem;
+    width         : 100%;
+}
+
+input:focus, textarea:focus {
+    outline : none;
+}
+
+textarea {
+    overflow : hidden;
+    resize   : vertical;
+}
+
+/* layout */
+.center {
+    display        : flex;
+    flex-direction : column;
+    /*align-items: center;*/
+    place-items    : center;
+}
+
+.container {
+    max-width  : 960px;
+    position   : relative;
+    transition : height 0.5s ease-out;
+    width      : 90%;
+}
+
+/* footer */
+.footer-elements {
+    display               : grid;
+    gap                   : 1rem;
+    grid-template-columns : 1fr;
+    grid-template-rows    : repeat(3, auto);
+    justify-items         : center;
+}
+
+.footer-elements > * {
+    max-width : 60rem;
+    width     : 90%;
+}
+
+footer a {
+    color           : var(--black);
+    display         : block;
+    text-decoration : none;
+}
+
+.social-icons {
+    display         : flex;
+    flex-direction  : row;
+    gap             : 1rem;
+    justify-content : center;
+}
+
+/* INDEX PAGE */
+.hero-container {
+    align-items     : center;
+    background      : no-repeat top/cover url("../img/jpg/ateliers_1920.jpg") fixed;
+    display         : flex;
+    flex-direction  : column;
+    height          : 110vh;
+    justify-content : center;
+    margin          : 0;
+    padding         : 0;
+    width           : 100vw;
+}
+
+#hero {
+    height    : 110vh;
+    max-width : 60rem;
+    width     : 90%;
+}
+
+#hero-logo {
+    height     : auto;
+    left       : 14vw;
+    margin-top : 10vh;
+    width      : clamp(120px, 40vmin, 640px);
+}
+
+.hero-titles {
+    bottom    : 24px;
+    left      : 50%;
+    position  : absolute;
+    transform : translateX(-50%);
+    width     : 50%;
+}
+
+.hero-h1, .hero-h2 {
+    color      : var(--white);
+    text-align : center;
+}
+
+.hero-h1 {
+    font-family : rBoldItalic, sans-serif;
+    font-size   : clamp(1.5rem, 4vmax, 5rem);
+}
+
+.hero-h2 {
+    font-family : rBold, sans-serif;
+    font-size   : clamp(1rem, 2vmax, 3rem);
+}
+
+#hero-wave {
+    height : auto;
+    width  : 100vw;
+}
+
+#hero-wave > img {
+    display : block;
+    margin  : 0;
+    padding : 0;
+}
+
