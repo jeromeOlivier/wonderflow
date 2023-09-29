@@ -1,6 +1,6 @@
 div.container.mt-3
     h1 Contact
-    form(method='POST' action='/contact')
+    form(hx-post='/contact' hx-target='main' hx-swap='outerHTML')
         label.mt-1(for='name') Nom:
         input#name.form-control(type='text' name='name' placeholder='Votre nom')
         label.mt-1(for='email') Courriel:
