@@ -4,38 +4,54 @@ div.hero-container
         div.hero-titles
             h1.hero-h1 Respirer. Écouter. Créer.
             h2.hero-h2 Faite une pause Wonderflow pour vous (re)connecter à votre créativité
-    div#hero-wave
+    div.wave
         img(src='img/svg/wave.svg' width='100%' height='100%')
 div.mt-3.container
     p Notre environnement de travail est en pleine mutation avec une demande croissante en agilité et résilience. La technologie est par ailleurs omniprésente et malgré tous ses avantages, elle peut être oppressante. Ces intrusions incessantes étouffent la conscience et bloquent le flow de la créativité.
     p La reconnexion à soi est essentielle. Elle favorise la créativité, véritable clé de survie dans notre monde moderne. Le Forum économique mondial l'a d'ailleurs classée parmi les compétences les plus recherchées.
 
-    h2.mt-5 Wonderflow c'est quoi?
-    ul.yellow-list.mt-2
-        li Des ateliers ludiques et originaux pour renforcer votre posture créative dans votre milieu professionnel.
-        li Abordez la créativité différemment.
-        li Vous souhaitez penser de manière plus originale?
-        li Vous aimeriez résoudre les problèmes plus efficacement?
-        li Vous aimeriez renforcer votre posture créature ou même juste avoir confiance en votre créativité?
-        li Vous avez envie de vous accomplir dans votre emploi en libérant votre créativité?
-    button(type='button')
+    h2.mt-5.scale Wonderflow c'est quoi?
+    ul.list.yellow-list.mt-2
+        li.scale Des ateliers ludiques et originaux pour renforcer votre posture créative dans votre milieu professionnel.
+        li.scale Abordez la créativité différemment.
+        li.scale Vous souhaitez penser de manière plus originale?
+        li.scale Vous aimeriez résoudre les problèmes plus efficacement?
+        li.scale Vous aimeriez renforcer votre posture créature ou même juste avoir confiance en votre créativité?
+        li.scale Vous avez envie de vous accomplir dans votre emploi en libérant votre créativité?
+    button(type='button' hx-target="main" hx-get="/content_workshops" hx-push-url='/workshops' hx-swap='show:window:top').scale
         | Découvrez nos ateliers
         <svg width="18px" height="100%" viewBox="0 0 12 11" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><path d="M6.754,2.247l0,0.001c0,-0 1.4,0.591 2.52,1.461c0.339,0.264 0.653,0.552 0.88,0.862c0.161,0.219 0.282,0.443 0.282,0.68c0,0.237 -0.121,0.461 -0.282,0.681c-0.227,0.309 -0.541,0.598 -0.88,0.862c-1.12,0.869 -2.52,1.461 -2.52,1.461c-0.394,0.168 -0.579,0.624 -0.411,1.018c0.167,0.394 0.623,0.578 1.018,0.411l0,-0c0,-0 2.184,-0.933 3.497,-2.21c0.69,-0.672 1.132,-1.449 1.132,-2.223c-0,-0.773 -0.442,-1.55 -1.132,-2.222c-1.313,-1.277 -3.497,-2.211 -3.497,-2.211l-0,0c-0.395,-0.167 -0.851,0.017 -1.018,0.412c-0.168,0.394 0.017,0.85 0.411,1.017Z" "/><g><path d="M7.284,6.236c0.551,-0 0.999,-0.441 0.999,-0.985c-0,-0.544 -0.448,-0.985 -0.999,-0.985c-0.552,0 -0.999,0.441 -0.999,0.985c-0,0.544 0.447,0.985 0.999,0.985Z" style="fill-rule:nonzero;"/><path d="M4.148,6.236c0.551,-0 0.999,-0.441 0.999,-0.985c0,-0.544 -0.448,-0.985 -0.999,-0.985c-0.552,0 -0.999,0.441 -0.999,0.985c0,0.544 0.447,0.985 0.999,0.985Z" style="fill-rule:nonzero;"/><path d="M1.013,6.236c0.551,-0 0.999,-0.441 0.999,-0.985c-0,-0.544 -0.448,-0.985 -0.999,-0.985c-0.552,0 -0.999,0.441 -0.999,0.985c-0,0.544 0.447,0.985 0.999,0.985Z" style="fill-rule:nonzero;"/></g></svg>
-    h2.mt-5 Les atouts Wonderflow
-    h3.mt-2 UNE EXPÉRIENCE HOLISTIQUE ET LUDIQUE
-    p Qui fait appel au mental mais aussi au corps et à l’émotionnel pour ressentir sa créativité et renforcer sa confiance créative. Tout cela dans la joie et la bonne humeur!
-    h3.mt-2 TOURNÉS VERS L’ACTION POUR DES RÉSULTATS
-    p Vous repartez avec votre propre plan d’action pour installer la créativité dans votre quotidien professionnel.
-    h3.mt-2 UN ACCOMPAGNEMENT POST-ATELIER POUR UN EFFET DURABLE
-    p Après l’atelier, un suivi en groupe ( 2 x 90 min en ligne ) est assuré pour vous accompagner face aux défis possibles que vous rencontrez et vous encourager dans la mise en place de votre plan d’action.
-    button(type='button').mt-2
-        | Découvrez nos ateliers
-        <svg width="18px" height="100%" viewBox="0 0 12 11" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><path d="M6.754,2.247l0,0.001c0,-0 1.4,0.591 2.52,1.461c0.339,0.264 0.653,0.552 0.88,0.862c0.161,0.219 0.282,0.443 0.282,0.68c0,0.237 -0.121,0.461 -0.282,0.681c-0.227,0.309 -0.541,0.598 -0.88,0.862c-1.12,0.869 -2.52,1.461 -2.52,1.461c-0.394,0.168 -0.579,0.624 -0.411,1.018c0.167,0.394 0.623,0.578 1.018,0.411l0,-0c0,-0 2.184,-0.933 3.497,-2.21c0.69,-0.672 1.132,-1.449 1.132,-2.223c-0,-0.773 -0.442,-1.55 -1.132,-2.222c-1.313,-1.277 -3.497,-2.211 -3.497,-2.211l-0,0c-0.395,-0.167 -0.851,0.017 -1.018,0.412c-0.168,0.394 0.017,0.85 0.411,1.017Z" "/><g><path d="M7.284,6.236c0.551,-0 0.999,-0.441 0.999,-0.985c-0,-0.544 -0.448,-0.985 -0.999,-0.985c-0.552,0 -0.999,0.441 -0.999,0.985c-0,0.544 0.447,0.985 0.999,0.985Z" style="fill-rule:nonzero;"/><path d="M4.148,6.236c0.551,-0 0.999,-0.441 0.999,-0.985c0,-0.544 -0.448,-0.985 -0.999,-0.985c-0.552,0 -0.999,0.441 -0.999,0.985c0,0.544 0.447,0.985 0.999,0.985Z" style="fill-rule:nonzero;"/><path d="M1.013,6.236c0.551,-0 0.999,-0.441 0.999,-0.985c-0,-0.544 -0.448,-0.985 -0.999,-0.985c-0.552,0 -0.999,0.441 -0.999,0.985c-0,0.544 0.447,0.985 0.999,0.985Z" style="fill-rule:nonzero;"/></g></svg>
+div.full-width.mt-3
+    div.wave
+        img(src='img/svg/curve_up_yellow.svg' width='100%' height='100%')
+div.full-width.yellow-background
+    div.container
+        h2.mt-2 Les atouts Wonderflow
+        div.z1.scale
+            h3.mt-2 UNE EXPÉRIENCE HOLISTIQUE ET LUDIQUE
+            p.white-dot Qui fait appel au mental mais aussi au corps et à l’émotionnel pour ressentir sa créativité et renforcer sa confiance créative. Tout cela dans la joie et la bonne humeur!
+        div.z1.scale
+            h3.mt-2 TOURNÉS VERS L’ACTION POUR DES RÉSULTATS
+            p.white-dot Vous repartez avec votre propre plan d’action pour installer la créativité dans votre quotidien professionnel.
+        div.z1.scale
+            h3.mt-2 UN ACCOMPAGNEMENT POST-ATELIER POUR UN EFFET DURABLE
+            p.white-dot Après l’atelier, un suivi en groupe ( 2 x 90 min en ligne ) est assuré pour vous accompagner face aux défis possibles que vous rencontrez et vous encourager dans la mise en place de votre plan d’action.
+        button(type='button' hx-target="main" hx-get="/content_workshops" hx-push-url='/workshops' hx-swap='show:window:top').mt-2.hover-white.scale
+            | Découvrez nos ateliers
+            <svg width="18px" height="100%" viewBox="0 0 12 11" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><path d="M6.754,2.247l0,0.001c0,-0 1.4,0.591 2.52,1.461c0.339,0.264 0.653,0.552 0.88,0.862c0.161,0.219 0.282,0.443 0.282,0.68c0,0.237 -0.121,0.461 -0.282,0.681c-0.227,0.309 -0.541,0.598 -0.88,0.862c-1.12,0.869 -2.52,1.461 -2.52,1.461c-0.394,0.168 -0.579,0.624 -0.411,1.018c0.167,0.394 0.623,0.578 1.018,0.411l0,-0c0,-0 2.184,-0.933 3.497,-2.21c0.69,-0.672 1.132,-1.449 1.132,-2.223c-0,-0.773 -0.442,-1.55 -1.132,-2.222c-1.313,-1.277 -3.497,-2.211 -3.497,-2.211l-0,0c-0.395,-0.167 -0.851,0.017 -1.018,0.412c-0.168,0.394 0.017,0.85 0.411,1.017Z" "/><g><path d="M7.284,6.236c0.551,-0 0.999,-0.441 0.999,-0.985c-0,-0.544 -0.448,-0.985 -0.999,-0.985c-0.552,0 -0.999,0.441 -0.999,0.985c-0,0.544 0.447,0.985 0.999,0.985Z" style="fill-rule:nonzero;"/><path d="M4.148,6.236c0.551,-0 0.999,-0.441 0.999,-0.985c0,-0.544 -0.448,-0.985 -0.999,-0.985c-0.552,0 -0.999,0.441 -0.999,0.985c0,0.544 0.447,0.985 0.999,0.985Z" style="fill-rule:nonzero;"/><path d="M1.013,6.236c0.551,-0 0.999,-0.441 0.999,-0.985c-0,-0.544 -0.448,-0.985 -0.999,-0.985c-0.552,0 -0.999,0.441 -0.999,0.985c-0,0.544 0.447,0.985 0.999,0.985Z" style="fill-rule:nonzero;"/></g></svg>
+div.full-width.yellow-background.pt-3
+    div.wave
+        img(src='img/svg/curve_up_white.svg' width='100%' height='100%')
+
+div.container
     h2.mt-3 Témoignages
-    q.mt-2 L'effet Wonderflow, une activité créative pour s'arrêter, faire le point et avancer.
-    cite - Annie Gloutney, Directrice adjointe, Ecole Léonard-De Vinci et annexe
-    q.mt-2 Wonderflow, c’est sortir de sa zone de confort dans un cadre bienveillant
-    cite - Manjiri Adkar, Strategic procurement manager, Dermtek
-    q.mt-2 Cet atelier était dynamique et diversifié. L’association des mouvements de Taichi à la peinture est original et j'ai beaucoup aimé le recours à ces deux "outils" afin de laisser notre intuition s’exprimer.
-    cite - Nathalie Tremblay, Chef principale Innovation, Lise Watier
+    div.scale
+        q.mt-2 L'effet Wonderflow, une activité créative pour s'arrêter, faire le point et avancer.
+        cite - Annie Gloutney, Directrice adjointe, Ecole Léonard-De Vinci et annexe
+    div.scale
+        q.mt-2 Wonderflow, c’est sortir de sa zone de confort dans un cadre bienveillant
+        cite - Manjiri Adkar, Strategic procurement manager, Dermtek
+    div.scale
+        q.mt-2 Cet atelier était dynamique et diversifié. L’association des mouvements de Taichi à la peinture est original et j'ai beaucoup aimé le recours à ces deux "outils" afin de laisser notre intuition s’exprimer.
+        cite - Nathalie Tremblay, Chef principale Innovation, Lise Watier
 // Path: views/index.pug

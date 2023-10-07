@@ -22,7 +22,7 @@ const newsletter = asyncHandler(async(req, res) => {
     const url = `https://${ dataCenter }.api.mailchimp.com/3.0/lists/${ listId }/members`;
     const config = {
         method: "POST", body: JSON.stringify({
-            email_address: email[1], status: "subscribed",
+            email_address: email, status: "subscribed",
         }), headers: {
             "Content-Type": "application/json",
             "Authorization": `apikey ${ apiKey }`,
@@ -31,6 +31,7 @@ const newsletter = asyncHandler(async(req, res) => {
     console.log(config);
     try {
         const response = await fetch(url, config);
+        console.log(response);
         if (!response.ok) {
             throw new Error("Network response was not ok.");
         }

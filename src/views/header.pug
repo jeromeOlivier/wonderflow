@@ -1,22 +1,24 @@
-//div#hamburger
-//    div
-//    div
-//    div
+div#hamburger
+    div
+    div
+    div
 
-nav
+div.menu
     img(src='/img/svg/wonderflow.svg' alt='logo' width='160px')
-    ul
-        li
-            a(hx-target="main" hx-get="/content_index" hx-swap='show:window:top' hx-push-url='/' href='/') Accueil
-        li
-            a(hx-target="main" hx-get="/content_approach" hx-push-url='/approach' href='/approach' hx-swap='show:window:top') Notre Approche
-        li
-            a(hx-target="main" hx-get="/content_workshops" hx-push-url='/workshops' href='/workshops' hx-swap='show:window:top') Nos Ateliers
-        li
-            a(hx-target="main" hx-get="/content_about" hx-push-url='/about' href='/about' hx-swap='show:window:top') À propos
-        li
-            a(hx-target="main" hx-get="/content_contact" hx-push-url='/contact' href='/contact' hx-swap='show:window:top') Contact
-        //li
-        //    a(href='/blog' hx-boost="true") Blog
+
+    nav.navigation
+        ul
+            li.big-scale
+                a(hx-target="main" hx-get="/content_index" hx-swap='show:window:top' hx-push-url='/' href='/') Accueil
+            li.big-scale
+                a(hx-target="main" hx-get="/content_approach" hx-push-url='/approach' hx-swap='show:window:top') Notre Approche
+            li.big-scale
+                a(hx-target="main" hx-get="/content_workshops" hx-push-url='/workshops' hx-swap='show:window:top') Nos Ateliers
+            li.big-scale
+                a(hx-target="main" hx-get="/content_about" hx-push-url='/about' hx-swap='show:window:top') À propos
+            li.big-scale
+                a(hx-target="main" hx-get="/content_contact" hx-push-url='/contact' hx-swap='show:window:top') Contact
+            //li
+            //    a(href='/blog' hx-boost="true") Blog
 
 // Path: src/views/header.pug
