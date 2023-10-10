@@ -27,14 +27,15 @@ app.set("view engine", "pug");
 
 // Middleware
 app.use(express.urlencoded({ extended: false }));
-app.use(helmet.contentSecurityPolicy({
-    directives: {
-        defaultSrc: ["'self'"],
-        scriptSrc: ["'self'", "https://checkout.stripe.com/"],
-        connectSrc: ["'self'", "https://checkout.stripe.com/"],
-        frameSrc: ["'self'", "https://checkout.stripe.com/"],
-    },
-}));
+// app.use(helmet.contentSecurityPolicy({
+//     directives: {
+//         defaultSrc: ["'self'"],
+//         scriptSrc: ["'self'", "https://checkout.stripe.com/"],
+//         connectSrc: ["'self'", "https://checkout.stripe.com/"],
+//         frameSrc: ["'self'", "https://checkout.stripe.com/"],
+//     },
+//     hsts: false,
+// }));
 app.use(cookieParser());
 app.use(express.json());
 
