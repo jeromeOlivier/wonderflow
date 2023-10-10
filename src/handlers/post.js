@@ -110,33 +110,34 @@ const payment = async(req, res, next) => {
         priority: "high",
     };
     await transporter.sendMail(forward, () => {});
-    res.render("success");
+    const isSubscribed = req.cookies.isSubscribed;
+    res.render("layout", { content: "success", isSubscribed });
     /*
-    try {
-        const session = await stripe.checkout.sessions.create({
-            payment_method_types: ["card"],
-            mode: "payment",
-            line_items: [
-                {
-                    price_data: {
-                        currency: "cad", product_data: {
-                            name: 'Wonderflow',
-                            description: `${ workshop.name } - ${ workshop.date }`,
-                        }, unit_amount: workshop.price,
-                    }, quantity: workshop.quantity,
-                },
-            ],
-            success_url: `${ process.env.BASE_URL }/success`,
-            cancel_url: `${ process.env.BASE_URL }/workshops`,
-        });
-        console.log("Session", session.url);
-        res.redirect(session.url);
-    } catch (error) {
-        console.log("Error", error);
-        res.status(500).json({
-            error: error.message,
-        });
-    }
+     try {
+     const session = await stripe.checkout.sessions.create({
+     payment_method_types: ["card"],
+     mode: "payment",
+     line_items: [
+     {
+     price_data: {
+     currency: "cad", product_data: {
+     name: 'Wonderflow',
+     description: `${ workshop.name } - ${ workshop.date }`,
+     }, unit_amount: workshop.price,
+     }, quantity: workshop.quantity,
+     },
+     ],
+     success_url: `${ process.env.BASE_URL }/success`,
+     cancel_url: `${ process.env.BASE_URL }/workshops`,
+     });
+     console.log("Session", session.url);
+     res.redirect(session.url);
+     } catch (error) {
+     console.log("Error", error);
+     res.status(500).json({
+     error: error.message,
+     });
+     }
      */
 };
 // path: src/handlers/post.js
