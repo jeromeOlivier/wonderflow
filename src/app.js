@@ -12,7 +12,6 @@
 const express = require("express");
 const path = require("path");
 require("dotenv").config();
-const compression = require("compression");
 const helmet = require("helmet");
 const cookieParser = require("cookie-parser");
 
@@ -28,7 +27,6 @@ app.set("view engine", "pug");
 
 // Middleware
 app.use(express.urlencoded({ extended: false }));
-app.use(compression());
 app.use(helmet.contentSecurityPolicy({
     directives: {
         defaultSrc: ["'self'"],
@@ -49,4 +47,3 @@ app.use("/", routes);
 // Initialize server
 const port = process.env.PORT || "3000";
 app.listen(port, () => console.log(`Server running on port ${ port }`));
-
