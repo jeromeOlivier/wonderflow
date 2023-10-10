@@ -753,7 +753,7 @@ footer a {
 /* DAILY */
 .daily {
     align-items     : center;
-    background      : no-repeat top/cover url("../img/jpg/daily_1920.jpg") fixed;
+    background      : no-repeat top/cover url("../img/jpg/daily_1920.jpg");
     display         : flex;
     flex-direction  : column;
     height          : 110vh;
