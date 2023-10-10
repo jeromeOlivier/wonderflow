@@ -9,7 +9,7 @@
 @font-face {
     font-family : "rBold";
     src         : url("../woff/raleway-semi-bold.woff") format("woff");
-    font-weight : normal;
+    font-weight : bold;
     font-style  : normal;
 }
 
@@ -17,14 +17,14 @@
     font-family : "rItalic";
     src         : url("../woff/raleway-medium-italic.woff") format("woff");
     font-weight : normal;
-    font-style  : normal;
+    font-style  : italic;
 }
 
 @font-face {
     font-family : "rBoldItalic";
     src         : url("../woff/raleway-semi-bold-italic.woff") format("woff");
-    font-weight : normal;
-    font-style  : normal;
+    font-weight : bold;
+    font-style  : italic;
 }
 
 /* colors and artwork */
@@ -722,7 +722,8 @@ footer a {
     display : block;
     margin  : 0;
     padding : 0;
-    width   : 100%;
+    object-fit: cover;
+    height: 100%;
 }
 
 /* ABOUT PAGE */
