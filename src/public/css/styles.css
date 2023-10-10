@@ -55,9 +55,9 @@
     color : var(--translucent);
 }
 
-.yellow-fill > svg {
-    fill : var(--yellow);
-}
+/*.yellow-fill > svg {*/
+/*    fill : var(--yellow);*/
+/*}*/
 
 .yellow-background {
     background-color : var(--yellow);
@@ -322,6 +322,7 @@ ul.white-list li::before {
 
 /* header */
 header {
+    -webkit-backdrop-filter: blur(4px);
     backdrop-filter : blur(4px);
     background      : var(--translucent);
     display         : flex;
@@ -758,9 +759,16 @@ footer a {
     margin  : 0;
     padding : 0;
     width: 100%;
-    height: 100%;
-    /*top: 2px;*/
-    /*position: absolute;*/
+    height: auto;
+    position: relative;
+}
+
+.down2px {
+    bottom : -2px;
+}
+
+.up2px {
+    top : -2px;
 }
 
 /* ABOUT PAGE */
