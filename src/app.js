@@ -3,23 +3,21 @@
 // Notes:
 //     - This file is the main entry point for the application.
 //     - It sets up the Express application and establishes the routes.
-//     - Once it becomes necessary, it will connect to MongoDB with Mongoose.
 //     - It uses Pug as the view engine.
 //     - It uses HTMX for HTTP calls and targeted DOM manipulation.
+//     - It uses Stripe for payment processing.
+//     - It uses MongoDB for data storage.
 
 // EXTERNAL DEPENDENCIES
 const express = require("express");
 const path = require("path");
-const env = require("dotenv");
+require("dotenv").config();
 const compression = require("compression");
 const helmet = require("helmet");
-const cookieParser = require('cookie-parser')
+const cookieParser = require("cookie-parser");
 
 // INTERNAL DEPENDENCIES
 const routes = require("./routes/index");
-
-// initialize dotenv
-env.config();
 
 // create Express app
 const app = express();
@@ -31,8 +29,16 @@ app.set("view engine", "pug");
 // Middleware
 app.use(express.urlencoded({ extended: false }));
 app.use(compression());
-app.use(helmet());
+app.use(helmet.contentSecurityPolicy({
+    directives: {
+        defaultSrc: ["'self'"],
+        scriptSrc: ["'self'", "https://checkout.stripe.com/"],
+        connectSrc: ["'self'", "https://checkout.stripe.com/"],
+        frameSrc: ["'self'", "https://checkout.stripe.com/"],
+    },
+}));
 app.use(cookieParser());
+app.use(express.json());
 
 // Static files
 app.use(express.static(path.join(__dirname, "public")));

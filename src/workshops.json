@@ -1,0 +1,11 @@
+{
+    "workshops": [
+        {
+            "id": 1,
+            "name": "Créativité au quotidien",
+            "date": "17 novembre 2023",
+            "price": 54900,
+            "quantity": 1
+        }
+    ]
+}

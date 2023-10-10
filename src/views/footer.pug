@@ -4,20 +4,20 @@ div#footer-wave.mt-2
 div.footer-elements.mt-2
     div.social-icons
         a(href='https://www.instagram.com/', target='_blank')
-            img(src='/img/svg/instagram.svg', alt='instagram' style='width: 8vw; max-width: 48px; height: auto;').big-scale
+            img(src='/img/svg/instagram.svg', alt='instagram' style='width: 8vw; max-width: 48px; height: auto;').big-scale.transition
         a(href='https://linkedin.com/', target='_blank')
-            img(src='/img/svg/linkedin.svg', alt='linkedin' style='width: 8vw; max-width: 48px; height: auto;').big-scale
+            img(src='/img/svg/linkedin.svg', alt='linkedin' style='width: 8vw; max-width: 48px; height: auto;').big-scale.transition
 
-    img(src='/img/svg/logo.svg', alt='logo' style='width: 30vw; max-width: 180px; height: auto;').scale
+    img(src='/img/svg/logo.svg', alt='logo' style='width: 30vw; max-width: 180px; height: auto;').scale.transition
 
     div#newsletter
         if !isSubscribed
             include newsletter-form
     div
         h4 Contact
-        a(href='mailto:info@wonderflow.ca').big-scale info@wonderflow.ca
+        a(href='mailto:info@wonderflow.ca').big-scale.transition info@wonderflow.ca
         div
-            a(hx-target="main" hx-get="/content_policy" hx-swap='show:window:top' hx-push-url='/policy' href='/policy').big-scale Politique de confidentialité
+            a(hx-target="main" hx-get="/content_policy" hx-swap='show:window:top' hx-push-url='/policy' href='/policy').big-scale.transition Politique de confidentialité
 
     div.center.mb-1
         p.inline

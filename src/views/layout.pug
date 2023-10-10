@@ -18,6 +18,12 @@ html(lang='en')
                 include policy.pug
             else if content === 'workshops'
                 include workshops.pug
+            else if content === 'daily'
+                include daily.pug
+            else if content === 'inscription'
+                include inscription.pug
+            else if content === 'success'
+                include success.pug
             else
                 include index.pug
         footer

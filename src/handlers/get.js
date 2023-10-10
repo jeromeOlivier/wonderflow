@@ -133,6 +133,52 @@ const content_workshops = asyncHandler(async(req, res) => {
     res.render("workshops");
 });
 
+/**
+ * Middleware to handle DAILY WORKSHOP route.
+ *
+ * @param {Object} req - The request object.
+ * @param {Object} res - The response object.
+ * @param {Function} next - The next middleware function.
+ * @returns {undefined}
+ */
+const daily = asyncHandler(async(req, res) => {
+    // check if user is subscribed to the newsletter
+    const isSubscribed = req.cookies.isSubscribed === "true";
+    // render contact page with all the necessary attributes
+    res.render("layout", { content: "daily", isSubscribed });
+});
+// inject DAILY WORKSHOP content into MAIN
+const content_daily = asyncHandler(async(req, res) => {
+    res.render("daily");
+});
+
+/**
+ * Middleware to handle INSCRIPTION route.
+ *
+ * @param {Object} req - The request object.
+ * @param {Object} res - The response object.
+ * @param {Function} next - The next middleware function.
+ * @returns {undefined}
+ */
+const inscription = asyncHandler(async(req, res) => {
+    // check if user is subscribed to the newsletter
+    const isSubscribed = req.cookies.isSubscribed === "true";
+    // render contact page with all the necessary attributes
+    res.render("layout", { content: "inscription", isSubscribed });
+});
+// inject INSCRIPTION content into MAIN
+const content_inscription = asyncHandler(async(req, res) => {
+    res.render("inscription");
+});
+
+/**
+ * Middleware to handle SUCCESSFUL INSCRIPTION route.
+ */
+const success = asyncHandler(async(req, res) => {
+    const isSubscribed = req.cookies.isSubscribed === "true";
+    res.render("layout", { content: "success", isSubscribed });
+});
+
 module.exports = {
     index,
     about,
@@ -141,6 +187,9 @@ module.exports = {
     contact,
     policy,
     workshops,
+    daily,
+    inscription,
+    success,
     content_index,
     content_about,
     content_approach,
@@ -148,4 +197,6 @@ module.exports = {
     content_contact,
     content_policy,
     content_workshops,
+    content_daily,
+    content_inscription,
 };

@@ -30,9 +30,9 @@
 /* colors and artwork */
 :root {
     --black              : #333333;
-    --grey               : #BBBBBB;
+    --grey               : #CCCCCC;
     --stroke             : 1px;
-    --translucent        : #FFFC;
+    --translucent        : #FFFB;
     --white              : #FFFFFF;
     --yellow             : #FFF590;
     --black-border       : var(--stroke) solid var(--black);
@@ -111,17 +111,15 @@
 
 /* defaults & resets */
 * {
-    box-sizing       : border-box;
-    color            : var(--black);
-    font-family      : rRegular, Arial, sans-serif;
-    font-size        : 1rem;
-    font-style       : normal;
-    font-weight      : normal;
-    line-height      : 1.25;
-    margin           : 0;
-    padding          : 0;
-    transform-origin : center;
-    transition       : .5s ease;
+    box-sizing  : border-box;
+    color       : var(--black);
+    font-family : rRegular, Arial, sans-serif;
+    font-size   : 1rem;
+    font-style  : normal;
+    font-weight : normal;
+    line-height : 1.25;
+    margin      : 0;
+    padding     : 0;
 }
 
 body {
@@ -187,6 +185,7 @@ label {
 }
 
 cite {
+    display     : inline-block;
     font-family : rBold, Arial, sans-serif;
     font-style  : normal;
     margin-left : 2rem;
@@ -235,6 +234,15 @@ ul.white-list li::before {
 
 .white-dot::before {
     content  : url("../img/svg/white-dot.svg");
+    left     : -2.5rem;
+    position : absolute;
+    top      : -1rem;
+    width    : 4rem;
+    z-index  : -1;
+}
+
+.yellow-dot::before {
+    content  : url("../img/svg/yellow-dot.svg");
     left     : -2.5rem;
     position : absolute;
     top      : -1rem;
@@ -312,15 +320,16 @@ ul.white-list li::before {
 
 /* header */
 header {
-    backdrop-filter : blur(5px);
+    backdrop-filter : blur(4px);
     background      : var(--translucent);
     display         : flex;
     flex-direction  : row;
-    height          : 36px;
+    height          : 48px;
     justify-content : center;
     position        : fixed;
     width           : 100vw;
     z-index         : 15;
+    border-bottom: solid var(--stroke) var(--grey);
 }
 
 .menu {
@@ -345,6 +354,18 @@ nav > ul > li {
 nav > ul > li > a {
     font-family     : rBold, Arial, sans-serif;
     text-decoration : none;
+    cursor: pointer;
+}
+
+nav > ul > li > button {
+    padding : .2rem .7rem;
+    background: none;
+    color: var(--black);
+}
+
+nav > ul > li > button:hover {
+    background : var(--black);
+    color      : var(--white);
 }
 
 /* navigation for smaller devices */
@@ -418,9 +439,22 @@ nav > ul > li > a {
         width           : 100%;
     }
 
-    nav > ul > li > a {
+    nav > ul > li > * {
         font-size : 2rem;
     }
+
+    nav > ul > li > button {
+        background    : none;
+        border        : 3px solid var(--black);
+        border-radius : 2rem;
+        color         : var(--black);
+        font-family   : rBold, Arial, sans-serif;
+        padding       : .5rem 1rem;
+    }
+
+    /*nav > ul > li > button:hover {*/
+    /*    background : var(--white);*/
+    /*}*/
 
     nav > .hide {
         transform  : translateX(5%);
@@ -451,7 +485,6 @@ button {
     font-family         : rRegular, sans-serif;
     font-size           : 1rem;
     justify-content     : center;
-    margin-top          : 1rem;
     padding             : .5rem 1rem;
     transition-duration : 500ms;
     width               : fit-content;
@@ -486,11 +519,15 @@ button > svg {
     transform        : scale(1.15);
     transform-origin : 50% 50%;
     transition       : .5s ease;
-    /*display: inline-block;*/
 }
 
 .pointer {
     cursor : pointer;
+}
+
+.transition {
+    transform-origin : center;
+    transition       : .5s ease;
 }
 
 input, textarea {
@@ -501,7 +538,7 @@ input, textarea {
     font-family   : rRegular, sans-serif;
     font-size     : 1rem;
     margin-top    : .5rem;
-    padding       : .35rem .5rem;
+    padding       : .75rem 1rem;
     width         : 100%;
 }
 
@@ -685,3 +722,56 @@ footer a {
     padding : 0;
 }
 
+/* ABOUT PAGE */
+.about-disk {
+    border        : var(--black-border);
+    border-radius : 50%;
+    float         : left;
+    margin-bottom : .5rem;
+    margin-right  : 2rem;
+    shape-outside : circle(50%);
+    width         : clamp(240px, 42vmin, 640px);
+}
+
+.follow {
+    display : inline;
+    /*overflow: auto;*/
+}
+
+.wrap {
+    overflow : auto;
+}
+
+/* DAILY */
+.daily {
+    align-items     : center;
+    background      : no-repeat top/cover url("../img/jpg/daily_1920.jpg") fixed;
+    display         : flex;
+    flex-direction  : column;
+    height          : 110vh;
+    justify-content : center;
+    margin          : 0;
+    padding         : 0;
+    width           : 100vw;
+}
+
+/* inscription */
+.workshop {
+    width: 100%;
+    max-width: 480px;
+    align-self: center;
+    margin-top: 2rem;
+    padding: 2rem;
+    background: var(--white);
+}
+
+/* thank you */
+.thank-you {
+    align-items     : center;
+    display         : flex;
+    flex-direction  : column;
+    height          : 70vh;
+    justify-content : center;
+    margin          : 0;
+    padding         : 0;
+}

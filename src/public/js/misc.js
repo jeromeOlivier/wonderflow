@@ -17,3 +17,4 @@ window.addEventListener("resize", adjustSvgStroke);
 
 // Run the function initially to set correct stroke
 adjustSvgStroke();
+

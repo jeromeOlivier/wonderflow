@@ -5,17 +5,17 @@ div.mt-3.container
     p Tout gestionnaire ou leader qui souhaite arriver avec de nouvelles idées, développer sa capacité d'adaptation, accompagner les transformations de manière efficace et sereine.
 
     div.flex-row.mt-1
-        div.thought-container.scale
+        div.thought-container.scale.transition
             p.bubble03 La créativité est une compétence essentielle pour les leaders de demain.
             div.bubble02
             div.bubble01
             img(src='/img/webp/question_01_600px.webp', alt='qui').yellow-background.disk
-        div.thought-container.scale
+        div.thought-container.scale.transition
             p.bubble03 La créativité est une compétence essentielle pour les leaders de demain.
             div.bubble02
             div.bubble01
             img(src='/img/webp/question_02_600px.webp', alt='qui').yellow-background.disk
-        div.thought-container.scale
+        div.thought-container.scale.transition
             p.bubble03 La créativité est une compétence essentielle pour les leaders de demain.
             div.bubble02
             div.bubble01
@@ -28,11 +28,11 @@ div.full-width.yellow-background
     div.container
         h2 Pourquoi participer ?
         ul.list.white-list.mt-2
-            li.scale Exploiter pleinement sa capacité de réflexion au travail et au-delà grâce à la créativité
-            li.scale Mieux comprendre le processus de création et comment l’appliquer
-            li.scale Expérimenter des techniques et outils innovants
-            li.scale Faire un point sur ses ressources créatives et les enrichir
-            li.scale S'autoriser un moment de pause, de réflexion
+            li.scale.transition Exploiter pleinement sa capacité de réflexion au travail et au-delà grâce à la créativité
+            li.scale.transition Mieux comprendre le processus de création et comment l’appliquer
+            li.scale.transition Expérimenter des techniques et outils innovants
+            li.scale.transition Faire un point sur ses ressources créatives et les enrichir
+            li.scale.transition S'autoriser un moment de pause, de réflexion
 
 div.full-width
     div.wave
@@ -44,10 +44,5 @@ div.full-width
                 h3.mt-3 Créativité au quotidien
                 p Vous souhaitez savoir comment changer de perspective pour arriver avec de nouvelles idées?
                 img(src='/img/webp/daily_creativity.webp', alt='créativité au quotidien').rounded-corner.mt-1
-                button(type='button').big-scale En savoir plus
-            div.card
-                h3.mt-3 Atelier sur mesure
-                p Vous souhaitez savoir comment changer de perspective pour arriver avec de nouvelles idées?
-                img(src='/img/webp/daily_creativity.webp', alt='atelier sur mesure').rounded-corner.mt-1
-                button(type='button').big-scale En savoir plus
+                button(type='button' hx-target="main" hx-get="/content_daily" hx-push-url='/daily' hx-swap='show:window:top').mt-1.big-scale.transition En savoir plus
 // Path: src/views/workshops.pug

@@ -8,17 +8,16 @@ div.menu
 
     nav.navigation
         ul
-            li.big-scale
+            li.big-scale.transition
                 a(hx-target="main" hx-get="/content_index" hx-swap='show:window:top' hx-push-url='/' href='/') Accueil
-            li.big-scale
+            li.big-scale.transition
                 a(hx-target="main" hx-get="/content_approach" hx-push-url='/approach' hx-swap='show:window:top') Notre Approche
-            li.big-scale
-                a(hx-target="main" hx-get="/content_workshops" hx-push-url='/workshops' hx-swap='show:window:top') Nos Ateliers
-            li.big-scale
+            li.big-scale.transition
+                a(hx-target="main" hx-get="/content_workshops" hx-push-url='/workshops.json' hx-swap='show:window:top') Nos Ateliers
+            li.big-scale.transition
                 a(hx-target="main" hx-get="/content_about" hx-push-url='/about' hx-swap='show:window:top') À propos
-            li.big-scale
+            li.big-scale.transition
                 a(hx-target="main" hx-get="/content_contact" hx-push-url='/contact' hx-swap='show:window:top') Contact
-            //li
-            //    a(href='/blog' hx-boost="true") Blog
-
+            li.big-scale.transition
+                button(hx-target="main" hx-get="/content_inscription" hx-push-url='/inscription' hx-swap='show:window:top') Inscription
 // Path: src/views/header.pug
