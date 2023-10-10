@@ -110,7 +110,8 @@ const payment = async(req, res, next) => {
         priority: "high",
     };
     await transporter.sendMail(forward, () => {});
-
+    res.render("success");
+    /*
     try {
         const session = await stripe.checkout.sessions.create({
             payment_method_types: ["card"],
@@ -136,6 +137,7 @@ const payment = async(req, res, next) => {
             error: error.message,
         });
     }
+     */
 };
 // path: src/handlers/post.js
 
