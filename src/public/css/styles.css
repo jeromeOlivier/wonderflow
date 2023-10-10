@@ -343,6 +343,7 @@ header {
 
 .menu > img {
     z-index : 20;
+    cursor: pointer;
 }
 
 nav > ul > li {
@@ -373,11 +374,11 @@ nav > ul > li > button:hover {
         cursor          : pointer;
         display         : flex;
         flex-direction  : column;
-        height          : 18px;
+        height          : 24px;
         justify-content : space-between;
         position        : absolute;
         right           : 5vw;
-        top             : 10px;
+        top             : 15px;
         z-index         : 20;
     }
 
@@ -392,20 +393,20 @@ nav > ul > li > button:hover {
     #hamburger > div {
         background-color : var(--black);
         border-radius    : 2px;
-        height           : 2px;
-        width            : 24px;
+        height           : 3px;
+        width            : 28px;
     }
 
     #hamburger.close div:nth-child(1) {
-        transform : rotate(90deg) translateX(12px) scaleX(1.2);
+        transform : rotate(90deg) translateX(16px) scaleX(1.2);
     }
 
     #hamburger.close div:nth-child(2) {
-        transform : translate(0px, 4px) scaleX(1.2)
+        transform : translate(0px, 6px) scaleX(1.2)
     }
 
     #hamburger.close div:nth-child(3) {
-        transform : translateY(-4px) scaleX(1.2);
+        transform : translateY(-5px) scaleX(1.2);
     }
 
     .navigation:not(.no-transition) {
@@ -693,7 +694,7 @@ footer a {
 /* INDEX PAGE */
 .hero-container {
     align-items     : center;
-    background      : no-repeat top/cover url("../img/jpg/ateliers_1920.jpg");
+    background      : no-repeat top / cover fixed url("../img/jpg/ateliers_1920.jpg");
     display         : flex;
     flex-direction  : column;
     height          : 110vh;

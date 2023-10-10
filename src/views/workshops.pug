@@ -1,7 +1,24 @@
 div.mt-5.container
     h1 Nos Ateliers
 
-div.full-width.mt-3
+div.full-width
+    div.container
+        div.flex-row.mb-3
+            div.card.scale.transition
+                h3.mt-3 Atelier "Créativité au quotidien"
+                h6 17 novembre 2023
+                img(src='/img/webp/daily_creativity.webp', alt='créativité au quotidien').rounded-corner.mt-1
+                p Comment se (re)connecter à sa pensée créative et en faire un atout professionnel au quotidien
+                button(type='button' hx-target="main" hx-get="/content_daily" hx-push-url='/daily' hx-swap='show:window:top').mt-2.big-scale.transition En savoir plus
+            div.flex-row.mb-3
+            div.card.scale.transition
+                h3.mt-3 Atelier sur-mesure
+                h6.invisible 17 novembre 2023
+                img(src='/img/webp/space_640.webp', alt='créativité au quotidien').rounded-corner.mt-1
+                p.invisible Vous souhaitez savoir comment changer de perspective pour arriver avec de nouvelles idées?
+                button(type='button' hx-target="main" hx-get="/content_contact" hx-push-url='/contact' hx-swap='show:window:top').mt-2.big-scale.transition Contactez-nous
+
+div.full-width.mt-1
     div.wave
         img(src='img/svg/curve_up_yellow.svg' width='100%' height='100%')
 div.full-width.yellow-background
@@ -19,21 +36,6 @@ div.full-width.yellow-background
 div.full-width.yellow-background.pt-3
     div.wave
         img(src='img/svg/curve_up_white.svg' width='100%' height='100%')
-
-div.full-width
-    div.container
-        div.flex-row.mb-3
-            div.card.scale.transition
-                h3.mt-3 Atelier "Créativité au quotidien"
-                p Vous souhaitez savoir comment changer de perspective pour arriver avec de nouvelles idées?
-                img(src='/img/webp/daily_creativity.webp', alt='créativité au quotidien').rounded-corner.mt-1
-                button(type='button' hx-target="main" hx-get="/content_daily" hx-push-url='/daily' hx-swap='show:window:top').mt-2.big-scale.transition En savoir plus
-            div.flex-row.mb-3
-            div.card.scale.transition
-                h3.mt-3 Atelier sur-mesure
-                p.invisible Vous souhaitez savoir comment changer de perspective pour arriver avec de nouvelles idées?
-                img(src='/img/webp/space_640.webp', alt='créativité au quotidien').rounded-corner.mt-1
-                button(type='button' hx-target="main" hx-get="/content_contact" hx-push-url='/contact' hx-swap='show:window:top').mt-2.big-scale.transition Contactez-nous
 // Path: src/views/workshops.pug
 
 
