@@ -55,10 +55,6 @@
     color : var(--translucent);
 }
 
-/*.yellow-fill > svg {*/
-/*    fill : var(--yellow);*/
-/*}*/
-
 .yellow-background {
     background-color : var(--yellow);
 }
@@ -117,7 +113,7 @@
     font-size   : 1rem;
     font-style  : normal;
     font-weight : normal;
-    line-height : 1.25;
+    line-height : 1.5;
     margin      : 0;
     padding     : 0;
 }
@@ -285,7 +281,7 @@ ul.white-list li::before {
     border-radius    : 12px;
     filter           : drop-shadow(5px 5px 3px rgba(0, 0, 0, 0.25));
     height           : auto;
-    will-change : transform;
+    will-change      : transform;
 }
 
 .bubble03 {
@@ -322,17 +318,17 @@ ul.white-list li::before {
 
 /* header */
 header {
-    -webkit-backdrop-filter: blur(4px);
-    backdrop-filter : blur(4px);
-    background      : var(--translucent);
-    display         : flex;
-    flex-direction  : row;
-    height          : 48px;
-    justify-content : center;
-    position        : fixed;
-    width           : 100vw;
-    z-index         : 15;
-    border-bottom: solid var(--stroke) var(--grey);
+    -webkit-backdrop-filter : blur(4px);
+    backdrop-filter         : blur(4px);
+    background              : var(--translucent);
+    border-bottom           : solid var(--stroke) var(--grey);
+    display                 : flex;
+    flex-direction          : row;
+    height                  : 60px;
+    justify-content         : center;
+    position                : fixed;
+    width                   : 100vw;
+    z-index                 : 15;
 }
 
 .menu {
@@ -355,15 +351,15 @@ nav > ul > li {
 }
 
 nav > ul > li > a {
+    cursor          : pointer;
     font-family     : rBold, Arial, sans-serif;
     text-decoration : none;
-    cursor: pointer;
 }
 
 nav > ul > li > button {
-    padding : .2rem .7rem;
-    background: none;
-    color: var(--black);
+    background : none;
+    color      : var(--black);
+    padding    : .4rem 1rem;
 }
 
 nav > ul > li > button:hover {
@@ -458,7 +454,6 @@ nav > ul > li > button:hover {
     /*nav > ul > li > button:hover {*/
     /*    background : var(--white);*/
     /*}*/
-
     nav > .hide {
         transform  : translateX(5%);
         transition : none;
@@ -480,7 +475,7 @@ button {
     align-items         : center;
     background          : var(--black);
     border              : var(--black-border);
-    border-radius       : 1.25rem;
+    border-radius       : 1.5rem;
     color               : var(--white);
     cursor              : pointer;
     display             : flex;
@@ -488,7 +483,7 @@ button {
     font-family         : rRegular, sans-serif;
     font-size           : 1rem;
     justify-content     : center;
-    padding             : .5rem 1rem;
+    padding             : .7rem 1.4rem;
     transition-duration : 500ms;
     width               : fit-content;
 }
@@ -684,6 +679,7 @@ textarea {
 footer a {
     color           : var(--black);
     display         : inline-block;
+    margin-top      : 4px;
     text-decoration : none;
 }
 
@@ -735,32 +731,32 @@ footer a {
 
 .hero-h1 {
     font-family : rBoldItalic, sans-serif;
-    font-weight : bold;
-    font-style  : italic;
     font-size   : clamp(1.5rem, 4vmax, 5rem);
+    font-style  : italic;
+    font-weight : bold;
 }
 
 .hero-h2 {
     font-family : rBold, sans-serif;
     font-size   : clamp(1rem, 2vmax, 3rem);
-    font-weight : bold;
     font-style  : normal;
+    font-weight : bold;
 }
 
 .wave {
-    height : auto;
-    width  : 100vw;
-    margin: 0;
-    padding: 0;
+    height  : auto;
+    margin  : 0;
+    padding : 0;
+    width   : 100vw;
 }
 
 .wave > img {
-    display : block;
-    margin  : 0;
-    padding : 0;
-    width: 100%;
-    height: auto;
-    position: relative;
+    display  : block;
+    height   : auto;
+    margin   : 0;
+    padding  : 0;
+    position : relative;
+    width    : 100%;
 }
 
 .down2px {
@@ -806,12 +802,12 @@ footer a {
 
 /* inscription */
 .workshop {
-    width: 100%;
-    max-width: 480px;
-    align-self: center;
-    margin-top: 2rem;
-    padding: 2rem;
-    background: var(--white);
+    align-self : center;
+    background : var(--white);
+    margin-top : 2rem;
+    max-width  : 480px;
+    padding    : 2rem;
+    width      : 100%;
 }
 
 /* thank you */

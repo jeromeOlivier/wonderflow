@@ -1,4 +1,4 @@
-div.container.mt-3
+div.container.mt-5
     h1 Contact
     form(hx-post='/contact' hx-target='main' hx-swap='outerHTML')
         label.mt-2.z1.yellow-dot(for='name') Nom:
@@ -7,5 +7,5 @@ div.container.mt-3
         input#email.z1(type='email' name='email' placeholder='Votre courriel (requis)' required='true')
         label.mt-2.z1.yellow-dot(for='message') Question ou commentaire:
         textarea#message.z1(name='message' rows='5' placeholder='Vos questions ou commentaire (requis)' required='true')
-        button.btn.btn-primary(type='submit').big-scale.transition.mt-1 Envoyer
+        button.btn.btn-primary(type='submit').big-scale.transition.mt-2 Envoyer
 // Path: src/views/contact.pug
