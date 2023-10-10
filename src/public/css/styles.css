@@ -1,28 +1,28 @@
 /* woff */
 @font-face {
     font-family : "rRegular";
-    src         : url("../woff/raleway-medium.woff") format("woff");
+    src         : url("../woff/rRegular.woff") format("woff");
     font-weight : normal;
     font-style  : normal;
 }
 
 @font-face {
     font-family : "rBold";
-    src         : url("../woff/raleway-semi-bold.woff") format("woff");
+    src         : url("../woff/rBold.woff") format("woff");
     font-weight : bold;
     font-style  : normal;
 }
 
 @font-face {
     font-family : "rItalic";
-    src         : url("../woff/raleway-medium-italic.woff") format("woff");
+    src         : url("../woff/rItalic.woff") format("woff");
     font-weight : normal;
     font-style  : italic;
 }
 
 @font-face {
     font-family : "rBoldItalic";
-    src         : url("../woff/raleway-semi-bold-italic.woff") format("woff");
+    src         : url("../woff/rBoldItalic.woff") format("woff");
     font-weight : bold;
     font-style  : italic;
 }
