@@ -649,7 +649,7 @@ footer a {
 /* INDEX PAGE */
 .hero-container {
     align-items     : center;
-    background      : no-repeat top / cover url("../img/webp/ateliers_1920.webp");
+    background      : no-repeat top / cover url("../img/jpg/ateliers_1920.jpg");
     display         : flex;
     flex-direction  : column;
     height          : 110vh;
