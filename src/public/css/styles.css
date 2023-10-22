@@ -36,23 +36,6 @@
     --white              : #FFFFFF;
     --yellow             : #FFF590;
     --black-border       : var(--stroke) solid var(--black);
-    --translucent-yellow : #FFF590CC;
-}
-
-.white {
-    color : var(--white);
-}
-
-.black {
-    color : var(--black);
-}
-
-.yellow {
-    color : var(--yellow);
-}
-
-.translucent {
-    color : var(--translucent);
 }
 
 .yellow-background {
@@ -72,10 +55,6 @@
     margin-top : 3rem;
 }
 
-.mt-4 {
-    margin-top : 4rem;
-}
-
 .mt-5 {
     margin-top : 5rem;
 }
@@ -93,14 +72,6 @@
 }
 
 /* paddings */
-.pt-1 {
-    padding-top : 1rem;
-}
-
-.pt-2 {
-    padding-top : 2rem;
-}
-
 .pt-3 {
     padding-top : 3rem;
 }
@@ -195,6 +166,10 @@ cite {
 
 .inline {
     display : inline;
+}
+
+.block {
+    display: block;
 }
 
 ul {
@@ -421,7 +396,7 @@ nav > ul > li > button:hover {
         position    : absolute;
         right       : 0;
         top         : 0;
-        transform   : translateX(105%); /* moves navigation off screen right. */
+        transform   : translateX(105%);
         width       : 100vw;
         z-index     : 15;
     }
@@ -452,9 +427,6 @@ nav > ul > li > button:hover {
         padding       : .5rem 1rem;
     }
 
-    /*nav > ul > li > button:hover {*/
-    /*    background : var(--white);*/
-    /*}*/
     nav > .hide {
         transform  : translateX(5%);
         transition : none;
@@ -492,9 +464,6 @@ button {
 button:hover {
     background : var(--yellow);
     color      : var(--black);
-}
-
-button:hover {
     fill : var(--black);
 }
 
@@ -518,10 +487,6 @@ button > svg {
     transform        : scale(1.15);
     transform-origin : 50% 50%;
     transition       : .5s ease;
-}
-
-.pointer {
-    cursor : pointer;
 }
 
 .transition {
@@ -624,16 +589,6 @@ textarea {
     z-index  : 3;
 }
 
-.z4 {
-    position : relative;
-    z-index  : 4;
-}
-
-.z5 {
-    position : relative;
-    z-index  : 5;
-}
-
 .invisible {
     opacity : 0;
 }
@@ -694,7 +649,7 @@ footer a {
 /* INDEX PAGE */
 .hero-container {
     align-items     : center;
-    background      : no-repeat top / cover url("../img/jpg/ateliers_1920.jpg");
+    background      : no-repeat top / cover url("../img/webp/ateliers_1920.webp");
     display         : flex;
     flex-direction  : column;
     height          : 110vh;

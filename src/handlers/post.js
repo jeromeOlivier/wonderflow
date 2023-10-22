@@ -6,7 +6,6 @@ const data = require("../workshops.json");
 
 /**
  * Function to add email address to a Mailchimp list.
- *
  * @param {Object} req - Express request object.
  * @param {Object} res - Express response object.
  * @param {function} next - Express next middleware function.
@@ -37,7 +36,6 @@ const newsletter = asyncHandler(async(req, res) => {
         if (!response.ok) {
             throw new Error("Network response was not ok.");
         }
-        // const data = await response.json(); // if the API returns JSON
         res.cookie("isSubscribed", "true", { maxAge: 10 * 365 * 24 * 60 * 60 * 1000 })
            .render("newsletter-thanks");
     } catch (error) {

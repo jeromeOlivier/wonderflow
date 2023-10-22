@@ -14,9 +14,10 @@ div.footer-elements.mt-2
         if !isSubscribed
             include newsletter-form
     div
-        h4 Contact
-        a(href='mailto:info@wonderflow.ca').big-scale.transition info@wonderflow.ca
-        div
+        p.bold Contact
+        div.mt-1
+            a(href='mailto:info@wonderflow.ca').big-scale.transition info@wonderflow.ca
+        div.mt-1
             a(hx-target="main" hx-get="/content_policy" hx-swap='show:window:top' hx-push-url='/policy' href='/policy').big-scale.transition Politique de confidentialité
 
     div.center.mb-1
@@ -24,7 +25,4 @@ div.footer-elements.mt-2
             | &copy;&nbsp;
             span#year
             | &nbsp;Wonderflow. Tous droits réservés.
-
-
-
 // Path: src/views/footer.pug
