@@ -29,13 +29,13 @@
 
 /* colors and artwork */
 :root {
-    --black              : #333333;
-    --grey               : #CCCCCC;
-    --stroke             : 1px;
-    --translucent        : #FFFB;
-    --white              : #FFFFFF;
-    --yellow             : #FFF590;
-    --black-border       : var(--stroke) solid var(--black);
+    --black        : #333333;
+    --grey         : #CCCCCC;
+    --stroke       : 1px;
+    --translucent  : #FFFB;
+    --white        : #FFFFFF;
+    --yellow       : #FFF590;
+    --black-border : var(--stroke) solid var(--black);
 }
 
 .yellow-background {
@@ -169,7 +169,7 @@ cite {
 }
 
 .block {
-    display: block;
+    display : block;
 }
 
 ul {
@@ -317,8 +317,8 @@ header {
 }
 
 .menu > img {
+    cursor  : pointer;
     z-index : 20;
-    cursor: pointer;
 }
 
 nav > ul > li {
@@ -464,7 +464,7 @@ button {
 button:hover {
     background : var(--yellow);
     color      : var(--black);
-    fill : var(--black);
+    fill       : var(--black);
 }
 
 button.hover-white:hover {
@@ -648,15 +648,24 @@ footer a {
 
 /* INDEX PAGE */
 .hero-container {
-    align-items     : center;
-    background      : no-repeat top / cover url("../img/jpg/ateliers_1920.jpg");
-    display         : flex;
-    flex-direction  : column;
-    height          : 110vh;
-    justify-content : center;
-    margin          : 0;
-    padding         : 0;
-    width           : 100vw;
+    align-items         : center;
+    background-image    : url("../img/webp/ateliers_1920.webp");
+    background-position : top;
+    background-repeat   : no-repeat;
+    background-size     : cover;
+    display             : flex;
+    flex-direction      : column;
+    height              : 110vh;
+    justify-content     : center;
+    margin              : 0;
+    padding             : 0;
+    width               : 100vw;
+}
+
+@media (max-aspect-ratio : 1/1) {
+    .hero-container {
+        background-image : url("../img/webp/ateliers_720.webp");
+    }
 }
 
 #hero {
@@ -745,15 +754,18 @@ footer a {
 
 /* DAILY */
 .daily {
-    align-items     : center;
-    background      : no-repeat top/cover url("../img/jpg/daily_1920.jpg");
-    display         : flex;
-    flex-direction  : column;
-    height          : 110vh;
-    justify-content : center;
-    margin          : 0;
-    padding         : 0;
-    width           : 100vw;
+    align-items         : center;
+    background-image    : url("../img/webp/daily_1920.webp");
+    background-position : top;
+    background-repeat   : no-repeat;
+    background-size     : cover;
+    display             : flex;
+    flex-direction      : column;
+    height              : 110vh;
+    justify-content     : center;
+    margin              : 0;
+    padding             : 0;
+    width               : 100vw;
 }
 
 /* inscription */

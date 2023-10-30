@@ -14,12 +14,14 @@ const path = require("path");
 require("dotenv").config();
 const helmet = require("helmet");
 const cookieParser = require("cookie-parser");
-
-// INTERNAL DEPENDENCIES
-const routes = require("./routes/index");
+const compression = require("compression");
 
 // create Express app
 const app = express();
+app.use(compression());
+
+// INTERNAL DEPENDENCIES
+const routes = require("./routes/index");
 
 // View engine
 app.set("views", path.join(__dirname, "views"));
