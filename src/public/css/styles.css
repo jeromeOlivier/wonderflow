@@ -805,3 +805,19 @@ footer a {
     margin          : 0;
     padding         : 0;
 }
+
+.cursor-circle {
+  pointer-events: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--yellow);
+  transform: translate(-50%, -50%) scale(1);
+  transition:
+    transform 0.3s ease-in-out,
+    opacity 0.3s ease-in-out;
+  opacity: 0;
+}

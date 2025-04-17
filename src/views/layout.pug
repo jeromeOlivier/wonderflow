@@ -26,8 +26,11 @@ html(lang='en')
                 include success.pug
             else
                 include index.pug
+        div.cursor-circle
         footer
             include footer.pug
+        script(defer src='./js/htmx.min.js')
+        script(defer src='./js/scripts.js')
         if process.env.NODE_ENV !== 'production'
             script(src='http://localhost:35729/livereload.js')
 

@@ -74,3 +74,105 @@ window.addEventListener("resize", adjustSvgStroke);
 
 // Run the function initially to set correct stroke
 adjustSvgStroke();
+
+const $circle = document.querySelector('.cursor-circle');
+
+let delay = 8;
+let endX = window.innerWidth / 2;
+let endY = window.innerHeight / 2;
+let _x = endX;
+let _y = endY;
+let cursorVisible = true;
+let cursorEnlarged = false;
+let isOverInteractiveElement = false;
+
+document.addEventListener('mousemove', (e) => {
+  cursorVisible = true;
+  if (!isOverInteractiveElement) {
+    toggleCursorVisibility();
+  }
+
+  endX = e.clientX;
+  endY = e.clientY;
+
+  if (_x === undefined && _y === undefined) {
+    _x = endX;
+    _y = endY;
+  }
+});
+
+document.addEventListener('mouseenter', (e) => {
+  cursorVisible = true;
+  const target = e.target;
+  if (target.matches('button, input, textarea')) {
+    $circle.style.opacity = '0';
+    isOverInteractiveElement = true;
+  } else {
+    toggleCursorVisibility();
+    isOverInteractiveElement = false;
+  }
+});
+
+document.addEventListener('mouseleave', () => {
+  cursorVisible = false;
+  toggleCursorVisibility();
+  isOverInteractiveElement = false;
+});
+
+document.addEventListener('mousedown', () => {
+  cursorEnlarged = true;
+  toggleCursorSize();
+});
+
+document.addEventListener('mouseup', () => {
+  cursorEnlarged = false;
+  toggleCursorSize();
+});
+
+document.querySelectorAll('a').forEach((el) => {
+  el.addEventListener('mouseenter', () => {
+    cursorEnlarged = true;
+    toggleCursorSize();
+  });
+  el.addEventListener('mouseleave', () => {
+    cursorEnlarged = false;
+    toggleCursorSize();
+  });
+});
+
+function handleInteractiveElementMouseEnter() {
+  $circle.style.opacity = '0';
+  isOverInteractiveElement = true;
+}
+
+function handleInteractiveElementMouseLeave() {
+  $circle.style.opacity = cursorVisible ? '1' : '0';
+  isOverInteractiveElement = false;
+}
+
+const interactiveElements = document.querySelectorAll('button, input, textarea');
+
+interactiveElements.forEach((el) => {
+  el.addEventListener('mouseenter', handleInteractiveElementMouseEnter);
+  el.addEventListener('mouseleave', handleInteractiveElementMouseLeave);
+});
+
+function animate() {
+  _x += (endX - _x) / delay;
+  _y += (endY - _y) / delay;
+  $circle.style.top = `${_y}px`;
+  $circle.style.left = `${_x}px`;
+  requestAnimationFrame(animate);
+}
+
+function toggleCursorSize() {
+  $circle.style.transform = cursorEnlarged
+    ? 'translate(-50%, -50%) scale(1.5)'
+    : 'translate(-50%, -50%) scale(1)';
+}
+
+function toggleCursorVisibility() {
+  $circle.style.opacity = cursorVisible ? '1' : '0';
+}
+
+animate();
