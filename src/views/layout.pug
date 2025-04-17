@@ -28,4 +28,7 @@ html(lang='en')
                 include index.pug
         footer
             include footer.pug
+        if process.env.NODE_ENV !== 'production'
+            script(src='http://localhost:35729/livereload.js')
+
 // Path: views/layout.pug

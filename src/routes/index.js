@@ -28,7 +28,7 @@ router.get('/content_contact', get.content_contact);
 router.get('/content_policy', get.content_policy);
 router.get('/content_workshops', get.content_workshops);
 router.get('/content_daily', get.content_daily);
-router.get('/content_inscription', get.content_inscription);
+// router.get('/content_inscription', get.content_inscription);
 // POST ROUTES
 router.post('/newsletter', isEmail, post.newsletter);
 router.post("/contact", isEmail, post.contact);

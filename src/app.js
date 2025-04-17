@@ -18,7 +18,41 @@ const compression = require("compression");
 
 // create Express app
 const app = express();
-app.use(compression());
+
+// LiveReload only in development
+if (process.env.NODE_ENV !== 'production') {
+  const livereload = require('livereload');
+  const connectLivereload = require('connect-livereload');
+
+  const liveReloadServer = livereload.createServer();
+  liveReloadServer.watch([
+    path.join(__dirname, "public"),
+    path.join(__dirname, "views")
+  ]);
+
+  app.use(connectLivereload());
+
+  liveReloadServer.server.once("connection", () => {
+    setTimeout(() => {
+      liveReloadServer.refresh("/");
+    }, 100);
+  });
+}
+
+app.use(compression({
+  // Only compress if NOT in development mode OR not the LiveReload script
+  filter: (req, res) => {
+    if (
+      process.env.NODE_ENV !== 'production' &&
+      req.headers['accept'] &&
+      req.headers['accept'].includes('text/html')
+    ) {
+      return false; // Don’t compress HTML in dev (due to LiveReload)
+    }
+    return compression.filter(req, res);
+  }
+}));
+
 
 // INTERNAL DEPENDENCIES
 const routes = require("./routes/index");
@@ -30,13 +64,21 @@ app.set("view engine", "pug");
 // Middleware
 app.use(express.urlencoded({ extended: false }));
 app.use(helmet.contentSecurityPolicy({
-    directives: {
-        defaultSrc: ["'self'"],
-        scriptSrc: ["'self'", "https://checkout.stripe.com/"],
-        connectSrc: ["'self'", "https://checkout.stripe.com/"],
-        frameSrc: ["'self'", "https://checkout.stripe.com/"],
-    },
-    hsts: false,
+  directives: {
+    defaultSrc: ["'self'"],
+    scriptSrc: [
+      "'self'",
+      "https://checkout.stripe.com",
+      ...(process.env.NODE_ENV !== 'production' ? ["http://localhost:35729"] : [])
+    ],
+    connectSrc: [
+      "'self'",
+      "https://checkout.stripe.com",
+      ...(process.env.NODE_ENV !== 'production' ? ["ws://localhost:35729"] : [])
+    ],
+    frameSrc: ["'self'", "https://checkout.stripe.com"]
+  },
+  hsts: false
 }));
 app.use(cookieParser());
 app.use(express.json());

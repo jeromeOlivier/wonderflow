@@ -5,6 +5,7 @@ div#hamburger
 
 div.menu
     img(src='/img/svg/wonderflow.svg' alt='logo' width='160px' hx-target="main" hx-get="/content_index" hx-swap='show:window:top' hx-push-url='/' href='/')
+    span.logo-circle
 
     nav.navigation
         ul
@@ -18,6 +19,6 @@ div.menu
                 a(hx-target="main" hx-get="/content_about" hx-push-url='/about' hx-swap='show:window:top' href='/about') À propos
             li.big-scale.transition
                 a(hx-target="main" hx-get="/content_contact" hx-push-url='/contact' hx-swap='show:window:top' href='/contact') Contact
-            li.big-scale.transition
-                button(hx-target="main" hx-get="/content_inscription" hx-push-url='/inscription' hx-swap='show:window:top' href='/inscription') Inscription
+            //li.big-scale.transition
+            //    button(hx-target="main" hx-get="/content_inscription" hx-push-url='/inscription' hx-swap='show:window:top' href='/inscription') Inscription
 // Path: src/views/header.pug

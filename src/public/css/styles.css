@@ -321,6 +321,23 @@ header {
     z-index : 20;
 }
 
+.menu > img {
+    cursor  : pointer;
+    z-index : 20;
+}
+
+.menu .logo-circle {
+    background-color : var(--yellow);
+    border-radius    : 100%;
+    display          : inline-block;
+    height           : 32px;
+    left             : -8px;
+    position         : absolute;
+    top              : 50%;
+    transform        : translateY(-50%);
+    width            : 32px;
+}
+
 nav > ul > li {
     display     : inline-block;
     margin-left : 20px;
