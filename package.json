@@ -20,7 +20,8 @@
         "nodemailer": "^6.9.5",
         "nodemon": "^3.0.1",
         "pug": "^3.0.2",
-        "stripe": "^13.9.0"
+        "stripe": "^13.9.0",
+        "vanilla-cookieconsent": "^3.1.0"
     },
     "devDependencies": {
         "@types/compression": "^1.7.3",

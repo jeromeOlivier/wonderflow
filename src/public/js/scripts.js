@@ -197,11 +197,9 @@ initializeCursor();
 
 // Re-initialize event listeners for HTMX loaded content
 document.addEventListener('htmx:load', (event) => {
-  console.log('htmx:load event fired:', event);
   const targetElement = event.target;
   if (targetElement) {
     const interactiveElements = targetElement.querySelectorAll('button, input, textarea');
-    console.log('Interactive elements found in HTMX target:', interactiveElements);
     interactiveElements.forEach(el => {
       el.removeEventListener('mouseenter', handleInteractiveElementMouseEnter);
       el.removeEventListener('mouseleave', handleInteractiveElementMouseLeave);
@@ -210,7 +208,6 @@ document.addEventListener('htmx:load', (event) => {
     });
 
     const links = targetElement.querySelectorAll('a');
-    console.log('Links found in HTMX target:', links);
     links.forEach(el => {
       el.removeEventListener('mouseenter', handleLinkMouseEnter);
       el.removeEventListener('mouseleave', handleLinkMouseLeave);

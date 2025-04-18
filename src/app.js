@@ -84,6 +84,13 @@ app.use(cookieParser());
 app.use(express.json());
 
 // Static files
+// Serve vanilla-cookieconsent from node_modules
+app.use(
+  '/vendor/cookieconsent',
+  express.static(path.join(__dirname, '../node_modules/vanilla-cookieconsent/dist'))
+);
+
+// Serve your app's public assets
 app.use(express.static(path.join(__dirname, "public")));
 
 // Routes
