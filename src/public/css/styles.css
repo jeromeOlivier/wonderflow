@@ -367,9 +367,10 @@ header {
     display         : flex;
     flex-direction  : row;
     justify-content : space-between;
-    max-width       : 960px;
+    max-width       : 1320px;
+    padding         : 0 16px;
     position        : relative;
-    width           : 90%;
+    width           : 100%;
 }
 
 .menu > img {
@@ -387,7 +388,7 @@ header {
     border-radius    : 100%;
     display          : inline-block;
     height           : 32px;
-    left             : -8px;
+    left             : 8px;
     position         : absolute;
     top              : 50%;
     transform        : translateY(-50%);
@@ -596,10 +597,11 @@ textarea {
 }
 
 .container {
-    max-width  : 960px;
+    max-width  : 1320px;
+    padding    : 0 16px;
     position   : relative;
     transition : height 0.5s ease-out;
-    width      : 90%;
+    width      : 100%;
 }
 
 .full-width {
@@ -722,8 +724,9 @@ footer a {
 /* INDEX PAGE */
 .hero-container {
     align-items         : center;
-    background-image    : url("../img/webp/ateliers_1920.webp");
-    background-position : top;
+    /*background-image    : url("../img/webp/ateliers_1920.webp");*/
+    background-color: #ececec;
+    /*background-position : top;*/
     background-repeat   : no-repeat;
     background-size     : cover;
     display             : flex;
@@ -735,16 +738,17 @@ footer a {
     width               : 100vw;
 }
 
-@media (max-aspect-ratio : 1/1) {
-    .hero-container {
-        background-image : url("../img/webp/ateliers_720.webp");
-    }
-}
+/*@media (max-aspect-ratio : 1/1) {*/
+/*    .hero-container {*/
+/*        background-image : url("../img/webp/ateliers_720.webp");*/
+/*    }*/
+/*}*/
 
 #hero {
     height    : 110vh;
-    max-width : 60rem;
-    width     : 90%;
+    max-width : 1320px;
+    padding   : 0 16px;
+    width     : 100%;
 }
 
 #hero-logo {
