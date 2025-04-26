@@ -30,51 +30,39 @@ navigation.addEventListener("click", function() {
 
 // When the window is resized
 window.addEventListener("resize", function() {
-    // Clear any existing timeout to avoid conflicts
     clearTimeout(resizeTimer);
-    // Temporarily stop transitions
     navigation.classList.add("no-transition");
-    // After a brief delay, allow transitions again
     resizeTimer = setTimeout(() => {
         navigation.classList.remove("no-transition");
     }, 10);
-    // If the window is wide (e.g., desktop view)
+
     if (window.innerWidth > 960) {
-        // Make sure navigation isn't hidden or sliding
-        navigation.classList.remove("hide");
-        navigation.classList.remove("slide-in");
-        navigation.classList.remove("slide-out");
-        // Else, if the window is narrow (e.g., mobile view)
+        navigation.classList.remove("hide", "slide-in", "slide-out");
     } else {
-        // Hide navigation and reset any sliding
-        navigation.classList.remove("slide-out");
-        navigation.classList.remove("slide-in");
+        navigation.classList.remove("slide-in", "slide-out");
         navigation.classList.add("hide");
         hamburger.classList.remove("close");
     }
 });
 
 // FOOTER
-// get current year
 const getYear = () => new Date().getFullYear().toString();
 document.getElementById("year").innerHTML = getYear();
 
-// adjust svg stroke width in footer
 function adjustSvgStroke() {
     const svg = document.querySelector("#footer-wave svg");
-    const rect = svg.getBoundingClientRect();
-
-    let desiredStrokeWidthPixel = 1;
-
-    const strokeScale = rect.width / 960; // svg viewBox width is 960
-    svg.style["stroke-width"] = desiredStrokeWidthPixel / strokeScale + "px";
+    if (svg) {
+        const rect = svg.getBoundingClientRect();
+        let desiredStrokeWidthPixel = 1;
+        const strokeScale = rect.width / 960; // svg viewBox width is 960
+        svg.style["stroke-width"] = desiredStrokeWidthPixel / strokeScale + "px";
+    }
 }
 
 window.addEventListener("resize", adjustSvgStroke);
-
-// Run the function initially to set correct stroke
 adjustSvgStroke();
 
+// CURSOR
 const $circle = document.querySelector('.cursor-circle');
 
 let delay = 8;
@@ -82,19 +70,15 @@ let endX = window.innerWidth / 2;
 let endY = window.innerHeight / 2;
 let _x = endX;
 let _y = endY;
-let cursorVisible = false; // Initialize to false
+let cursorVisible = false;
 let cursorEnlarged = false;
 let isOverInteractiveElement = false;
 
 function mouseMoveHandler(e) {
   cursorVisible = true;
-  if (!isOverInteractiveElement) {
-    toggleCursorVisibility();
-  }
-
+  if (!isOverInteractiveElement) toggleCursorVisibility();
   endX = e.clientX;
   endY = e.clientY;
-
   if (_x === undefined && _y === undefined) {
     _x = endX;
     _y = endY;
@@ -192,10 +176,56 @@ function initializeCursor() {
   animate();
 }
 
-// Initialize cursor on initial page load
 initializeCursor();
 
-// Re-initialize event listeners for HTMX loaded content
+// TESTIMONIALS SLIDER
+let testimonials = [];
+let dots = [];
+const INTERVAL_PERIOD = 5000;
+let current = 0;
+let interval = null;
+
+function showTestimonial(index) {
+  testimonials.forEach(t => t.classList.remove('active'));
+  dots.forEach(d => d.classList.remove('active'));
+  testimonials[index].classList.add('active');
+  dots[index].classList.add('active');
+  current = index;
+}
+
+function nextTestimonial() {
+  current = (current + 1) % testimonials.length;
+  showTestimonial(current);
+}
+
+function startAutoSlide() {
+  interval = setInterval(nextTestimonial, INTERVAL_PERIOD);
+}
+
+function resetAutoSlide() {
+  clearInterval(interval);
+  startAutoSlide();
+}
+
+function refreshTestimonials() {
+  testimonials = document.querySelectorAll('.testimonial');
+  dots = document.querySelectorAll('.testimonial-dot');
+
+  dots.forEach(dot => {
+    dot.addEventListener('click', (e) => {
+      const index = parseInt(e.target.dataset.index);
+      showTestimonial(index);
+      resetAutoSlide();
+    });
+  });
+}
+
+// Initialize testimonials first time
+refreshTestimonials();
+showTestimonial(current);
+startAutoSlide();
+
+// HTMX EVENTS
 document.addEventListener('htmx:load', (event) => {
   const targetElement = event.target;
   if (targetElement) {
@@ -214,48 +244,8 @@ document.addEventListener('htmx:load', (event) => {
       el.addEventListener('mouseenter', handleLinkMouseEnter);
       el.addEventListener('mouseleave', handleLinkMouseLeave);
     });
+
+    // Reattach testimonial dots
+    refreshTestimonials();
   }
 });
-
-const testimonials = document.querySelectorAll('.testimonial');
-const dots = document.querySelectorAll('.testimonial-dot');
-const INTERVAL_PERIOD = 5000;
-let current = 0;
-let interval = null;
-
-function showTestimonial(index) {
-  testimonials.forEach(t => t.classList.remove('active'));
-  dots.forEach(d => d.classList.remove('active'));
-
-  testimonials[index].classList.add('active');
-  dots[index].classList.add('active');
-  current = index;
-}
-
-function nextTestimonial() {
-  current = (current + 1) % testimonials.length;
-  showTestimonial(current);
-}
-
-function startAutoSlide() {
-  interval = setInterval(nextTestimonial, INTERVAL_PERIOD); // change every 3 seconds
-}
-
-function resetAutoSlide() {
-  clearInterval(interval);
-  startAutoSlide();
-}
-
-// Dot click event
-dots.forEach(dot => {
-  dot.addEventListener('click', (e) => {
-    const index = parseInt(e.target.dataset.index);
-    showTestimonial(index);
-    resetAutoSlide(); // After click, restart the timer
-  });
-});
-
-// Initialize
-showTestimonial(current);
-startAutoSlide();
-
