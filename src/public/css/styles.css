@@ -31,6 +31,7 @@
 :root {
     --black        : #333333;
     --grey         : #CCCCCC;
+    --light-grey   : #ececec;
     --stroke       : 1px;
     --translucent  : #FFFB;
     --white        : #FFFFFF;
@@ -143,6 +144,11 @@
     line-height : 1.5;
     margin      : 0;
     padding     : 0;
+}
+
+strong {
+    font-family: rBold, sans-serif;
+    font-weight : bolder;
 }
 
 body {
@@ -349,16 +355,16 @@ ul.white-list li::before {
 
 /* header */
 header {
-    -webkit-backdrop-filter : blur(4px);
-    backdrop-filter         : blur(4px);
-    background              : var(--translucent);
-    border-bottom           : solid var(--stroke) var(--grey);
+    /*-webkit-backdrop-filter : blur(4px);*/
+    /*backdrop-filter         : blur(4px);*/
+    background              : var(--white);
+    border-bottom           : solid var(--stroke) var(--light-grey);
     display                 : flex;
     flex-direction          : row;
     height                  : 60px;
     justify-content         : center;
     position                : fixed;
-    width                   : 100vw;
+    width                   : 100%;
     z-index                 : 15;
 }
 
@@ -502,17 +508,17 @@ nav > ul > li > button:hover {
     }
 
     nav > .hide {
-        transform  : translateX(5%);
+        transform  : translateX(0);
         transition : none;
     }
 
     .slide-out {
-        transform : translateX(105%);
+        transform : translateX(100%);
         /*transition : transform 0.3s;*/
     }
 
     .slide-in {
-        transform : translateX(5%);
+        transform : translateX(0);
         /*transition : transform 0.3s;*/
     }
 }
@@ -700,12 +706,13 @@ textarea {
     grid-template-columns : 1fr;
     grid-template-rows    : repeat(3, auto);
     justify-items         : center;
+    margin                : 0 auto;
 }
 
-.footer-elements > * {
-    max-width : 60rem;
-    width     : 90%;
-}
+/*.footer-elements > * {*/
+/*    max-width : 60rem;*/
+/*    width     : 90%;*/
+/*}*/
 
 footer a {
     color           : var(--black);
@@ -725,7 +732,7 @@ footer a {
 .hero-container {
     align-items         : center;
     /*background-image    : url("../img/webp/ateliers_1920.webp");*/
-    background-color: #ececec;
+    background-color: var(--light-grey);
     /*background-position : top;*/
     background-repeat   : no-repeat;
     background-size     : cover;
@@ -747,7 +754,7 @@ footer a {
     display        : flex;
     flex-direction : row;
     max-width      : 1320px;
-    padding        : 120px 16px;
+    padding        : 120px 16px 0;
     width          : 100%;
 }
 
@@ -756,10 +763,17 @@ footer a {
         flex-direction: column-reverse;
         justify-content: center;
         align-items: center;
+        padding: 120px 16px 60px;
     }
 
     .hero-h1, .hero-h2 {
         text-align: center;
+    }
+}
+
+@media (min-width: 1200px) {
+    #hero-logo-container {
+        margin-right: -20px;
     }
 }
 
@@ -833,7 +847,7 @@ footer a {
     display: flex;
     flex-direction: column;
     flex: 1;
-    justify-content: center;
+    margin-top: 32px;
 }
 
 .hero-h1 {
@@ -882,7 +896,7 @@ footer a {
     margin-bottom : .5rem;
     margin-right  : 2rem;
     shape-outside : circle(50%);
-    width         : clamp(240px, 42vmin, 640px);
+    width         : clamp(200px, 42vmin, 640px);
 }
 
 .follow {
@@ -943,5 +957,45 @@ footer a {
     transform        : translate(-50%, -50%) scale(1);
     transition       : transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
     opacity          : 0;
-    z-index          : -1;
+    /*z-index          : -1;*/
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.max-width-300 {
+    max-width: 300px;
+}
+
+.col-2-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  column-gap: 2rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+
+@media (min-width: 768px) {
+    .col-2-list {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .ml-md-64 {
+        margin-left: 64px;
+    }
+
+    .ml-md-128 {
+        margin-left: 128px;
+    }
+
+    .fs-md-18 {
+        font-size: 1.125rem;
+    }
+}
+
+.text-center {
+    text-align: center;
 }
