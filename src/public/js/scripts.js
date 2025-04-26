@@ -216,3 +216,46 @@ document.addEventListener('htmx:load', (event) => {
     });
   }
 });
+
+const testimonials = document.querySelectorAll('.testimonial');
+const dots = document.querySelectorAll('.testimonial-dot');
+const INTERVAL_PERIOD = 5000;
+let current = 0;
+let interval = null;
+
+function showTestimonial(index) {
+  testimonials.forEach(t => t.classList.remove('active'));
+  dots.forEach(d => d.classList.remove('active'));
+
+  testimonials[index].classList.add('active');
+  dots[index].classList.add('active');
+  current = index;
+}
+
+function nextTestimonial() {
+  current = (current + 1) % testimonials.length;
+  showTestimonial(current);
+}
+
+function startAutoSlide() {
+  interval = setInterval(nextTestimonial, INTERVAL_PERIOD); // change every 3 seconds
+}
+
+function resetAutoSlide() {
+  clearInterval(interval);
+  startAutoSlide();
+}
+
+// Dot click event
+dots.forEach(dot => {
+  dot.addEventListener('click', (e) => {
+    const index = parseInt(e.target.dataset.index);
+    showTestimonial(index);
+    resetAutoSlide(); // After click, restart the timer
+  });
+});
+
+// Initialize
+showTestimonial(current);
+startAutoSlide();
+

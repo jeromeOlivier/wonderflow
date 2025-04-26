@@ -217,7 +217,7 @@ cite {
     display     : inline-block;
     font-family : rBold, Arial, sans-serif;
     font-style  : normal;
-    margin-left : 2rem;
+    /*margin-left : 2rem;*/
 }
 
 .bold {
@@ -244,6 +244,10 @@ ul.list li {
     margin-top    : 1rem;
     padding-left  : 1.2rem;
     position      : relative;
+}
+
+ul.list li:last-child {
+    margin-bottom : 0;
 }
 
 ul.yellow-list li::before {
@@ -629,12 +633,13 @@ textarea {
     flex-direction : column;
 }
 
-.card > h2 {
+.card > h3 {
     position : relative;
     z-index  : -1;
+    font-size: 1.5rem;
 }
 
-.card > h2::before {
+.card > h3::before {
     content  : url("../img/svg/white-dot.svg");
     left     : -2.5rem;
     position : absolute;
@@ -957,7 +962,7 @@ footer a {
     transform        : translate(-50%, -50%) scale(1);
     transition       : transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
     opacity          : 0;
-    /*z-index          : -1;*/
+    z-index          : -1;
 }
 
 .uppercase {
@@ -968,18 +973,16 @@ footer a {
     max-width: 300px;
 }
 
-.col-2-list {
+.col-3-list {
   display: grid;
   grid-template-columns: 1fr;
   column-gap: 2rem;
   list-style: none;
-  padding: 0;
-  margin: 0;
 }
 
 
 @media (min-width: 768px) {
-    .col-2-list {
+    .col-3-list {
         grid-template-columns: 1fr 1fr 1fr;
     }
 
@@ -998,4 +1001,82 @@ footer a {
 
 .text-center {
     text-align: center;
+}
+
+.tools-img {
+    border: var(--black-border);
+    max-height: 300px;
+    float: right;
+    margin-bottom: .5rem;
+    margin-left: 2rem;
+    border-radius: 1rem;
+}
+
+@media (max-width: 575px) {
+    .tools-img {
+        float: initial;
+        max-height: initial;
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+.testimonial-slider {
+    width: 100%;
+    max-width: 900px;
+    margin: 24px auto 0;
+    min-height: 200px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.testimonial-slider p {
+    display: block;
+}
+
+.testimonial {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1s linear;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+.testimonial.active {
+  opacity: 1;
+  visibility: visible;
+  position: relative;
+}
+
+.testimonial-message {
+  /*font-size: 1.2rem;*/
+  margin-bottom: 10px;
+}
+
+.testimonial-title {
+  font-weight: bold;
+  font-size: 1rem;
+  /*color: gray;*/
+}
+
+.testimonial-dots {
+  margin-top: 20px;
+}
+
+.testimonial-dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin: 0 5px;
+  background-color: var(--grey);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.testimonial-dot.active {
+  background-color: var(--black);
 }
