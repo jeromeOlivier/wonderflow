@@ -1012,15 +1012,6 @@ footer a {
     border-radius: 1rem;
 }
 
-@media (max-width: 575px) {
-    .tools-img {
-        float: initial;
-        max-height: initial;
-        width: 100%;
-        margin-left: 0;
-    }
-}
-
 .testimonial-slider {
     width: 100%;
     max-width: 900px;
@@ -1029,6 +1020,19 @@ footer a {
     text-align: center;
     position: relative;
     overflow: hidden;
+}
+
+@media (max-width: 575px) {
+    .tools-img {
+        float: initial;
+        max-height: initial;
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .testimonial-slider {
+        min-height: 270px;
+    }
 }
 
 .testimonial-slider p {
