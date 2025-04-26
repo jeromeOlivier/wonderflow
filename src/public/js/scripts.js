@@ -218,7 +218,14 @@ function refreshTestimonials() {
       resetAutoSlide();
     });
   });
+
+  current = 0;
+
+  if (testimonials.length > 0) {
+    showTestimonial(current);
+  }
 }
+
 
 // Initialize testimonials first time
 refreshTestimonials();
