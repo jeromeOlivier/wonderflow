@@ -23,6 +23,7 @@ const app = express();
 if (process.env.NODE_ENV !== 'production') {
   const livereload = require('livereload');
   const connectLivereload = require('connect-livereload');
+  const fs = require('fs');
 
   const liveReloadServer = livereload.createServer();
   liveReloadServer.watch([
@@ -31,6 +32,14 @@ if (process.env.NODE_ENV !== 'production') {
   ]);
 
   app.use(connectLivereload());
+
+  // Watch pug files manually
+  fs.watch(path.join(__dirname, 'views'), { recursive: true }, (eventType, filename) => {
+    if (filename.endsWith('.pug')) {
+      console.log(`[LiveReload] Detected change in ${filename}`);
+      liveReloadServer.refresh('/');
+    }
+  });
 
   liveReloadServer.server.once("connection", () => {
     setTimeout(() => {
