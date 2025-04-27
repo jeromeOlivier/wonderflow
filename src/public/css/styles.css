@@ -299,7 +299,7 @@ ul.white-list li::before {
 
 /* images */
 .rounded-corner {
-    border        : var(--black-border);
+    /*border        : var(--black-border);*/
     border-radius : 1rem;
 }
 
@@ -898,7 +898,7 @@ footer a {
 
 /* ABOUT PAGE */
 .about-disk {
-    border        : var(--black-border);
+    /*border        : var(--black-border);*/
     border-radius : 50%;
     float         : left;
     margin-bottom : .5rem;
@@ -996,7 +996,7 @@ footer a {
 }
 
 .tools-img {
-    border: var(--black-border);
+    /*border: var(--black-border);*/
     max-height: 300px;
     float: right;
     margin-bottom: .5rem;
