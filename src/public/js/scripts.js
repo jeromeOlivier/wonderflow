@@ -224,6 +224,9 @@ function refreshTestimonials() {
     if (testimonials.length > 0) {
         showTestimonial(current);
     }
+
+    clearInterval(interval);
+    startAutoSlide();
 }
 
 
