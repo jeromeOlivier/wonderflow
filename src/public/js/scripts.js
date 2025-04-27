@@ -256,6 +256,7 @@ function initializeCanvas() {
     function resizeCanvas() {
         canvas.width = canvas.offsetWidth;
         canvas.height = canvas.offsetHeight;
+        ctx.setTransform(1, 0, 0, 1, 0, 0); // <-- critical fix
     }
 
     function createCircles() {
