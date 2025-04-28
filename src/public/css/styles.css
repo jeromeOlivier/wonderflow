@@ -791,58 +791,41 @@ footer a {
 /*}*/
 
 #hero-logo-container {
-    position : relative;
-    max-width    : 600px;
-    width : 100%;
+  position: relative;
+  max-width: 600px;
+  width: 100%;
 }
 
 #hero-logo-contour {
-    position: relative;
-    width: 100%;
-    z-index: 2;
+  position: relative;
+  width: 100%;
+  z-index: 2;
 }
 
 #hero-logo-circle {
-    position : absolute;
-    top      : 0;
-    left     : 0;
-    width    : 100%;
-    z-index: 1;
-    animation: hideImg 2s forwards;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
 }
 
 #hero-logo-video {
-    opacity: 0;
-    position: absolute;
-    width: 87%;
-    top: 50%;
-    left: 50%;
-    border-radius: 100%;
-    transform: translate(-49%, -51%);
-    animation: showVideo 2s forwards;
-    animation-delay: 1s;
+  opacity: 0;
+  position: absolute;
+  width: 87%;
+  top: 50%;
+  left: 50%;
+  border-radius: 100%;
+  transform: translate(-49%, -51%);
+  transition: opacity 1s ease-in-out;
 }
 
-/* Hero logo animation */
-@keyframes hideImg {
-  0% {
-    opacity: 1;
-  }
-  66.66% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
-@keyframes showVideo {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+/* Optional: to avoid pointer events when invisible */
+.hidden {
+  pointer-events: none;
 }
 
 .hero-titles {
@@ -909,7 +892,7 @@ footer a {
 
 .follow {
     display : inline;
-    /*overflow: auto;*/
+    overflow: auto;
 }
 
 .wrap {

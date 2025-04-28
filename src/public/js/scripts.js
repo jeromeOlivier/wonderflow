@@ -62,6 +62,51 @@ function adjustSvgStroke() {
 window.addEventListener("resize", adjustSvgStroke);
 adjustSvgStroke();
 
+
+// Hero Logo animation
+function initializeHeroAnimation() {
+    const circle = document.getElementById('hero-logo-circle');
+    const video = document.getElementById('hero-logo-video');
+
+    if (!circle || !video) {
+        console.warn('Hero animation elements not found.');
+        return;
+    }
+
+    function startSequence() {
+        // Reset state: show SVG circle, hide video
+        circle.classList.remove('hidden');
+        video.classList.add('hidden');
+
+        circle.style.opacity = '1';
+        video.style.opacity = '0';
+        video.pause();
+        video.currentTime = 0; // reset video
+
+        // After 2s, fade out SVG circle, fade in video, play video
+        setTimeout(() => {
+            circle.style.opacity = '0';
+            video.style.opacity = '1';
+
+            circle.classList.add('hidden');
+            video.classList.remove('hidden');
+
+            video.play();
+
+            // ⚡ After 3 seconds (custom duration), stop video and restart sequence
+            setTimeout(() => {
+                video.pause();
+                video.currentTime = 0;
+                startSequence(); // Restart the whole process
+            }, 6000); // << 3 seconds = 3000 milliseconds
+
+        }, 2000); // Show SVG for 2 seconds first
+    }
+
+    startSequence(); // Start the animation cycle
+}
+
+
 // CURSOR
 const $circle = document.querySelector('.cursor-circle');
 
@@ -337,6 +382,7 @@ function initializeCanvas() {
 
 document.addEventListener('DOMContentLoaded', () => {
     initializeCanvas();
+    initializeHeroAnimation();
 });
 
 // HTMX EVENTS
@@ -362,6 +408,7 @@ document.addEventListener('htmx:load', (event) => {
         // Reattach testimonial dots
         refreshTestimonials();
         initializeCanvas();
+        initializeHeroAnimation();
     }
 });
 
