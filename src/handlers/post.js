@@ -64,27 +64,55 @@ const transporter = nodemailer.createTransport({
  * @returns {Promise<void>} - A promise that resolves when the email has been
  *     sent.
  */
-const contact = async(req, res, next) => {
-    const { email, message } = req.body;
+// const contact = async(req, res, next) => {
+//     const { email, message } = req.body;
+//     const mailOptions = {
+//         from: process.env.EMAIL,
+//         to: process.env.EMAIL,
+//         subject: `message from: ${ email }`,
+//         text: `
+//         from: ${ email }
+//         message: ${ message }
+//         `,
+//         priority: "high",
+//     };
+//     await transporter.sendMail(mailOptions, (error, info) => {
+//         if (error) {
+//             console.log(error);
+//         } else {
+//             console.log("Email sent: " + info.response);
+//             res.render("contact-thanks");
+//         }
+//     });
+// };
+
+const contact = async (req, res, next) => {
+    const {name, email, message} = req.body;
+
     const mailOptions = {
         from: process.env.EMAIL,
         to: process.env.EMAIL,
-        subject: `message from: ${ email }`,
+        subject: `New message from ${name} (${email})`,
         text: `
-        from: ${ email }
-        message: ${ message }
+        From: ${name}
+        Email: ${email}
+        
+        Message:
+        ${message}
         `,
         priority: "high",
     };
-    await transporter.sendMail(mailOptions, (error, info) => {
-        if (error) {
-            console.log(error);
-        } else {
-            console.log("Email sent: " + info.response);
-            res.render("contact-thanks");
-        }
-    });
+
+    try {
+        await transporter.sendMail(mailOptions);
+        console.log("Email sent successfully");
+        res.render("contact-thanks");
+    } catch (error) {
+        console.error("Failed to send email:", error);
+        res.status(500).send("An error occurred while sending your message.");
+    }
 };
+
 
 const payment = async(req, res, next) => {
     const workshop = data.workshops[0];
