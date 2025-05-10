@@ -266,21 +266,20 @@ function refreshTestimonials() {
 
     current = 0;
 
-    if (testimonials.length > 0) {
+    if (testimonials.length > 0 && dots.length > 0) {
         showTestimonial(current);
     }
 
     clearInterval(interval);
-    startAutoSlide();
 }
 
 
 // Initialize testimonials first time
-refreshTestimonials();
-if (testimonials.length > 0 && dots.length > 0) {
-    showTestimonial(current);
-    startAutoSlide();
-}
+// refreshTestimonials();
+// if (testimonials.length > 0 && dots.length > 0) {
+//     showTestimonial(current);
+//     startAutoSlide();
+// }
 
 function initializeCanvas() {
     const canvas = document.getElementById('bg-canvas');
@@ -380,40 +379,58 @@ function initializeCanvas() {
     animateCanvas();
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    initializeCanvas();
-    initializeHeroAnimation();
-});
+function rebindInteractiveElementHoverListeners(scope = document) {
+    const interactiveElements = scope.querySelectorAll('button, input, textarea');
+    interactiveElements.forEach(el => {
+        el.removeEventListener('mouseenter', handleInteractiveElementMouseEnter);
+        el.removeEventListener('mouseleave', handleInteractiveElementMouseLeave);
+        el.addEventListener('mouseenter', handleInteractiveElementMouseEnter);
+        el.addEventListener('mouseleave', handleInteractiveElementMouseLeave);
+    });
 
-// HTMX EVENTS
-document.addEventListener('htmx:load', (event) => {
-    const targetElement = event.target;
-    if (targetElement) {
-        const interactiveElements = targetElement.querySelectorAll('button, input, textarea');
-        interactiveElements.forEach(el => {
-            el.removeEventListener('mouseenter', handleInteractiveElementMouseEnter);
-            el.removeEventListener('mouseleave', handleInteractiveElementMouseLeave);
-            el.addEventListener('mouseenter', handleInteractiveElementMouseEnter);
-            el.addEventListener('mouseleave', handleInteractiveElementMouseLeave);
-        });
+    const links = scope.querySelectorAll('a');
+    links.forEach(el => {
+        el.removeEventListener('mouseenter', handleLinkMouseEnter);
+        el.removeEventListener('mouseleave', handleLinkMouseLeave);
+        el.addEventListener('mouseenter', handleLinkMouseEnter);
+        el.addEventListener('mouseleave', handleLinkMouseLeave);
+    });
+}
 
-        const links = targetElement.querySelectorAll('a');
-        links.forEach(el => {
-            el.removeEventListener('mouseenter', handleLinkMouseEnter);
-            el.removeEventListener('mouseleave', handleLinkMouseLeave);
-            el.addEventListener('mouseenter', handleLinkMouseEnter);
-            el.addEventListener('mouseleave', handleLinkMouseLeave);
-        });
-
-        // Reattach testimonial dots
+function rehydratePage(scope = document) {
+    const testimonialElements = scope.querySelectorAll('.testimonial');
+    const dotElements = scope.querySelectorAll('.testimonial-dot');
+    if (testimonialElements.length > 0 && dotElements.length > 0) {
         refreshTestimonials();
+        showTestimonial(0);
+        startAutoSlide();
+    }
+
+    const canvas = scope.querySelector('#bg-canvas');
+    if (canvas) {
         initializeCanvas();
+    }
+
+    const heroCircle = scope.querySelector('#hero-logo-circle');
+    const heroVideo = scope.querySelector('#hero-logo-video');
+    if (heroCircle && heroVideo) {
         initializeHeroAnimation();
     }
+
+    initializeCursor();
+    rebindInteractiveElementHoverListeners(scope);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    rehydratePage();
 });
 
-
-
+document.addEventListener('htmx:load', (event) => {
+    const scope = event.target;
+    if (scope) {
+        rehydratePage(scope);
+    }
+});
 
 
 

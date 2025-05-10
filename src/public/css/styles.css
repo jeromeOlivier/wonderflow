@@ -887,7 +887,7 @@ footer a {
     margin-bottom : .5rem;
     margin-right  : 2rem;
     shape-outside : circle(50%);
-    width         : clamp(200px, 42vmin, 640px);
+    width         : clamp(176px, 42vmin, 332px);
 }
 
 .follow {
@@ -953,10 +953,6 @@ footer a {
 
 .uppercase {
     text-transform: uppercase;
-}
-
-.max-width-300 {
-    max-width: 300px;
 }
 
 .max-width-450 {
@@ -1080,6 +1076,17 @@ footer a {
 
     .testimonial-slider {
         min-height: 270px;
+    }
+
+    .about-disk {
+        width: 100%;
+        margin: 0 auto 32px;
+        display: block;
+        max-width: 400px;
+        float: initial;
+    }
+    .follow {
+
     }
 }
 
