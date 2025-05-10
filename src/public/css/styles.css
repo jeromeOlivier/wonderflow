@@ -1133,6 +1133,12 @@ footer a {
     }
 }
 
+@media (min-width: 961px) {
+    .ml-lg-32 {
+        margin-left: 32px;
+    }
+}
+
 @media (min-width: 1200px) {
     #hero-logo-container {
         margin-right: -20px;
