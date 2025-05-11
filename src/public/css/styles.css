@@ -809,18 +809,18 @@ footer a {
   width: 100%;
   z-index: 1;
   opacity: 1;
-  transition: opacity 1s ease-in-out;
+  transition: opacity 70ms linear;
 }
 
 #hero-logo-video {
-  opacity: 0;
   position: absolute;
   width: 87%;
   top: 50%;
   left: 50%;
   border-radius: 100%;
-  transform: translate(-49%, -51%);
-  transition: opacity 1s ease-in-out;
+  transform: translate(-50%, -50%);
+  transition: opacity 70ms linear;
+  z-index: 1;
 }
 
 /* Optional: to avoid pointer events when invisible */
