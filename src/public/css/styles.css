@@ -411,7 +411,6 @@ header {
 
 nav > ul > li {
     display     : inline-block;
-    margin-left : 32px;
 }
 
 nav > ul > li > a {
@@ -887,7 +886,7 @@ footer a {
     margin-bottom : .5rem;
     margin-right  : 2rem;
     shape-outside : circle(50%);
-    width         : clamp(176px, 42vmin, 332px);
+    width         : clamp(176px, 47vmin, 360px);
 }
 
 .follow {
@@ -1135,6 +1134,10 @@ footer a {
 
 @media (min-width: 961px) {
     .ml-lg-32 {
+        margin-left: 32px;
+    }
+
+    nav > ul > li {
         margin-left: 32px;
     }
 }
