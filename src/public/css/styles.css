@@ -173,10 +173,10 @@ main {
     flex-direction : column;
 }
 
-.container {
-    max-width : 60rem;
-    width     : 90%;
-}
+/*.container {*/
+/*    max-width : 60rem;*/
+/*    width     : 90%;*/
+/*}*/
 
 /* typography */
 h1, h2, h3, h4, h5, h6 {
@@ -386,7 +386,7 @@ header {
     flex-direction  : row;
     justify-content : space-between;
     max-width       : 1320px;
-    padding         : 0 16px;
+    padding         : 0 64px;
     position        : relative;
     width           : 100%;
 }
@@ -406,7 +406,7 @@ header {
     border-radius    : 100%;
     display          : inline-block;
     height           : 32px;
-    left             : 8px;
+    left             : 56px;
     position         : absolute;
     top              : 50%;
     transform        : translateY(-50%);
@@ -424,26 +424,6 @@ nav > ul > li > a {
     position: relative;
     display: inline-block;
 }
-
-nav > ul > li > a::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: -5px;
-    width: 20px;
-    height: 20px;
-    border-radius: 100%;
-    z-index: -1;
-    transform: translateY(-50%);
-    transition: 0.1s all linear;
-    opacity: 0;
-}
-
-nav > ul > li > a:hover::before {
-  background-color: var(--yellow);
-    opacity: 1;
-}
-
 
 nav > ul > li > button {
     background : none;
@@ -647,9 +627,9 @@ textarea {
 
 .container {
     max-width  : 1320px;
-    padding    : 0 16px;
+    padding    : 0 64px;
     position   : relative;
-    transition : height 0.5s ease-out;
+    /*transition : height 0.5s ease-out;*/
     width      : 100%;
 }
 
@@ -981,21 +961,6 @@ button.follow {
     padding         : 0;
 }
 
-.cursor-circle {
-    pointer-events   : none;
-    position         : fixed;
-    top              : 50%;
-    left             : 50%;
-    width            : 40px;
-    height           : 40px;
-    border-radius    : 50%;
-    background-color : var(--yellow);
-    transform        : translate(-50%, -50%) scale(1);
-    transition       : transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
-    opacity          : 0;
-    z-index          : -1;
-}
-
 .uppercase {
     text-transform: uppercase;
 }
@@ -1169,8 +1134,17 @@ button.follow {
         max-width: 400px;
         float: initial;
     }
-    .follow {
 
+    .container {
+        padding: 0 16px;
+    }
+
+    .menu {
+        padding: 0 16px;
+    }
+
+    .menu .logo-circle {
+        left: 8px;
     }
 }
 
@@ -1225,6 +1199,25 @@ button.follow {
     nav > ul > li {
         margin-left: 32px;
     }
+
+    nav > ul > li > a::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: -5px;
+        width: 20px;
+        height: 20px;
+        border-radius: 100%;
+        z-index: -1;
+        transform: translateY(-50%);
+        transition: 0.1s all linear;
+        opacity: 0;
+    }
+
+    nav > ul > li > a:hover::before {
+        background-color: var(--yellow);
+        opacity: 1;
+    }
 }
 
 @media (min-width: 1200px) {
@@ -1239,5 +1232,20 @@ button.follow {
     .card-img-xl-left {
         max-height: 375px;
         object-fit: cover;
+    }
+
+    .cursor-circle {
+        pointer-events   : none;
+        position         : fixed;
+        top              : 50%;
+        left             : 50%;
+        width            : 40px;
+        height           : 40px;
+        border-radius    : 50%;
+        background-color : var(--yellow);
+        transform        : translate(-50%, -50%) scale(1);
+        transition       : transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        opacity          : 0;
+        z-index          : -1;
     }
 }

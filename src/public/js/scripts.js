@@ -65,7 +65,7 @@ adjustSvgStroke();
 // CURSOR
 const $circle = document.querySelector('.cursor-circle');
 
-let delay = 8;
+let delay = 15;
 let endX = window.innerWidth / 2;
 let endY = window.innerHeight / 2;
 let _x = endX;
@@ -73,6 +73,7 @@ let _y = endY;
 let cursorVisible = false;
 let cursorEnlarged = false;
 let isOverInteractiveElement = false;
+let animationFrameId = null;
 
 function mouseMoveHandler(e) {
     cursorVisible = true;
@@ -130,7 +131,7 @@ function animate() {
         $circle.style.top = `${_y}px`;
         $circle.style.left = `${_x}px`;
     }
-    requestAnimationFrame(animate);
+    animationFrameId = requestAnimationFrame(animate);
 }
 
 function toggleCursorSize() {
@@ -148,6 +149,20 @@ function toggleCursorVisibility() {
 }
 
 function initializeCursor() {
+    // Cancel existing animation if running
+    if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId);
+        animationFrameId = null;
+    }
+
+    // Preserve current position if already defined
+    if (_x === undefined || _y === undefined) {
+        endX = window.innerWidth / 2;
+        endY = window.innerHeight / 2;
+        _x = endX;
+        _y = endY;
+    }
+
     document.removeEventListener('mousemove', mouseMoveHandler);
     document.addEventListener('mousemove', mouseMoveHandler);
 
@@ -157,23 +172,23 @@ function initializeCursor() {
     document.removeEventListener('mouseleave', mouseLeaveDocumentHandler);
     document.addEventListener('mouseleave', mouseLeaveDocumentHandler);
 
-    const initialInteractiveElements = document.querySelectorAll('button, input, textarea');
-    initialInteractiveElements.forEach(el => {
+    const interactiveElements = document.querySelectorAll('button, input, textarea');
+    interactiveElements.forEach(el => {
         el.removeEventListener('mouseenter', handleInteractiveElementMouseEnter);
         el.removeEventListener('mouseleave', handleInteractiveElementMouseLeave);
         el.addEventListener('mouseenter', handleInteractiveElementMouseEnter);
         el.addEventListener('mouseleave', handleInteractiveElementMouseLeave);
     });
 
-    const initialLinks = document.querySelectorAll('a');
-    initialLinks.forEach(el => {
+    const links = document.querySelectorAll('a');
+    links.forEach(el => {
         el.removeEventListener('mouseenter', handleLinkMouseEnter);
         el.removeEventListener('mouseleave', handleLinkMouseLeave);
         el.addEventListener('mouseenter', handleLinkMouseEnter);
         el.addEventListener('mouseleave', handleLinkMouseLeave);
     });
 
-    animate();
+    animate(); // Start animation
 }
 
 initializeCursor();
@@ -362,8 +377,20 @@ function rehydratePage(scope = document) {
     rebindInteractiveElementHoverListeners(scope);
 }
 
+// function initializeVideo() {
+//     const video = document.getElementById('hero-logo-video');
+//     if (video) {
+//         const source = document.createElement('source');
+//         source.src = '/video/wonderflow-hero-video-3sec.mp4';
+//         source.type = 'video/mp4';
+//         video.appendChild(source);
+//         video.load(); // triggers load without autoplay delay
+//     }
+// }
+
 document.addEventListener('DOMContentLoaded', () => {
     rehydratePage();
+    // initializeVideo();
 });
 
 document.addEventListener('htmx:load', (event) => {
