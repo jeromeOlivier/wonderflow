@@ -72,23 +72,27 @@ app.set("view engine", "pug");
 
 // Middleware
 app.use(express.urlencoded({ extended: false }));
+
 app.use(helmet.contentSecurityPolicy({
   directives: {
     defaultSrc: ["'self'"],
     scriptSrc: [
       "'self'",
       "https://checkout.stripe.com",
+      "https://www.googletagmanager.com",
       ...(process.env.NODE_ENV !== 'production' ? ["http://localhost:35729"] : [])
     ],
     connectSrc: [
       "'self'",
       "https://checkout.stripe.com",
+      "https://www.google-analytics.com",
       ...(process.env.NODE_ENV !== 'production' ? ["ws://localhost:35729"] : [])
     ],
     frameSrc: ["'self'", "https://checkout.stripe.com"]
   },
   hsts: false
 }));
+
 app.use(cookieParser());
 app.use(express.json());
 

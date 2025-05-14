@@ -9,7 +9,7 @@ CookieConsent.run({
       fr: {
         consentModal: {
           title: "Utilisation des cookies",
-          description: "Nous utilisons des cookies pour améliorer votre expérience.",
+          description: `Ce site utilise uniquement des cookies essentiels et des cookies analytiques (Google Analytics) pour améliorer votre expérience et comprendre comment notre site est utilisé. Vous pouvez les accepter tous ou personnaliser vos choix. Pour en savoir plus, consultez notre <a href="/policy" target="_blank" rel="noopener noreferrer">Politique de confidentialité</a>.`,
           acceptAllBtn: "Tout accepter",
           acceptNecessaryBtn: "Essentiel uniquement",
           showPreferencesBtn: "Personnaliser"
@@ -21,17 +21,35 @@ CookieConsent.run({
           sections: [
             {
               title: "Cookies essentiels",
-              description: "Indispensables au bon fonctionnement du site.",
+              description: "Nécessaires au bon fonctionnement du site. Ils ne peuvent pas être désactivés.",
               linkedCategory: "necessary"
             },
             {
               title: "Cookies analytiques",
-              description: "Utilisés pour comprendre comment vous interagissez avec le site.",
+              description: "Nous utilisons Google Analytics pour collecter des statistiques anonymes sur l'utilisation du site. Cela nous aide à améliorer votre expérience.",
               linkedCategory: "analytics"
             }
           ]
         }
       }
+    }
+  },
+  guiOptions: {
+    consentModal: { layout: 'box', position: 'bottom right' }
+  },
+  onConsent: ({ cookie }) => {
+    if (cookie.categories.includes('analytics')) {
+      const script = document.createElement('script');
+      script.src = "https://www.googletagmanager.com/gtag/js?id=G-97RRFVQN78";
+      script.async = true;
+      document.head.appendChild(script);
+
+      script.onload = () => {
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-97RRFVQN78');
+      };
     }
   }
 });
