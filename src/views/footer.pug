@@ -21,9 +21,15 @@ div.footer-elements.container.mt-2
     //        a(hx-target="main" hx-get="/content_policy" hx-swap='show:window:top' hx-push-url='/policy' href='/policy').big-scale.transition Politique de confidentialité
 
     div.mb-1
-        p.text-center
+        p.text-center.block
+            a.link(href="/policy", target='_blank') Politique de confidentialité
+        p.text-center.block.mt-2
             | &copy;&nbsp;
             span 2023 -&nbsp;
             span#year
             | &nbsp;Wonderflow. Tous droits réservés.
+
+
+
+
 // Path: src/views/footer.pug

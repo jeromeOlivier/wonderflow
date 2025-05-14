@@ -430,6 +430,15 @@ nav > ul > li > button:hover {
     color      : var(--white);
 }
 
+.link {
+    text-decoration: underline;
+    opacity: 0.75;
+}
+
+.link:hover {
+    opacity: 1;
+}
+
 /* navigation for smaller devices */
 @media (max-width : 960px) {
     #hamburger {
