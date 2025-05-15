@@ -405,12 +405,20 @@ document.body.addEventListener('htmx:beforeSwap', (e) => {
   if (!document.startViewTransition || e.detail.target.tagName !== 'MAIN') return;
 
   const html = e.detail.xhr.responseText;
+  const trigger = e.detail.requestConfig.triggeringEvent?.target;
+  const cleanUrl = trigger?.getAttribute('hx-push-url');
+
   e.preventDefault();
 
+  // View transition begins
   document.startViewTransition(() => {
+    // DOM swap
     e.detail.target.innerHTML = html;
 
-    // ✅ Trigger metadata update manually
+    // Rehydrate page logic (custom scripts, etc.)
+    rehydratePage(e.detail.target);
+
+    // Dispatch htmx:afterSwap manually to trigger metadata updates
     const afterSwapEvent = new CustomEvent('htmx:afterSwap', {
       detail: {
         target: e.detail.target,
@@ -421,10 +429,13 @@ document.body.addEventListener('htmx:beforeSwap', (e) => {
     });
     e.detail.target.dispatchEvent(afterSwapEvent);
 
-    // ✅ Manually call rehydration logic (cursor, testimonials, etc.)
-    rehydratePage(e.detail.target);
+    // Delay pushState to avoid interfering with transition rendering
+    requestAnimationFrame(() => {
+      if (cleanUrl) history.pushState({}, '', cleanUrl);
+    });
   });
 });
+
 
 // Update meta data on htmx after swap
 document.body.addEventListener('htmx:afterSwap', (e) => {
