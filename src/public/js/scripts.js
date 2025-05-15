@@ -172,7 +172,7 @@ function initializeCursor() {
     document.removeEventListener('mouseleave', mouseLeaveDocumentHandler);
     document.addEventListener('mouseleave', mouseLeaveDocumentHandler);
 
-    const interactiveElements = document.querySelectorAll('button, input, textarea');
+    const interactiveElements = document.querySelectorAll('button, input, textarea, .menu, .hero-container');
     interactiveElements.forEach(el => {
         el.removeEventListener('mouseenter', handleInteractiveElementMouseEnter);
         el.removeEventListener('mouseleave', handleInteractiveElementMouseLeave);
@@ -353,7 +353,7 @@ function initializeVideo() {
 }
 
 function rebindInteractiveElementHoverListeners(scope = document) {
-    const interactiveElements = scope.querySelectorAll('button, input, textarea');
+    const interactiveElements = scope.querySelectorAll('button, input, textarea, .menu, .hero-container');
     interactiveElements.forEach(el => {
         el.removeEventListener('mouseenter', handleInteractiveElementMouseEnter);
         el.removeEventListener('mouseleave', handleInteractiveElementMouseLeave);
