@@ -410,7 +410,7 @@ document.body.addEventListener('htmx:beforeSwap', (e) => {
   document.startViewTransition(() => {
     e.detail.target.innerHTML = html;
 
-    // 🔥 Manually dispatch htmx:afterSwap so metadata logic runs
+    // ✅ Trigger metadata update manually
     const afterSwapEvent = new CustomEvent('htmx:afterSwap', {
       detail: {
         target: e.detail.target,
@@ -419,8 +419,10 @@ document.body.addEventListener('htmx:beforeSwap', (e) => {
       },
       bubbles: true
     });
-
     e.detail.target.dispatchEvent(afterSwapEvent);
+
+    // ✅ Manually call rehydration logic (cursor, testimonials, etc.)
+    rehydratePage(e.detail.target);
   });
 });
 
