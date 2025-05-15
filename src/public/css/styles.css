@@ -401,6 +401,12 @@ header {
     z-index : 20;
 }
 
+.menu .logo-link {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .menu .logo-circle {
     background-color : var(--yellow);
     border-radius    : 100%;
@@ -411,6 +417,7 @@ header {
     top              : 50%;
     transform        : translateY(-50%);
     width            : 32px;
+    z-index          : -1;
 }
 
 nav > ul > li {
@@ -605,13 +612,21 @@ input, textarea {
     font-family   : rRegular, sans-serif;
     font-size     : 1rem;
     margin-top    : .5rem;
-    padding       : .75rem 1rem;
+    padding       : 12px 16px;
     width         : 100%;
 }
 
-input:focus, textarea:focus {
-    outline : none;
+input:focus,
+textarea:focus {
+  outline: none;
 }
+
+input:focus-visible,
+textarea:focus-visible {
+    border-width: 2px;
+    padding: 11px 15px;
+}
+
 
 textarea {
     overflow : hidden;
@@ -747,18 +762,27 @@ textarea {
 /*    width     : 90%;*/
 /*}*/
 
-footer a {
-    color           : var(--black);
-    display         : inline-block;
-    margin-top      : 4px;
-    text-decoration : none;
-}
-
 .social-icons {
     display         : flex;
     flex-direction  : row;
     gap             : 1rem;
     justify-content : center;
+}
+
+.social-icons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.social-icons a:first-child {
+    padding: 0 6px;
+}
+
+.social-icons a:last-child {
+    padding: 3px 4px;
+    transform: translateY(4px);
 }
 
 /* INDEX PAGE */
@@ -787,10 +811,11 @@ footer a {
     display        : flex;
     flex-direction : row;
     max-width      : 1320px;
-    padding        : 120px 16px 0;
+    padding        : 120px 64px 0;
     width          : 100%;
-    position: relative;
-    overflow: hidden;
+    position       : relative;
+    overflow       : hidden;
+    min-height     : 650px;
 }
 
 #bg-canvas {
@@ -863,7 +888,7 @@ footer a {
 
 .hero-h1 {
     font-family : rBold, sans-serif;
-    font-size   : clamp(1.5rem, 4vmax, 3rem);
+    font-size   : clamp(1.5rem, 4vmax, 2.6rem);
     font-style  : normal;
     font-weight : bold;
 }
@@ -1040,13 +1065,21 @@ button.follow {
 
 .testimonial-dot {
   display: inline-block;
-  width: 12px;
-  height: 12px;
+  width: 14px;
+  height: 14px;
   margin: 0 5px;
   background-color: var(--grey);
   border-radius: 50%;
   cursor: pointer;
   transition: background-color 0.3s;
+  border-color: initial;
+  padding: 0;
+}
+
+button.testimonial-dot:hover {
+    border-color: initial;
+    background: var(--grey);
+    color: transparent;
 }
 
 .testimonial-dot.active {
@@ -1146,6 +1179,10 @@ button.follow {
     .menu .logo-circle {
         left: 8px;
     }
+
+    #hero {
+        padding: 120px 16px 0;
+    }
 }
 
 @media (max-width: 767px) {
@@ -1202,6 +1239,12 @@ button.follow {
 
     nav > ul > li > a::before {
         content: "";
+        transition: 0.1s all linear;
+        opacity: 0;
+    }
+
+    nav > ul > li > a:hover::before {
+        background-color: var(--yellow);
         position: absolute;
         top: 50%;
         left: -5px;
@@ -1210,12 +1253,6 @@ button.follow {
         border-radius: 100%;
         z-index: -1;
         transform: translateY(-50%);
-        transition: 0.1s all linear;
-        opacity: 0;
-    }
-
-    nav > ul > li > a:hover::before {
-        background-color: var(--yellow);
         opacity: 1;
     }
 }

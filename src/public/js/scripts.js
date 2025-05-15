@@ -341,6 +341,17 @@ function initializeCanvas() {
     animateCanvas();
 }
 
+function initializeVideo() {
+    const video = document.getElementById('hero-logo-video');
+    if (video) {
+        const source = document.createElement('source');
+        source.src = '/video/wonderflow-hero-video-3sec.mp4';
+        source.type = 'video/mp4';
+        video.appendChild(source);
+        video.load(); // triggers load without autoplay delay
+    }
+}
+
 function rebindInteractiveElementHoverListeners(scope = document) {
     const interactiveElements = scope.querySelectorAll('button, input, textarea');
     interactiveElements.forEach(el => {
@@ -374,23 +385,12 @@ function rehydratePage(scope = document) {
     }
 
     initializeCursor();
+    initializeVideo();
     rebindInteractiveElementHoverListeners(scope);
 }
 
-// function initializeVideo() {
-//     const video = document.getElementById('hero-logo-video');
-//     if (video) {
-//         const source = document.createElement('source');
-//         source.src = '/video/wonderflow-hero-video-3sec.mp4';
-//         source.type = 'video/mp4';
-//         video.appendChild(source);
-//         video.load(); // triggers load without autoplay delay
-//     }
-// }
-
 document.addEventListener('DOMContentLoaded', () => {
     rehydratePage();
-    // initializeVideo();
 });
 
 document.addEventListener('htmx:load', (event) => {

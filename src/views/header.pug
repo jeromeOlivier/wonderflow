@@ -4,7 +4,8 @@ div#hamburger
     div
 
 div.menu
-    img(src='/img/svg/wonderflow.svg' alt='logo' width='160px' hx-target="main" hx-get="/content_index" hx-swap='show:window:top' hx-push-url='/' href='/')
+    a.logo-link(hx-target="main" hx-get="/content_index" hx-swap='show:window:top' hx-push-url='/' href='/' aria-label="Logo de Wonderflow")
+        img(src='/img/svg/wonderflow.svg' width='160px' alt="Logo de Wonderflow")
     span.logo-circle
 
     nav.navigation
