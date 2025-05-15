@@ -1,0 +1,10 @@
+- const pageTitle = meta && meta.title ? meta.title : 'Wonderflow'
+- const pageDescription = meta && meta.description ? meta.description : 'Des ateliers ludiques...'
+- const fullUrl = typeof req !== 'undefined' && req.url ? 'https://wonderflow.ca' + req.url : 'https://wonderflow.ca/'
+
+title #{pageTitle}
+meta(name='description', content=pageDescription)
+meta(property='og:title', content=pageTitle)
+meta(property='og:description', content=pageDescription)
+meta(property='og:url', content=fullUrl)
+link(rel='canonical', href=fullUrl)

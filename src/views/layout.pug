@@ -30,7 +30,7 @@ html(lang='en')
         footer
             include footer.pug
         script(defer src='./js/htmx.min.js')
-        script(defer src='./js/scripts.js')
+        script(defer type="module" src='./js/scripts.js')
         script(src="/vendor/cookieconsent/cookieconsent.umd.js")
         script(src="/js/cookieconsent-config.js")
         if process.env.NODE_ENV !== 'production'
