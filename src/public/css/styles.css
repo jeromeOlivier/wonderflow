@@ -1286,3 +1286,19 @@ button.testimonial-dot:hover {
         z-index          : -1;
     }
 }
+
+@view-transition {
+  navigation: auto;
+}
+
+/* Apply transition only to root (body/main document) */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: fade 0.3s ease-in-out;
+}
+
+/* Fade keyframes */
+@keyframes fade {
+  from { opacity: 0.85; }
+  to   { opacity: 1; }
+}

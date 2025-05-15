@@ -400,6 +400,30 @@ document.addEventListener('htmx:load', (event) => {
     }
 });
 
+// Enable View Transitions when HTMX swaps <main>
+document.body.addEventListener('htmx:beforeSwap', (e) => {
+  if (!document.startViewTransition || e.detail.target.tagName !== 'MAIN') return;
+
+  const html = e.detail.xhr.responseText;
+  e.preventDefault();
+
+  document.startViewTransition(() => {
+    e.detail.target.innerHTML = html;
+
+    // 🔥 Manually dispatch htmx:afterSwap so metadata logic runs
+    const afterSwapEvent = new CustomEvent('htmx:afterSwap', {
+      detail: {
+        target: e.detail.target,
+        xhr: e.detail.xhr,
+        requestConfig: e.detail.requestConfig
+      },
+      bubbles: true
+    });
+
+    e.detail.target.dispatchEvent(afterSwapEvent);
+  });
+});
+
 // Update meta data on htmx after swap
 document.body.addEventListener('htmx:afterSwap', (e) => {
   if (e.detail.target.tagName === 'MAIN') {
@@ -450,7 +474,6 @@ document.body.addEventListener('htmx:afterSwap', (e) => {
       .catch(console.warn);
   }
 });
-
 
 
 
