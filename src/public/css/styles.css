@@ -157,6 +157,8 @@
 strong {
     font-family: rBold, sans-serif;
     font-weight : bolder;
+    margin-left: 0.25rem;
+    margin-right: 0.25rem;
 }
 
 body {
@@ -217,6 +219,22 @@ p, q {
     font-style : normal;
 }
 
+.banner-list-container .bullet {
+    position: relative;
+    margin-left: 16px;
+}
+
+.banner-list-container .bullet::before {
+    position: absolute;
+    top: 6px;
+    left: -16px;
+    width: 6px;
+    height: 6px;
+    border-radius: 100%;
+    background-color: var(--black);
+    content: "";
+}
+
 label {
     font-family : rBold, "Arial Black", sans-serif;
 }
@@ -232,6 +250,11 @@ cite {
     font-family : rBold, Arial, sans-serif;
     font-style  : normal;
     font-weight : bold;
+}
+
+.italic {
+    font-family : rItalic, Arial, sans-serif;
+    font-size: 1.1rem;
 }
 
 .inline {
@@ -304,7 +327,7 @@ ul.white-list li::before {
 /* images */
 .rounded-corner {
     /*border        : var(--black-border);*/
-    border-radius : 1rem;
+    border-radius : 16px 15vw;
 }
 
 .thought-container {
@@ -669,6 +692,12 @@ textarea {
 .card {
     display        : flex;
     flex-direction : column;
+    position       : relative;
+}
+
+.card-wrapper-workshops {
+    max-width: 400px;
+    aspect-ratio: 4 / 4;
 }
 
 .card-equal {
@@ -690,6 +719,23 @@ textarea {
 /*    width    : 5rem;*/
 /*    z-index  : -2;*/
 /*}*/
+
+.card .contour {
+    position: absolute;
+    top    : 0;
+    left     : 0;
+    width : 100%;
+    transform: initial;
+    z-index: 1;
+}
+
+.card .contour-workshops {
+    position: absolute;
+    width: 114%;
+    transform: initial;
+    z-index: 1;
+    left: -8%;
+}
 
 .card > img {
     grid-area : img;
@@ -998,6 +1044,10 @@ button.follow {
     width: 100%;
 }
 
+.height-100 {
+    height: 100%;
+}
+
 .grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -1148,6 +1198,37 @@ button.testimonial-dot:hover {
     padding-top: 2rem;
 }
 
+.img-lazy {
+    width: 100%;
+    height: auto;
+}
+
+@media (max-width: 1199px) {
+    #hero {
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+        padding: 120px 64px 60px;
+    }
+
+    .hero-h1, .hero-h2 {
+        text-align: center;
+    }
+}
+
+@media (max-width: 767px) {
+    .flex-md-col-2-rev {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 960px) {
+    .card-wrapper-workshops {
+        margin-inline: auto;
+        max-width: 90%;
+    }
+}
+
 @media (max-width: 575px) {
     .tools-img {
         float: initial;
@@ -1183,24 +1264,9 @@ button.testimonial-dot:hover {
     #hero {
         padding: 120px 16px 0;
     }
-}
 
-@media (max-width: 767px) {
-    .flex-md-col-2-rev {
-        flex-direction: column;
-    }
-}
-
-@media (max-width: 1199px) {
-    #hero {
-        flex-direction: column-reverse;
-        justify-content: center;
-        align-items: center;
-        padding: 120px 16px 60px;
-    }
-
-    .hero-h1, .hero-h2 {
-        text-align: center;
+    .rounded-corner {
+        border-radius: 16px 20vw;
     }
 }
 
@@ -1255,15 +1321,15 @@ button.testimonial-dot:hover {
         transform: translateY(-50%);
         opacity: 1;
     }
+
+    .grid-lg-col-2 {
+        grid-template-columns: 0.8fr 1.2fr;
+    }
 }
 
 @media (min-width: 1200px) {
     #hero-logo-container {
         margin-right: -20px;
-    }
-
-    .grid-xl-col-2 {
-        grid-template-columns: 1fr 1fr;
     }
 
     .card-img-xl-left {
@@ -1284,6 +1350,12 @@ button.testimonial-dot:hover {
         transition       : transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
         opacity          : 0;
         z-index          : -1;
+    }
+}
+
+@media (min-width: 1920px) {
+    .rounded-corner {
+        border-radius: 16px 300px;
     }
 }
 
