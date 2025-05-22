@@ -1,0 +1,39 @@
+doctype html
+html(lang='en')
+    head
+        include head.pug
+    body
+        header
+            include header.pug
+        main
+            if content === 'about'
+                include about.pug
+            else if content === 'approach'
+                include approach.pug
+            else if content === 'blog'
+                include blog.pug
+            else if content === 'contact'
+                include contact.pug
+            else if content === 'policy'
+                include policy.pug
+            else if content === 'workshops'
+                include workshops.pug
+            else if content === 'daily'
+                include daily.pug
+            else if content === 'inscription'
+                include registration
+            else if content === 'success'
+                include success.pug
+            else
+                include index.pug
+        div.cursor-circle
+        footer
+            include footer.pug
+        script(defer src='./js/htmx.min.js')
+        script(defer type="module" src='./js/scripts.js')
+        script(src="/vendor/cookieconsent/cookieconsent.umd.js")
+        script(src="/js/cookieconsent-config.js")
+        if process.env.NODE_ENV !== 'production'
+            script(src='http://localhost:35729/livereload.js')
+
+// Path: views/layout.pug

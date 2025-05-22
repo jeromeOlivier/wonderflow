@@ -1,34 +1,34 @@
 doctype html
 html(lang='en')
     head
-        include head.pug
+        include head
     body
         header
-            include header.pug
+            include header
         main
             if content === 'about'
-                include about.pug
+                include a-propos
             else if content === 'approach'
-                include approach.pug
+                include approche
             else if content === 'blog'
-                include blog.pug
+                include blog
             else if content === 'contact'
-                include contact.pug
+                include contact
             else if content === 'policy'
-                include policy.pug
+                include politique
             else if content === 'workshops'
-                include workshops.pug
+                include ateliers
             else if content === 'daily'
-                include daily.pug
+                include quotidien
             else if content === 'inscription'
-                include inscription.pug
+                include inscription
             else if content === 'success'
-                include success.pug
+                include succes
             else
-                include index.pug
+                include index
         div.cursor-circle
         footer
-            include footer.pug
+            include footer
         script(defer src='./js/htmx.min.js')
         script(defer type="module" src='./js/scripts.js')
         script(src="/vendor/cookieconsent/cookieconsent.umd.js")

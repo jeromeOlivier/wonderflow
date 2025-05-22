@@ -1,0 +1,36 @@
+div#footer-wave.mt-2
+    <svg width="100%" height="100%" viewBox="0 0 960 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;"><path d="M-6.926,-1.393c21.656,14.273 45.793,78.407 118.693,25.659c46.066,-33.333 76.25,32.503 187.367,-4.745c79.775,-26.742 71.151,40.37 113.955,30.927c88.815,-19.592 5.437,-66.389 -5.46,-26.829c-6.998,25.408 70.609,42.588 197.474,3.875c57.188,-17.451 128.66,15.569 169.786,6.009c60.954,-14.169 131.608,-21.82 201.65,32.87" style="fill:none;stroke:#333333;"/></svg>
+
+div.footer-elements.container.mt-2
+    img(src='/img/svg/logo.svg', alt='Logo de Wonderflow' style='width: 180px; height: auto;')
+    div.social-icons.mt-1
+        a(href='https://www.linkedin.com/company/wonderflow-ca/', target='_blank' aria-label="linkedin")
+            img(src='/img/svg/linkedin.svg', alt='linkedin' style='width: 30px; height: auto;').scale.transition
+        a(href="mailto:info@wonderflow.ca" aria-label="courriel")
+            img(src='/img/svg/email.svg', alt='courriel' style='width: 32px; height: auto;').scale.transition
+
+
+
+    //div#newsletter
+    //    if !isSubscribed
+    //        include newsletter-form
+    //div
+    //    p.bold Contact
+    //    div.mt-1
+    //        a(href='mailto:info@wonderflow.ca').big-scale.transition info@wonderflow.ca
+    //    div.mt-1
+    //        a(hx-target="main" hx-get="/content_policy" hx-swap='show:window:top' hx-push-url='/policy' href='/policy').big-scale.transition Politique de confidentialité
+
+    div.mb-1
+        p.text-center.block.mt-0
+            a.link(href="/policy", target='_blank') Politique de confidentialité
+        p.text-center.block.mt-2
+            | &copy;&nbsp;
+            span 2023 -&nbsp;
+            span#year
+            | &nbsp;Wonderflow. Tous droits réservés.
+
+
+
+
+// Path: src/views/footer.pug
