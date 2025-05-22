@@ -11,23 +11,23 @@ html(lang=locale)
     main
       if locale === 'fr-ca'
         if content === 'about'
-          include fr-ca/a-propos
+          include fr-ca/about
         else if content === 'approach'
-          include fr-ca/approche
+          include fr-ca/approach
         else if content === 'blog'
           include fr-ca/blog
         else if content === 'contact'
           include fr-ca/contact
         else if content === 'policy'
-          include fr-ca/politique
+          include fr-ca/policy
         else if content === 'workshops'
-          include fr-ca/ateliers
+          include fr-ca/workshops
         else if content === 'daily'
-          include fr-ca/quotidien
+          include fr-ca/daily
         else if content === 'registration'
-          include fr-ca/inscription
+          include fr-ca/registration
         else if content === 'success'
-          include fr-ca/succes
+          include fr-ca/success
         else
           include fr-ca/index
       else if locale === 'en-ca'

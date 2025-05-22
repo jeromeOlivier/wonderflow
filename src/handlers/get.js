@@ -5,30 +5,20 @@ const metaData = require("../utils/meta");
 const getLocale = (req) => req.params.locale || 'fr-ca';
 
 // Factory to generate full layout handler
-const layoutHandler = (pageKey, viewMap = {}) => asyncHandler(async (req, res) => {
+const layoutHandler = (pageKey) => asyncHandler(async (req, res) => {
   const isSubscribed = req.cookies.isSubscribed === "true";
   const locale = getLocale(req);
 
-  // fallback to key if locale-specific view not provided
-  const viewName = viewMap[locale] || pageKey;
-
   res.render("layout", {
-    content: viewName,
+    content: pageKey,
     isSubscribed,
     meta: metaData[locale][pageKey],
     req,
     locale,
-    viewPath: `${locale}/${viewName}`,
+    viewPath: `${locale}/${pageKey}`,
     headerPath: `${locale}/header`,
     footerPath: `${locale}/footer`
   });
-});
-
-// Factory for HTMX main content injection
-const contentHandler = (pageKey, viewMap = {}) => asyncHandler(async (req, res) => {
-  const locale = getLocale(req);
-  const viewName = viewMap[locale] || pageKey;
-  res.render(`${locale}/${viewName}`);
 });
 
 // Factory to render partial metadata (for htmx head updates)
@@ -40,30 +30,36 @@ const metaHandler = (pageKey) => asyncHandler(async (req, res) => {
   });
 });
 
+// Factory for HTMX main content injection
+const contentHandler = (pageKey) => asyncHandler(async (req, res) => {
+  const locale = getLocale(req);
+  res.render(`${locale}/${pageKey}`);
+});
+
 module.exports = {
   // Full layout routes
   index: layoutHandler("index"),
-  about: layoutHandler("about", {'fr-ca': 'a-propos', 'en-ca': 'about'}),
-  approach: layoutHandler("approach", {'fr-ca': 'approche', 'en-ca': 'approach'}),
+  about: layoutHandler("about"),
+  approach: layoutHandler("approach"),
   blog: layoutHandler("blog"),
   contact: layoutHandler("contact"),
-  policy: layoutHandler("policy", {'fr-ca': 'politique', 'en-ca': 'policy'}),
-  workshops: layoutHandler("workshops", {'fr-ca': 'ateliers', 'en-ca': 'workshops'}),
-  daily: layoutHandler("daily", {'fr-ca': 'quotidien', 'en-ca': 'daily'}),
-  registration: layoutHandler("registration", {'fr-ca': 'inscription', 'en-ca': 'registration'}),
-  success: layoutHandler("success", {'fr-ca': 'succes', 'en-ca': 'success'}),
+  policy: layoutHandler("policy"),
+  workshops: layoutHandler("workshops"),
+  daily: layoutHandler("daily"),
+  registration: layoutHandler("registration"),
+  success: layoutHandler("success"),
 
   // HTMX content-only routes
   content_index: contentHandler("index"),
-  content_about: contentHandler("about", {'fr-ca': 'a-propos', 'en-ca': 'about'}),
-  content_approach: contentHandler("approach", {'fr-ca': 'approche', 'en-ca': 'approach'}),
+  content_about: contentHandler("about"),
+  content_approach: contentHandler("approach"),
   content_blog: contentHandler("blog"),
   content_contact: contentHandler("contact"),
-  content_policy: contentHandler("policy", {'fr-ca': 'politique', 'en-ca': 'policy'}),
-  content_workshops: contentHandler("workshops", {'fr-ca': 'ateliers', 'en-ca': 'workshops'}),
-  content_daily: contentHandler("daily", {'fr-ca': 'quotidien', 'en-ca': 'daily'}),
-  content_registration: contentHandler("registration", {'fr-ca': 'inscription', 'en-ca': 'registration'}),
-  content_success: contentHandler("success", {'fr-ca': 'succes', 'en-ca': 'success'}),
+  content_policy: contentHandler("policy"),
+  content_workshops: contentHandler("workshops"),
+  content_daily: contentHandler("daily"),
+  content_registration: contentHandler("registration"),
+  content_success: contentHandler("success"),
 
   // HTMX meta partials
   meta_index: metaHandler("index"),
@@ -77,4 +73,3 @@ module.exports = {
   meta_registration: metaHandler("registration"),
   meta_success: metaHandler("success"),
 };
-
