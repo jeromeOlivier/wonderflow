@@ -1,0 +1,65 @@
+doctype html
+html(lang=locale)
+  head
+    include head
+  body
+    header
+      if locale === 'fr-ca'
+        include fr-ca/header
+      else if locale === 'en-ca'
+        include en-ca/header
+    main
+      if locale === 'fr-ca'
+        if content === 'about'
+          include fr-ca/a-propos
+        else if content === 'approach'
+          include fr-ca/approche
+        else if content === 'blog'
+          include fr-ca/blog
+        else if content === 'contact'
+          include fr-ca/contact
+        else if content === 'policy'
+          include fr-ca/politique
+        else if content === 'workshops'
+          include fr-ca/ateliers
+        else if content === 'daily'
+          include fr-ca/quotidien
+        else if content === 'registration'
+          include fr-ca/inscription
+        else if content === 'success'
+          include fr-ca/succes
+        else
+          include fr-ca/index
+      else if locale === 'en-ca'
+        if content === 'about'
+          include en-ca/about
+        else if content === 'approach'
+          include en-ca/approach
+        else if content === 'blog'
+          include en-ca/blog
+        else if content === 'contact'
+          include en-ca/contact
+        else if content === 'policy'
+          include en-ca/policy
+        else if content === 'workshops'
+          include en-ca/workshops
+        else if content === 'daily'
+          include en-ca/daily
+        else if content === 'registration'
+          include en-ca/registration
+        else if content === 'success'
+          include en-ca/success
+        else
+          include en-ca/index
+    div.cursor-circle
+    footer
+      if locale === 'fr-ca'
+        include fr-ca/footer
+      else if locale === 'en-ca'
+        include en-ca/footer
+    script(defer src='/js/htmx.min.js')
+    script(defer type="module" src='/js/scripts.js')
+    script(src="/vendor/cookieconsent/cookieconsent.umd.js")
+    script(src="/js/cookieconsent-config.js")
+    if process.env.NODE_ENV !== 'production'
+      script(src='http://localhost:35729/livereload.js')

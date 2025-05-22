@@ -1,27 +1,89 @@
+//div#hamburger
+//    div
+//    div
+//    div
+//
+//div.menu
+//    a.logo-link(hx-target="main" hx-get="/content_index" hx-swap='show:window:top' hx-push-url='/' href='/' aria-label="Logo de Wonderflow")
+//        img(src='/img/svg/wonderflow.svg' width='160px' alt="Logo de Wonderflow")
+//    span.logo-circle
+//
+//    nav.navigation
+//        ul
+//            li
+//                a(hx-target="main" hx-get="/content_index" hx-swap='show:window:top' hx-push-url='/' href='/') Accueil
+//            li
+//                a(hx-target="main" hx-get="/content_approach" hx-push-url='/approach' hx-swap='show:window:top' href='/approach') Notre Approche
+//            li
+//                a(hx-target="main" hx-get="/content_workshops" hx-push-url='/workshops' hx-swap='show:window:top' href='/workshops') Ateliers
+//            li
+//                a(hx-target="main" hx-get="/content_about" hx-push-url='/about' hx-swap='show:window:top' href='/about') À propos
+//            li
+//                a(hx-target="main" hx-get="/content_contact" hx-push-url='/contact' hx-swap='show:window:top' href='/contact') Contact
+//            li
+//                a.ml-lg-32(hx-target="main" hx-get="/" hx-push-url='/' hx-swap='show:window:top' href='') English
+//            //li.big-scale.transition
+//            //    button(hx-target="main" hx-get="/content_inscription" hx-push-url='/inscription' hx-swap='show:window:top' href='/inscription') Inscription
+//// Path: src/views/header.pug
+
 div#hamburger
-    div
-    div
-    div
+  div
+  div
+  div
 
 div.menu
-    a.logo-link(hx-target="main" hx-get="/content_index" hx-swap='show:window:top' hx-push-url='/' href='/' aria-label="Logo de Wonderflow")
-        img(src='/img/svg/wonderflow.svg' width='160px' alt="Logo de Wonderflow")
-    span.logo-circle
+  a.logo-link(
+    hx-target="main"
+    hx-get="/en-ca/content_index"
+    hx-swap="show:window:top"
+    hx-push-url="/en-ca"
+    href="/en-ca"
+    aria-label="Wonderflow Logo"
+  )
+    img(src='/img/svg/wonderflow.svg', width='160px', alt='Wonderflow Logo')
+  span.logo-circle
 
-    nav.navigation
-        ul
-            li
-                a(hx-target="main" hx-get="/content_index" hx-swap='show:window:top' hx-push-url='/' href='/') Accueil
-            li
-                a(hx-target="main" hx-get="/content_approach" hx-push-url='/approach' hx-swap='show:window:top' href='/approach') Notre Approche
-            li
-                a(hx-target="main" hx-get="/content_workshops" hx-push-url='/workshops' hx-swap='show:window:top' href='/workshops') Ateliers
-            li
-                a(hx-target="main" hx-get="/content_about" hx-push-url='/about' hx-swap='show:window:top' href='/about') À propos
-            li
-                a(hx-target="main" hx-get="/content_contact" hx-push-url='/contact' hx-swap='show:window:top' href='/contact') Contact
-            li
-                a.ml-lg-32(hx-target="main" hx-get="/" hx-push-url='/' hx-swap='show:window:top' href='') English
-            //li.big-scale.transition
-            //    button(hx-target="main" hx-get="/content_inscription" hx-push-url='/inscription' hx-swap='show:window:top' href='/inscription') Inscription
-// Path: src/views/header.pug
+  nav.navigation
+    ul
+      li
+        a(
+          hx-target="main"
+          hx-get="/en-ca/content_index"
+          hx-swap="show:window:top"
+          hx-push-url="/en-ca"
+          href="/en-ca"
+        ) Home
+      li
+        a(
+          hx-target="main"
+          hx-get="/en-ca/content_approach"
+          hx-swap="show:window:top"
+          hx-push-url="/en-ca/approach"
+          href="/en-ca/approach"
+        ) Our Approach
+      li
+        a(
+          hx-target="main"
+          hx-get="/en-ca/content_workshops"
+          hx-swap="show:window:top"
+          hx-push-url="/en-ca/workshops"
+          href="/en-ca/workshops"
+        ) Workshops
+      li
+        a(
+          hx-target="main"
+          hx-get="/en-ca/content_about"
+          hx-swap="show:window:top"
+          hx-push-url="/en-ca/about"
+          href="/en-ca/about"
+        ) About
+      li
+        a(
+          hx-target="main"
+          hx-get="/en-ca/content_contact"
+          hx-swap="show:window:top"
+          hx-push-url="/en-ca/contact"
+          href="/en-ca/contact"
+        ) Contact
+      li
+        a.ml-lg-32(href="/fr-ca") Français

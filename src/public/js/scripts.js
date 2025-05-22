@@ -438,22 +438,70 @@ document.body.addEventListener('htmx:beforeSwap', (e) => {
 
 
 // Update meta data on htmx after swap
+// document.body.addEventListener('htmx:afterSwap', (e) => {
+//   if (e.detail.target.tagName === 'MAIN') {
+//     // Use the actual response URL to determine the content_ page
+//     const fullResponseUrl = e.detail.xhr?.responseURL;
+//
+//     if (!fullResponseUrl) return;
+//
+//     const url = new URL(fullResponseUrl);
+//     const lastPart = url.pathname.split('/').pop(); // e.g., "content_about"
+//
+//     // Extract the suffix after 'content_' or fallback to 'index'
+//     const metaKey = lastPart?.startsWith('content_')
+//       ? lastPart.replace('content_', '')
+//       : 'index';
+//
+//     fetch('/meta_' + metaKey)
+//       .then(res => res.text())
+//       .then(html => {
+//         const parser = new DOMParser();
+//         const doc = parser.parseFromString(`<head>${html}</head>`, 'text/html');
+//
+//         const newTitle = doc.querySelector('title');
+//         if (newTitle) document.title = newTitle.textContent;
+//
+//         const newDescription = doc.querySelector('meta[name="description"]');
+//         if (newDescription) {
+//           let metaDesc = document.querySelector('meta[name="description"]');
+//           if (!metaDesc) {
+//             metaDesc = document.createElement('meta');
+//             metaDesc.setAttribute('name', 'description');
+//             document.head.appendChild(metaDesc);
+//           }
+//           metaDesc.setAttribute('content', newDescription.getAttribute('content'));
+//         }
+//
+//         const newCanonical = doc.querySelector('link[rel="canonical"]');
+//         if (newCanonical) {
+//           let existing = document.querySelector('link[rel="canonical"]');
+//           if (!existing) {
+//             existing = document.createElement('link');
+//             existing.setAttribute('rel', 'canonical');
+//             document.head.appendChild(existing);
+//           }
+//           existing.setAttribute('href', newCanonical.getAttribute('href'));
+//         }
+//       })
+//       .catch(console.warn);
+//   }
+// });
+
 document.body.addEventListener('htmx:afterSwap', (e) => {
   if (e.detail.target.tagName === 'MAIN') {
-    // Use the actual response URL to determine the content_ page
     const fullResponseUrl = e.detail.xhr?.responseURL;
-
     if (!fullResponseUrl) return;
 
     const url = new URL(fullResponseUrl);
-    const lastPart = url.pathname.split('/').pop(); // e.g., "content_about"
-
-    // Extract the suffix after 'content_' or fallback to 'index'
+    const segments = url.pathname.split('/');
+    const locale = segments[1];
+    const lastPart = segments.pop();
     const metaKey = lastPart?.startsWith('content_')
       ? lastPart.replace('content_', '')
       : 'index';
 
-    fetch('/meta_' + metaKey)
+    fetch(`/${locale}/meta_${metaKey}`)
       .then(res => res.text())
       .then(html => {
         const parser = new DOMParser();
@@ -487,8 +535,6 @@ document.body.addEventListener('htmx:afterSwap', (e) => {
       .catch(console.warn);
   }
 });
-
-
 
 
 

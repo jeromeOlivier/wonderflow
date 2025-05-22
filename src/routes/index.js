@@ -1,54 +1,3 @@
-// // Purpose: Centralized route definitions for all GET and POST endpoints
-//
-// // ─── External Dependencies ─────────────────────────────────────────────────────
-// const express = require('express');
-// const router = express.Router();
-// const get = require('../handlers/get');
-// const post = require('../handlers/post');
-// const isEmail = require("../middleware/isEmail");
-//
-// // ─── Full Page Routes (Render layout with content injection) ───────────────────
-// router.get('/', get.index);
-// router.get('/about', get.about);
-// router.get('/approach', get.approach);
-// router.get('/blog', get.blog);
-// router.get('/contact', get.contact);
-// router.get('/policy', get.policy);
-// router.get('/workshops', get.workshops);
-// router.get('/daily', get.daily);
-// router.get('/inscription', get.inscription);
-// router.get('/success', get.success);
-//
-// // ─── HTMX Content-Only Routes (Partial swaps for <main>) ───────────────────────
-// router.get('/content_index', get.content_index);
-// router.get('/content_about', get.content_about);
-// router.get('/content_approach', get.content_approach);
-// router.get('/content_blog', get.content_blog);
-// router.get('/content_contact', get.content_contact);
-// router.get('/content_policy', get.content_policy);
-// router.get('/content_workshops', get.content_workshops);
-// router.get('/content_daily', get.content_daily);
-// // router.get('/content_inscription', get.content_inscription); // optional/unused
-//
-// // ─── HTMX Meta Tag Routes (Used to update <head> metadata) ─────────────────────
-// router.get('/meta_index', get.meta_index);
-// router.get('/meta_about', get.meta_about);
-// router.get('/meta_approach', get.meta_approach);
-// router.get('/meta_blog', get.meta_blog);
-// router.get('/meta_contact', get.meta_contact);
-// router.get('/meta_policy', get.meta_policy);
-// router.get('/meta_workshops', get.meta_workshops);
-// router.get('/meta_daily', get.meta_daily);
-// router.get('/meta_inscription', get.meta_inscription);
-// router.get('/meta_success', get.meta_success);
-//
-// // ─── Form Submission Routes (POST endpoints) ────────────────────────────────────
-// router.post('/newsletter', isEmail, post.newsletter);
-// router.post('/contact', isEmail, post.contact);
-// router.post('/checkout', isEmail, post.payment);
-//
-// module.exports = router;
-
 // Purpose: Centralized route definitions for all GET and POST endpoints with localized slugs
 
 const express = require('express');
@@ -57,7 +6,7 @@ const get = require('../handlers/get');
 const post = require('../handlers/post');
 const isEmail = require("../middleware/isEmail");
 
-// ─── Legacy Route Redirects (301) ────────────────────────────────────────────────
+// ─── Legacy Redirects ─────────────────────────────────────────────────────────
 router.get('/', (req, res) => res.redirect(301, '/fr-ca'));
 router.get('/about', (req, res) => res.redirect(301, '/fr-ca/a-propos'));
 router.get('/approach', (req, res) => res.redirect(301, '/fr-ca/approche'));
@@ -69,73 +18,39 @@ router.get('/daily', (req, res) => res.redirect(301, '/fr-ca/quotidien'));
 router.get('/inscription', (req, res) => res.redirect(301, '/fr-ca/inscription'));
 router.get('/success', (req, res) => res.redirect(301, '/fr-ca/succes'));
 
-// ─── French Slugs ─────────────────────────────────────────────────────────────
-router.get('/fr-ca', get.index);
-router.get('/fr-ca/a-propos', get.about);
-router.get('/fr-ca/approche', get.approach);
-router.get('/fr-ca/blog', get.blog);
-router.get('/fr-ca/contact', get.contact);
-router.get('/fr-ca/politique', get.policy);
-router.get('/fr-ca/ateliers', get.workshops);
-router.get('/fr-ca/quotidien', get.daily);
-router.get('/fr-ca/inscription', get.inscription);
-router.get('/fr-ca/succes', get.success);
+// ─── Localized Route Slugs ─────────────────────────────────────────────────────
+const localizedRoutes = [
+  ['index', '', ''],
+  ['about', 'a-propos', 'about'],
+  ['approach', 'approche', 'approach'],
+  ['blog', 'blog', 'blog'],
+  ['contact', 'contact', 'contact'],
+  ['policy', 'politique', 'policy'],
+  ['workshops', 'ateliers', 'workshops'],
+  ['daily', 'quotidien', 'daily'],
+  ['registration', 'inscription', 'registration'],
+  ['success', 'succes', 'success']
+];
 
-// ─── English Slugs ────────────────────────────────────────────────────────────
-router.get('/en-ca', get.index);
-router.get('/en-ca/about', get.about);
-router.get('/en-ca/approach', get.approach);
-router.get('/en-ca/blog', get.blog);
-router.get('/en-ca/contact', get.contact);
-router.get('/en-ca/policy', get.policy);
-router.get('/en-ca/workshops', get.workshops);
-router.get('/en-ca/daily', get.daily);
-router.get('/en-ca/inscription', get.inscription);
-router.get('/en-ca/success', get.success);
+// ─── Full Layout Routes ────────────────────────────────────────────────────────
+localizedRoutes.forEach(([key, frSlug, enSlug]) => {
+  router.get('/:locale(fr-ca|en-ca)/' + frSlug, get[key]);
+  if (frSlug !== enSlug) {
+    router.get('/:locale(fr-ca|en-ca)/' + enSlug, get[key]);
+  }
+});
 
-// ─── HTMX Content-Only Routes ─────────────────────────────────────────────────
-router.get('/fr-ca/content_index', get.content_index);
-router.get('/en-ca/content_index', get.content_index);
-router.get('/fr-ca/content_about', get.content_about);
-router.get('/en-ca/content_about', get.content_about);
-router.get('/fr-ca/content_approach', get.content_approach);
-router.get('/en-ca/content_approach', get.content_approach);
-router.get('/fr-ca/content_blog', get.content_blog);
-router.get('/en-ca/content_blog', get.content_blog);
-router.get('/fr-ca/content_contact', get.content_contact);
-router.get('/en-ca/content_contact', get.content_contact);
-router.get('/fr-ca/content_policy', get.content_policy);
-router.get('/en-ca/content_policy', get.content_policy);
-router.get('/fr-ca/content_workshops', get.content_workshops);
-router.get('/en-ca/content_workshops', get.content_workshops);
-router.get('/fr-ca/content_daily', get.content_daily);
-router.get('/en-ca/content_daily', get.content_daily);
-router.get('/fr-ca/content_inscription', get.content_inscription);
-router.get('/en-ca/content_inscription', get.content_inscription);
+// ─── HTMX Content-Only Routes ──────────────────────────────────────────────────
+localizedRoutes.forEach(([key]) => {
+  router.get('/:locale(fr-ca|en-ca)/content_' + key, get[`content_${key}`]);
+});
 
-// ─── HTMX Meta Tag Routes ─────────────────────────────────────────────────────
-router.get('/fr-ca/meta_index', get.meta_index);
-router.get('/en-ca/meta_index', get.meta_index);
-router.get('/fr-ca/meta_about', get.meta_about);
-router.get('/en-ca/meta_about', get.meta_about);
-router.get('/fr-ca/meta_approach', get.meta_approach);
-router.get('/en-ca/meta_approach', get.meta_approach);
-router.get('/fr-ca/meta_blog', get.meta_blog);
-router.get('/en-ca/meta_blog', get.meta_blog);
-router.get('/fr-ca/meta_contact', get.meta_contact);
-router.get('/en-ca/meta_contact', get.meta_contact);
-router.get('/fr-ca/meta_policy', get.meta_policy);
-router.get('/en-ca/meta_policy', get.meta_policy);
-router.get('/fr-ca/meta_workshops', get.meta_workshops);
-router.get('/en-ca/meta_workshops', get.meta_workshops);
-router.get('/fr-ca/meta_daily', get.meta_daily);
-router.get('/en-ca/meta_daily', get.meta_daily);
-router.get('/fr-ca/meta_inscription', get.meta_inscription);
-router.get('/en-ca/meta_inscription', get.meta_inscription);
-router.get('/fr-ca/meta_success', get.meta_success);
-router.get('/en-ca/meta_success', get.meta_success);
+// ─── HTMX Meta Routes ──────────────────────────────────────────────────────────
+localizedRoutes.forEach(([key]) => {
+  router.get('/:locale(fr-ca|en-ca)/meta_' + key, get[`meta_${key}`]);
+});
 
-// ─── Form Submission Routes ───────────────────────────────────────────────────
+// ─── Form Submission Routes ────────────────────────────────────────────────────
 router.post('/newsletter', isEmail, post.newsletter);
 router.post('/contact', isEmail, post.contact);
 router.post('/checkout', isEmail, post.payment);
