@@ -23,7 +23,13 @@ div.footer-elements.container.mt-2
 
     div.mb-1
         p.text-center.block.mt-0
-            a.link(href="/policy", target='_blank') Politique de confidentialité
+            a.link(
+                hx-target="main"
+                hx-get="/fr-ca/content_policy"
+                hx-swap="show:window:top"
+                hx-push-url="/fr-ca/policy"
+                href="/fr-ca/policy"
+            ) Politique de confidentialité
         p.text-center.block.mt-2
             | &copy;&nbsp;
             span 2023 -&nbsp;

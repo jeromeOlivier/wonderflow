@@ -112,3 +112,32 @@ app.use("/", routes);
 // Initialize server
 const port = process.env.PORT || "3000";
 app.listen(port, "0.0.0.0", () => console.log(`Server running on port ${ port }`));
+
+// 404 Not Found
+app.use((req, res) => {
+  const locale = req.path.startsWith('/en-ca') ? 'en-ca' : 'fr-ca';
+  res.status(404).render('layout', {
+    status: 404,
+    message: 'Page not found',
+    locale,
+    content: 'error',
+    viewPath: `${locale}/error`,
+    headerPath: `${locale}/header`,
+    footerPath: `${locale}/footer`
+  });
+});
+
+// 500 Internal Server Error
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  const locale = req.path.startsWith('/en-ca') ? 'en-ca' : 'fr-ca';
+  res.status(500).render('layout', {
+    status: 500,
+    message: 'Something went wrong',
+    locale,
+    content: 'error',
+    viewPath: `${locale}/error`,
+    headerPath: `${locale}/header`,
+    footerPath: `${locale}/footer`
+  });
+});

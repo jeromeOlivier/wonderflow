@@ -28,6 +28,8 @@ html(lang=locale)
           include fr-ca/registration
         else if content === 'success'
           include fr-ca/success
+        else if content === 'error'
+          include fr-ca/error
         else
           include fr-ca/index
       else if locale === 'en-ca'
@@ -49,6 +51,8 @@ html(lang=locale)
           include en-ca/registration
         else if content === 'success'
           include en-ca/success
+        else if content === 'error'
+          include en-ca/error
         else
           include en-ca/index
     div.cursor-circle

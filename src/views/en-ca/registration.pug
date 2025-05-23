@@ -1,27 +1,26 @@
 div.full-width.yellow-background
     div.container.mt-5
-        h1 Inscription - Créativité au quotidien
+        h1 Registration – Everyday Creativity
 
-        h2 17 novembre 2023
+        h2 November 17, 2023
         div.center
             img(src='./img/webp/inscription.webp').workshop.rounded-corner
         form(method='post' action='/checkout')#inscription
-            label.mt-2.z1.white-dot(for='first_name') Prénom:
-            input#first_name.z1(type='text' name='first_name' placeholder='Votre prénom (requis)' required)
-            label.mt-2.z1.white-dot(for='last_name') Nom de famille:
-            input#last_name.z1(type='text' name='last_name' placeholder='Votre nom (requis)' required)
-            label.mt-2.z1.white-dot(for='email') Courriel:
-            input#email.z1(type='email' name='email' placeholder='Votre courriel (requis)' required)
-            label.mt-2(for='tel') Téléphone:
-            input#tel(type='tel' name='tel' placeholder='Votre téléphone')
-            label.mt-2(for='company') Entreprise:
-            input#company(type='text' name='company' placeholder='Votre enterprise')
-            label.mt-2(for='position') Fonction:
-            input#position(type='text' name='position' placeholder='Votre fonction')
-            label.mt-2(for='message') Question ou commentaire:
-            textarea#message(name='message' rows='5' placeholder='(allergies ou particularités alimentaires, autre)')
-            button.btn.btn-primary(type='submit').big-scale.transition.mt-2.mb-1 Enregistrer
+            label.mt-2.z1.white-dot(for='first_name') First Name:
+            input#first_name.z1(type='text' name='first_name' placeholder='Your first name (required)' required)
+            label.mt-2.z1.white-dot(for='last_name') Last Name:
+            input#last_name.z1(type='text' name='last_name' placeholder='Your last name (required)' required)
+            label.mt-2.z1.white-dot(for='email') Email:
+            input#email.z1(type='email' name='email' placeholder='Your email (required)' required)
+            label.mt-2(for='tel') Phone:
+            input#tel(type='tel' name='tel' placeholder='Your phone number')
+            label.mt-2(for='company') Company:
+            input#company(type='text' name='company' placeholder='Your company')
+            label.mt-2(for='position') Position:
+            input#position(type='text' name='position' placeholder='Your position')
+            label.mt-2(for='message') Question or comment:
+            textarea#message(name='message' rows='5' placeholder='(allergies or dietary specifics, other)')
+            button.btn.btn-primary(type='submit').big-scale.transition.mt-2.mb-1 Register
 div.full-width
     div.wave.mb-3
         img(src='/img/svg/curve_down_yellow.svg' width='100%' height='100%' alt='' aria-hidden='true')
-// Path: src/views/form.pug
