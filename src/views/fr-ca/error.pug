@@ -1,4 +1,17 @@
-div.container.mt-5
-  h1 Erreur #{status}
-  p #{message === 'Page not found' ? 'Page non trouvée' : 'Une erreur est survenue'}
-  a.btn.mt-3(href='/fr-ca') ← Retour à l’accueil
+div.container.container-error.mt-5
+  h1
+    if status === 404
+      | Page non trouvée
+    else if status === 500
+      | Une erreur est survenue
+    else
+      | Erreur #{status}
+  p
+    if status === 404
+      | La page que vous cherchez n’existe pas ou a été déplacée.
+    else if status === 500
+      | Une erreur inattendue s’est produite. Veuillez réessayer plus tard.
+    else
+      | Quelque chose s’est mal passé.
+  div.mt-2
+    a.link.mt-3(href='/fr-ca') Retour à l’accueil

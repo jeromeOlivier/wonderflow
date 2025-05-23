@@ -166,13 +166,13 @@ body {
     display          : flex;
     flex-direction   : column;
     height           : 100vh;
-    justify-content  : space-between;
 }
 
 main {
     align-items    : center;
     display        : flex;
     flex-direction : column;
+    flex: 1;
 }
 
 /*.container {*/
@@ -669,6 +669,15 @@ textarea {
     position   : relative;
     /*transition : height 0.5s ease-out;*/
     width      : 100%;
+}
+
+.container-error {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 .full-width {
