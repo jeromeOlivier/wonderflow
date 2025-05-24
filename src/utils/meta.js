@@ -39,6 +39,10 @@ module.exports = {
     success: {
       title: "Inscription réussie - Wonderflow",
       description: "Merci pour votre inscription ! Nous sommes impatients de vous accueillir dans nos ateliers."
+    },
+    error: {
+      title: "Page non trouvée - Wonderflow",
+      description: "Désolé, la page que vous cherchez n'existe pas ou a été déplacée."
     }
   },
   "en-ca": {
@@ -81,6 +85,10 @@ module.exports = {
     success: {
       title: "Successful Registration - Wonderflow",
       description: "Thank you for signing up! We look forward to welcoming you to our workshops."
+    },
+    error: {
+      title: "Page Not Found - Wonderflow",
+      description: "Sorry, the page you're looking for doesn't exist or has been moved."
     }
   }
 };

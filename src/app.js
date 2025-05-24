@@ -11,6 +11,7 @@
 // EXTERNAL DEPENDENCIES
 const express = require("express");
 const path = require("path");
+const metaData = require('./utils/meta');
 require("dotenv").config();
 const helmet = require("helmet");
 const cookieParser = require("cookie-parser");
@@ -123,7 +124,8 @@ app.use((req, res) => {
     content: 'error',
     viewPath: `${locale}/error`,
     headerPath: `${locale}/header`,
-    footerPath: `${locale}/footer`
+    footerPath: `${locale}/footer`,
+    meta: metaData[locale]['error']
   });
 });
 
@@ -138,7 +140,8 @@ app.use((err, req, res, next) => {
     content: 'error',
     viewPath: `${locale}/error`,
     headerPath: `${locale}/header`,
-    footerPath: `${locale}/footer`
+    footerPath: `${locale}/footer`,
+    meta: metaData[locale]['error']
   });
 });
 

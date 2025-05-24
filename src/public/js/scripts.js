@@ -341,6 +341,7 @@ function initializeCanvas() {
     animateCanvas();
 }
 
+// TODO: adjust video src to get the path from pug dynamically or have it here depending on the current language, - video src and poster img
 function initializeVideo() {
     const video = document.getElementById('hero-logo-video');
     if (video) {
@@ -408,36 +409,39 @@ document.body.addEventListener('htmx:beforeSwap', (e) => {
   const trigger = e.detail.requestConfig.triggeringEvent?.target;
   const cleanUrl = trigger?.getAttribute('hx-push-url');
 
-  e.preventDefault();
+    e.preventDefault();
 
-  // View transition begins
-  document.startViewTransition(() => {
-    // DOM swap
-    e.detail.target.innerHTML = html;
+    // View transition begins
+    document.startViewTransition(() => {
+        // DOM swap
+        e.detail.target.innerHTML = html;
 
-    // Rehydrate page logic (custom scripts, etc.)
-    rehydratePage(e.detail.target);
+        // Re-initialize HTMX behavior for new elements
+        htmx.process(e.detail.target); // ← this is the missing piece
 
-    // Dispatch htmx:afterSwap manually to trigger metadata updates
-    const afterSwapEvent = new CustomEvent('htmx:afterSwap', {
-      detail: {
-        target: e.detail.target,
-        xhr: e.detail.xhr,
-        requestConfig: e.detail.requestConfig
-      },
-      bubbles: true
+        // Rehydrate your custom JS logic
+        rehydratePage(e.detail.target);
+
+        // Dispatch htmx:afterSwap manually
+        const afterSwapEvent = new CustomEvent('htmx:afterSwap', {
+            detail: {
+                target: e.detail.target,
+                xhr: e.detail.xhr,
+                requestConfig: e.detail.requestConfig
+            },
+            bubbles: true
+        });
+        e.detail.target.dispatchEvent(afterSwapEvent);
+
+        requestAnimationFrame(() => {
+            if (cleanUrl) history.pushState({}, '', cleanUrl);
+        });
     });
-    e.detail.target.dispatchEvent(afterSwapEvent);
-
-    // Delay pushState to avoid interfering with transition rendering
-    requestAnimationFrame(() => {
-      if (cleanUrl) history.pushState({}, '', cleanUrl);
-    });
-  });
 });
 
 document.body.addEventListener('htmx:afterSwap', (e) => {
   if (e.detail.target.tagName === 'MAIN') {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     const fullResponseUrl = e.detail.xhr?.responseURL;
     if (!fullResponseUrl) return;
 
