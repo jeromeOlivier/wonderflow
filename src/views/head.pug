@@ -1,6 +1,6 @@
 - const pageTitle = meta?.title || 'Wonderflow'
 - const pageDescription = meta?.description || 'Wonderflow – Creative development workshops'
-- const fullUrl = (typeof req !== 'undefined' && req.url) ? 'https://wonderflow.ca' + req.url : 'https://wonderflow.ca/'
+- const fullUrl = BASE_URL + (req?.url || '/')
 
 title #{pageTitle}
 meta(charset='utf-8')

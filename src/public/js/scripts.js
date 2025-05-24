@@ -442,16 +442,25 @@ document.body.addEventListener('htmx:beforeSwap', (e) => {
 document.body.addEventListener('htmx:afterSwap', (e) => {
   if (e.detail.target.tagName === 'MAIN') {
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    const fullResponseUrl = e.detail.xhr?.responseURL;
-    if (!fullResponseUrl) return;
 
-    const url = new URL(fullResponseUrl);
+    const triggeringElement = e.detail.requestConfig?.triggeringEvent?.target;
+    const pushUrl = triggeringElement?.getAttribute("hx-push-url");
+    const rawUrl = pushUrl || e.detail.xhr?.responseURL || location.href;
+
+    const url = new URL(rawUrl, location.origin);
     const segments = url.pathname.split('/');
     const locale = segments[1];
-    const lastPart = segments.pop();
-    const metaKey = lastPart?.startsWith('content_')
-      ? lastPart.replace('content_', '')
-      : 'index';
+    const lastSegment = segments[segments.length - 1] || '';
+    const metaKey =
+        lastSegment.startsWith('content_')
+            ? lastSegment.replace('content_', '')
+            : (lastSegment === '' || lastSegment === locale) ? 'index' : lastSegment.replace(/-/g, '_');
+
+    console.log("🔍 HTMX Meta Update Debug");
+    console.log("Effective URL:", url.href);
+    console.log("Locale:", locale);
+    console.log("metaKey:", metaKey);
+    console.log("Meta fetch URL:", `/${locale}/meta_${metaKey}`);
 
     fetch(`/${locale}/meta_${metaKey}`)
       .then(res => res.text())
@@ -487,6 +496,8 @@ document.body.addEventListener('htmx:afterSwap', (e) => {
       .catch(console.warn);
   }
 });
+
+
 
 // Handle browser back/forward to reload HTMX dynamic content
 window.addEventListener('popstate', function () {

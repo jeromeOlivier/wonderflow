@@ -107,6 +107,11 @@ app.use(
 // Serve your app's public assets
 app.use(express.static(path.join(__dirname, "public")));
 
+app.use((req, res, next) => {
+  res.locals.BASE_URL = process.env.BASE_URL || 'http://localhost:3000';
+  next();
+});
+
 // Routes
 app.use("/", routes);
 

@@ -1,6 +1,6 @@
 div.container.mt-5
     h1 Contact
-    form(hx-post='/contact' hx-target='main' hx-swap='outerHTML')
+    form(hx-post='/en-ca/contact' hx-target='main' hx-swap='innerHTML' hx-push-url='/en-ca/contact-thanks')
         label.mt-2.z1.yellow-dot(for='name') Name:
         input#name.z1(type='text' name='name' placeholder='Your name (required)' required='true')
         label.mt-2.z1.yellow-dot(for='email') Email:

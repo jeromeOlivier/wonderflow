@@ -21,6 +21,7 @@ const localizedRoutes = [
   ['approach', 'approche', 'approach'],
   ['workshops', 'ateliers', 'workshops'],
   ['contact', 'contact', 'contact'],
+  ['contact_thanks', 'merci-contact', 'contact-thanks'],
   ['policy', 'politique', 'policy']
 ];
 
@@ -43,8 +44,8 @@ localizedRoutes.forEach(([key]) => {
 });
 
 // ─── Form Submission Routes ────────────────────────────────────────────────────
-router.post('/newsletter', isEmail, post.newsletter);
-router.post('/contact', isEmail, post.contact);
-router.post('/checkout', isEmail, post.payment);
+router.post('/:locale(fr-ca|en-ca)/contact', isEmail, post.contact);
+// router.post('/:locale(fr-ca|en-ca)/newsletter', isEmail, post.newsletter);
+// router.post('/:locale(fr-ca|en-ca)/checkout', isEmail, post.payment);
 
 module.exports = router;

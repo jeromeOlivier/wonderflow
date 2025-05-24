@@ -20,6 +20,10 @@ module.exports = {
       title: "Contact - Wonderflow",
       description: "Prenez contact avec nous pour en savoir plus sur nos offres d’ateliers et formations."
     },
+    "contact-thanks": {
+      title: "Merci pour votre message - Wonderflow",
+      description: "Nous avons bien reçu votre message et vous répondrons sous peu."
+    },
     policy: {
       title: "Politique de confidentialité - Wonderflow",
       description: "Consultez notre politique de confidentialité concernant les données personnelles collectées."
@@ -65,6 +69,10 @@ module.exports = {
     contact: {
       title: "Contact - Wonderflow",
       description: "Get in touch to learn more about our workshop and training offerings."
+    },
+    "contact-thanks": {
+      title: "Thank You for Your Message - Wonderflow",
+      description: "We have received your message and will get back to you shortly."
     },
     policy: {
       title: "Privacy Policy - Wonderflow",

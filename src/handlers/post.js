@@ -3,6 +3,8 @@ const nodemailer = require("nodemailer");
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 const { workshops } = require("./get");
 const data = require("../workshops.json");
+const { getLocale } = require("./get");
+const metaData = require("../utils/meta");
 
 /**
  * Function to add email address to a Mailchimp list.
@@ -47,13 +49,23 @@ const newsletter = asyncHandler(async(req, res) => {
 
 // email transporter setup
 const transporter = nodemailer.createTransport({
-    host: process.env.MAIL_SMTP,
-    port: process.env.MAIL_PORT,
-    secure: process.env.MAIL_SECURE === "true",
-    auth: {
-        user: process.env.EMAIL, pass: process.env.EMAIL_PASSWORD,
-    },
+  host: process.env.MAIL_SMTP,
+  port: Number(process.env.MAIL_PORT),
+  secure: process.env.MAIL_SECURE === "true",
+  auth: {
+    user: process.env.EMAIL_FROM,
+    pass: process.env.EMAIL_PASSWORD,
+  },
 });
+
+transporter.verify((error, success) => {
+  if (error) {
+    console.error("❌ SMTP login failed:", error);
+  } else {
+    console.log("✅ SMTP login successful!");
+  }
+});
+
 
 /**
  * Handles the contact form submission and sends an email.
@@ -87,31 +99,50 @@ const transporter = nodemailer.createTransport({
 // };
 
 const contact = async (req, res, next) => {
-    const {name, email, message} = req.body;
+  const locale = getLocale(req);
+  const { name, email, message } = req.body;
 
-    const mailOptions = {
-        from: process.env.EMAIL,
-        to: process.env.EMAIL,
-        subject: `New message from ${name} (${email})`,
-        text: `
-        From: ${name}
-        Email: ${email}
-        
-        Message:
-        ${message}
-        `,
-        priority: "high",
-    };
+  const mailOptions = {
+    from: process.env.EMAIL_FROM,
+    to: process.env.EMAIL_TO,
+    subject: `New message from ${name} (${email})`,
+    text: `
+From: ${name}
+Email: ${email}
 
-    try {
-        await transporter.sendMail(mailOptions);
-        console.log("Email sent successfully");
-        res.render("contact-thanks");
-    } catch (error) {
-        console.error("Failed to send email:", error);
-        res.status(500).send("An error occurred while sending your message.");
+Message:
+${message}
+    `,
+    priority: "high",
+  };
+
+  try {
+    await transporter.sendMail(mailOptions);
+    console.log("✅ Email sent successfully");
+
+    const isSubscribed = req.cookies.isSubscribed === "true";
+
+    if (req.get("HX-Request")) {
+      // For HTMX requests, return only the main content (no layout)
+      return res.render(`${locale}/contact-thanks`);
     }
+
+    // For normal full-page load
+    return res.render("layout", {
+      content: "contact-thanks",
+      locale,
+      isSubscribed,
+      meta: metaData[locale]["contact-thanks"],
+      req,
+      viewPath: `${locale}/contact-thanks`
+    });
+
+  } catch (error) {
+    console.error("❌ Failed to send email:", error);
+    return res.status(500).send("An error occurred while sending your message.");
+  }
 };
+
 
 
 const payment = async(req, res, next) => {
