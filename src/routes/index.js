@@ -13,7 +13,6 @@ router.get('/approach', (req, res) => res.redirect(301, '/fr-ca/approche'));
 router.get('/contact', (req, res) => res.redirect(301, '/fr-ca/contact'));
 router.get('/policy', (req, res) => res.redirect(301, '/fr-ca/politique'));
 router.get('/workshops', (req, res) => res.redirect(301, '/fr-ca/ateliers'));
-router.get('/success', (req, res) => res.redirect(301, '/fr-ca/succes'));
 
 // ─── Localized Route Slugs ─────────────────────────────────────────────────────
 const localizedRoutes = [
@@ -22,8 +21,7 @@ const localizedRoutes = [
   ['approach', 'approche', 'approach'],
   ['workshops', 'ateliers', 'workshops'],
   ['contact', 'contact', 'contact'],
-  ['policy', 'politique', 'policy'],
-  ['success', 'succes', 'success']
+  ['policy', 'politique', 'policy']
 ];
 
 // ─── Full Layout Routes ────────────────────────────────────────────────────────

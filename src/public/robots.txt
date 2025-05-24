@@ -8,7 +8,6 @@ Allow: /fr-ca/approche
 Allow: /fr-ca/ateliers
 Allow: /fr-ca/contact
 Allow: /fr-ca/politique
-Allow: /fr-ca/succes
 
 Allow: /en-ca$
 Allow: /en-ca/about
@@ -16,7 +15,6 @@ Allow: /en-ca/approach
 Allow: /en-ca/workshops
 Allow: /en-ca/contact
 Allow: /en-ca/policy
-Allow: /en-ca/success
 
 # Block everything else
 Disallow: /
