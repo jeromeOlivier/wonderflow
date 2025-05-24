@@ -1,13 +1,14 @@
 # robots.txt for https://wonderflow.ca
 
 User-agent: *
-# Allow only these 6 canonical routes per language
+# Allow only the 6 main routes + success (per locale)
 Allow: /fr-ca$
 Allow: /fr-ca/a-propos
 Allow: /fr-ca/approche
 Allow: /fr-ca/ateliers
 Allow: /fr-ca/contact
 Allow: /fr-ca/politique
+Allow: /fr-ca/succes
 
 Allow: /en-ca$
 Allow: /en-ca/about
@@ -15,10 +16,15 @@ Allow: /en-ca/approach
 Allow: /en-ca/workshops
 Allow: /en-ca/contact
 Allow: /en-ca/policy
+Allow: /en-ca/success
 
-# Disallow everything else
+# Block everything else
 Disallow: /
 
-# Let crawlers know where the sitemap is
-Sitemap: https://wonderflow.ca/sitemap.xml
+# Also block HTMX fragments and metadata endpoints
+Disallow: /fr-ca/content_
+Disallow: /en-ca/content_
+Disallow: /fr-ca/meta_
+Disallow: /en-ca/meta_
 
+Sitemap: https://wonderflow.ca/sitemap.xml

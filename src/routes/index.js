@@ -10,12 +10,9 @@ const isEmail = require("../middleware/isEmail");
 router.get('/', (req, res) => res.redirect(301, '/fr-ca'));
 router.get('/about', (req, res) => res.redirect(301, '/fr-ca/a-propos'));
 router.get('/approach', (req, res) => res.redirect(301, '/fr-ca/approche'));
-router.get('/blog', (req, res) => res.redirect(301, '/fr-ca/blog'));
 router.get('/contact', (req, res) => res.redirect(301, '/fr-ca/contact'));
 router.get('/policy', (req, res) => res.redirect(301, '/fr-ca/politique'));
 router.get('/workshops', (req, res) => res.redirect(301, '/fr-ca/ateliers'));
-router.get('/daily', (req, res) => res.redirect(301, '/fr-ca/quotidien'));
-router.get('/inscription', (req, res) => res.redirect(301, '/fr-ca/inscription'));
 router.get('/success', (req, res) => res.redirect(301, '/fr-ca/succes'));
 
 // ─── Localized Route Slugs ─────────────────────────────────────────────────────
@@ -23,12 +20,9 @@ const localizedRoutes = [
   ['index', '', ''],
   ['about', 'a-propos', 'about'],
   ['approach', 'approche', 'approach'],
-  ['blog', 'blog', 'blog'],
+  ['workshops', 'ateliers', 'workshops'],
   ['contact', 'contact', 'contact'],
   ['policy', 'politique', 'policy'],
-  ['workshops', 'ateliers', 'workshops'],
-  ['daily', 'quotidien', 'daily'],
-  ['registration', 'inscription', 'registration'],
   ['success', 'succes', 'success']
 ];
 
