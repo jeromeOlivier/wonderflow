@@ -49,12 +49,12 @@ const newsletter = asyncHandler(async(req, res) => {
 
 // email transporter setup
 const transporter = nodemailer.createTransport({
-  host: process.env.MAIL_SMTP,
-  port: Number(process.env.MAIL_PORT),
-  secure: process.env.MAIL_SECURE === "true",
+  host: process.env.CONTACT_MAIL_SMTP,
+  port: Number(process.env.CONTACT_MAIL_PORT),
+  secure: process.env.CONTACT_MAIL_SECURE === "true",
   auth: {
-    user: process.env.EMAIL_FROM,
-    pass: process.env.EMAIL_PASSWORD,
+    user: process.env.CONTACT_EMAIL_FROM,
+    pass: process.env.CONTACT_EMAIL_PASSWORD,
   },
 });
 
@@ -96,8 +96,8 @@ const contact = async (req, res, next) => {
   }
 
   const mailOptions = {
-    from: process.env.EMAIL_FROM,
-    to: process.env.EMAIL_TO,
+    from: process.env.CONTACT_EMAIL_FROM,
+    to: process.env.CONTACT_EMAIL_TO,
     subject: `New message from ${name} (${email})`,
     text: `
     From: ${name}
