@@ -159,6 +159,10 @@
     padding-top : 3rem;
 }
 
+.pb-2 {
+    padding-bottom : 2rem;
+}
+
 /* defaults & resets */
 * {
     box-sizing  : border-box;
