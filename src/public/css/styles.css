@@ -968,6 +968,7 @@ textarea {
     margin-right  : 2rem;
     shape-outside : circle(50%);
     width         : clamp(176px, 47vmin, 360px);
+    height        : auto;
 }
 
 .follow {
