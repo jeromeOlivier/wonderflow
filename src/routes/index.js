@@ -21,7 +21,7 @@ const localizedRoutes = [
   ['approach', 'approche', 'approach'],
   ['workshops', 'ateliers', 'workshops'],
   ['contact', 'contact', 'contact'],
-  ['contact_thanks', 'merci-contact', 'contact-thanks'],
+  ['contact_thanks', 'contact-merci', 'contact-thanks'],
   ['policy', 'politique', 'policy']
 ];
 

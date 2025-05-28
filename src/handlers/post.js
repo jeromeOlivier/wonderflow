@@ -60,65 +60,58 @@ const transporter = nodemailer.createTransport({
 
 transporter.verify((error, success) => {
   if (error) {
-    console.error("❌ SMTP login failed:", error);
+    console.error("SMTP login failed:", error);
   } else {
-    console.log("✅ SMTP login successful!");
+    console.log("SMTP login successful!");
   }
 });
 
 
 /**
- * Handles the contact form submission and sends an email.
+ * Handles the contact form submission by validating input, sending an email,
+ * and rendering the appropriate response (full-page or HTMX partial).
  *
- * @param {object} req - The request object.
- * @param {object} res - The response object.
- * @param {function} next - The next middleware function.
- * @returns {Promise<void>} - A promise that resolves when the email has been
- *     sent.
+ * @async
+ * @function contact
+ * @param {import('express').Request} req - Express request object, expected to contain
+ *        `name`, `email`, and `message` in `req.body`, and optionally a `isSubscribed` cookie.
+ * @param {import('express').Response} res - Express response object used to send the HTTP response.
+ * @param {import('express').NextFunction} next - Express next middleware function (not used in this handler).
+ * @returns {Promise<void>} A promise that resolves after handling the request.
+ *
+ * @throws {400} If required fields (`name`, `email`, `message`) are missing.
+ * @throws {500} If an error occurs while sending the email.
+ *
+ * Renders a "contact-thanks" view:
+ * - If the request is an HTMX request, renders only the main content.
+ * - Otherwise, renders the full layout including metadata and subscription state.
  */
-// const contact = async(req, res, next) => {
-//     const { email, message } = req.body;
-//     const mailOptions = {
-//         from: process.env.EMAIL,
-//         to: process.env.EMAIL,
-//         subject: `message from: ${ email }`,
-//         text: `
-//         from: ${ email }
-//         message: ${ message }
-//         `,
-//         priority: "high",
-//     };
-//     await transporter.sendMail(mailOptions, (error, info) => {
-//         if (error) {
-//             console.log(error);
-//         } else {
-//             console.log("Email sent: " + info.response);
-//             res.render("contact-thanks");
-//         }
-//     });
-// };
 
 const contact = async (req, res, next) => {
   const locale = getLocale(req);
   const { name, email, message } = req.body;
+
+   if (!email || !message || !name) {
+    return res.status(400).send("Missing required fields");
+  }
 
   const mailOptions = {
     from: process.env.EMAIL_FROM,
     to: process.env.EMAIL_TO,
     subject: `New message from ${name} (${email})`,
     text: `
-From: ${name}
-Email: ${email}
-
-Message:
-${message}
-    `,
+    From: ${name}
+    Email: ${email}
+    
+    Message:
+    ${message}
+        `,
     priority: "high",
   };
 
   try {
     await transporter.sendMail(mailOptions);
-    console.log("✅ Email sent successfully");
+    console.log("Email sent successfully");
 
     const isSubscribed = req.cookies.isSubscribed === "true";
 
@@ -138,11 +131,10 @@ ${message}
     });
 
   } catch (error) {
-    console.error("❌ Failed to send email:", error);
+    console.error("Failed to send email:", error);
     return res.status(500).send("An error occurred while sending your message.");
   }
 };
-
 
 
 const payment = async(req, res, next) => {

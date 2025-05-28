@@ -6,23 +6,13 @@ div.hero-container
             h2.hero-h2 Nos ateliers expérientiels sont conçus sur mesure pour renforcer un leadership authentique et encourager la collaboration au sein des équipes.
         div#hero-logo-container
             img#hero-logo-contour(src='/img/svg/logo-contour.svg' alt='logo contour wonderflow')
-            video#hero-logo-video(autoplay muted loop playsinline preload="none" poster="/img/webp/logo-square-720.webp" aria-label="Animation du logo Wonderflow suivie d'un bref aperçu des ateliers")
-            //video#hero-logo-video(autoplay muted loop playsinline)
-                source(src="video/wonderflow-hero-video-3sec.mp4" type="video/mp4")
+            video#hero-logo-video(autoplay muted loop playsinline poster="/img/webp/logo-square-fr-720.webp" aria-label="Animation du logo Wonderflow suivie d'un bref aperçu des ateliers")
+                source(src="/video/hero-video-fr-3s.mp4" type="video/mp4")
     div.wave
         img(src='/img/svg/wave.svg' alt='' aria-hidden='true').down2px
 div.container
-    //p.bold La reconnexion à soi est essentielle. Elle favorise la créativité, véritable clé de survie dans notre monde moderne. Le Forum économique mondial l'a d'ailleurs classée parmi les compétences les plus recherchées.
-
-    //h2.mt-3 Wonderflow c'est quoi?
-    //    p Des ateliers ludiques et originaux pour renforcer votre posture créative dans votre milieu professionnel.
-    //    p L’approche s'appuie sur la connaissance des besoins actuels de l'entreprise, les découvertes de la neuroscience et des techniques de créativité éprouvées depuis des siècles.
-
-
-
-
     div.banner-list-container
-        img(src='/img/webp/people-square-1000.webp', alt='Participants parlants').about-disk
+        img(src='/img/webp/people-square-1000.webp', alt='Participants parlants', loading='lazy', width='360', height='360').about-disk
         h2.follow.mt-3.mb-3 Vous vivez l'un de ces défis?
         div.mb-1
         p.bullet.follow Des équipes en
@@ -49,45 +39,17 @@ div.container
     button.follow(type='button' hx-target="main" hx-get="/fr-ca/content_contact" hx-push-url='/fr-ca/contact' hx-swap='show:window:top').transition.mt-2
         | Contactez-nous
         <svg width="18px" height="100%" viewBox="0 0 12 11" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><path d="M6.754,2.247l0,0.001c0,-0 1.4,0.591 2.52,1.461c0.339,0.264 0.653,0.552 0.88,0.862c0.161,0.219 0.282,0.443 0.282,0.68c0,0.237 -0.121,0.461 -0.282,0.681c-0.227,0.309 -0.541,0.598 -0.88,0.862c-1.12,0.869 -2.52,1.461 -2.52,1.461c-0.394,0.168 -0.579,0.624 -0.411,1.018c0.167,0.394 0.623,0.578 1.018,0.411l0,-0c0,-0 2.184,-0.933 3.497,-2.21c0.69,-0.672 1.132,-1.449 1.132,-2.223c-0,-0.773 -0.442,-1.55 -1.132,-2.222c-1.313,-1.277 -3.497,-2.211 -3.497,-2.211l-0,0c-0.395,-0.167 -0.851,0.017 -1.018,0.412c-0.168,0.394 0.017,0.85 0.411,1.017Z" "/><g><path d="M7.284,6.236c0.551,-0 0.999,-0.441 0.999,-0.985c-0,-0.544 -0.448,-0.985 -0.999,-0.985c-0.552,0 -0.999,0.441 -0.999,0.985c-0,0.544 0.447,0.985 0.999,0.985Z" style="fill-rule:nonzero;"/><path d="M4.148,6.236c0.551,-0 0.999,-0.441 0.999,-0.985c0,-0.544 -0.448,-0.985 -0.999,-0.985c-0.552,0 -0.999,0.441 -0.999,0.985c0,0.544 0.447,0.985 0.999,0.985Z" style="fill-rule:nonzero;"/><path d="M1.013,6.236c0.551,-0 0.999,-0.441 0.999,-0.985c-0,-0.544 -0.448,-0.985 -0.999,-0.985c-0.552,0 -0.999,0.441 -0.999,0.985c-0,0.544 0.447,0.985 0.999,0.985Z" style="fill-rule:nonzero;"/></g></svg>
-
-
-
     h2.mt-5.mb-2 Participez à un atelier Wonderflow pour…
-
     ul.list.yellow-list.grid.grid-md-col-3.mt-2
         li Stimuler la vraie collaboration et libérer le plein potentiel de votre équipe
         li Développer votre posture de leader authentique et inspirant
         li Accueillir le changement comme une opportunité de grandir et de se réinventer
-
-    p.italic Nos ateliers vous invitent à penser «hors des sentiers battus», à créer ensemble et à repartir avec un plan d’action concret. Le tout dans une ambiance où la bienveillance et la joie sont au coeur de l’expérience.
+    p.italic-arapey Nos ateliers vous invitent à penser «hors des sentiers battus», à créer ensemble et à repartir avec un plan d’action concret. Le tout dans une ambiance où la bienveillance et la joie sont au coeur de l’expérience.
     h3.mt-3 Pour qui?
     p Pour les professionnels et leaders qui cherchent à allier performance et épanouissement professionnel.
-    //p
-    //    | Idéal pour les professionnels et gestionnaires qui cherchent à
-    //    strong allier performance et épanouissement professionnel
-    button(type='button' hx-target="main" hx-get="/fr-ca/content_workshops" hx-push-url='/fr-ca/workshops' hx-swap='show:window:top').transition.mt-2
+    button(type='button' hx-target="main" hx-get="/fr-ca/content_workshops" hx-push-url='/fr-ca/ateliers' hx-swap='show:window:top').transition.mt-2
         | Découvrez nos ateliers
         <svg width="18px" height="100%" viewBox="0 0 12 11" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><path d="M6.754,2.247l0,0.001c0,-0 1.4,0.591 2.52,1.461c0.339,0.264 0.653,0.552 0.88,0.862c0.161,0.219 0.282,0.443 0.282,0.68c0,0.237 -0.121,0.461 -0.282,0.681c-0.227,0.309 -0.541,0.598 -0.88,0.862c-1.12,0.869 -2.52,1.461 -2.52,1.461c-0.394,0.168 -0.579,0.624 -0.411,1.018c0.167,0.394 0.623,0.578 1.018,0.411l0,-0c0,-0 2.184,-0.933 3.497,-2.21c0.69,-0.672 1.132,-1.449 1.132,-2.223c-0,-0.773 -0.442,-1.55 -1.132,-2.222c-1.313,-1.277 -3.497,-2.211 -3.497,-2.211l-0,0c-0.395,-0.167 -0.851,0.017 -1.018,0.412c-0.168,0.394 0.017,0.85 0.411,1.017Z" "/><g><path d="M7.284,6.236c0.551,-0 0.999,-0.441 0.999,-0.985c-0,-0.544 -0.448,-0.985 -0.999,-0.985c-0.552,0 -0.999,0.441 -0.999,0.985c-0,0.544 0.447,0.985 0.999,0.985Z" style="fill-rule:nonzero;"/><path d="M4.148,6.236c0.551,-0 0.999,-0.441 0.999,-0.985c0,-0.544 -0.448,-0.985 -0.999,-0.985c-0.552,0 -0.999,0.441 -0.999,0.985c0,0.544 0.447,0.985 0.999,0.985Z" style="fill-rule:nonzero;"/><path d="M1.013,6.236c0.551,-0 0.999,-0.441 0.999,-0.985c-0,-0.544 -0.448,-0.985 -0.999,-0.985c-0.552,0 -0.999,0.441 -0.999,0.985c-0,0.544 0.447,0.985 0.999,0.985Z" style="fill-rule:nonzero;"/></g></svg>
-    //h2.mt-3 Pour qui ?
-    //p Tout gestionnaire ou leader qui souhaite arriver avec de nouvelles idées, développer sa capacité d'adaptation, accompagner les transformations de manière efficace et sereine.
-    //
-    //div.flex-row.mt-1
-    //    div.thought-container.scale.transition
-    //        p.bubble03 Comment renforcer ma confiance créative?
-    //        div.bubble02
-    //        div.bubble01
-    //        img(src='/img/webp/question_01_600px.webp', alt='une personne qui se pose des question' loading='lazy').yellow-background.disk
-    //    div.thought-container.scale.transition
-    //        p.bubble03 Comment trouver des idées ou des solutions inédites?
-    //        div.bubble02
-    //        div.bubble01
-    //        img(src='/img/webp/question_02_600px.webp', alt='une autre personne qui se pose des question' loading='lazy').yellow-background.disk
-    //    div.thought-container.scale.transition
-    //        p.bubble03 Comment prendre du recul, voir clairement la situation?
-    //        div.bubble02
-    //        div.bubble01
-    //        img(src='/img/webp/question_03_600px.webp', alt='une troisième personne qui se pose des question' loading='lazy').yellow-background.disk
-
 div.full-width.mt-1
     div.wave
         img(src='/img/svg/curve_up_yellow.svg' width='100%' height='100%' alt='' aria-hidden='true')
@@ -104,10 +66,10 @@ div.full-width.yellow-background
         div.z1.ml-md-128
             h3.mt-2.uppercase Un suivi post-atelier pour un impact durable
             p.white-dot Possibilité d’accompagnement en groupe (2 x 45 minutes en ligne). Coaching individuel envisageable au besoin.
-        button.ml-md-128(type='button' hx-target="main" hx-get="/fr-ca/content_approach" hx-push-url='/fr-ca/approach' hx-swap='show:window:top').transition.mt-2
+        button.ml-md-128(type='button' hx-target="main" hx-get="/fr-ca/content_approach" hx-push-url='/fr-ca/aproache' hx-swap='show:window:top').transition.mt-2
             | Découvrez notre approche
             <svg width="18px" height="100%" viewBox="0 0 12 11" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><path d="M6.754,2.247l0,0.001c0,-0 1.4,0.591 2.52,1.461c0.339,0.264 0.653,0.552 0.88,0.862c0.161,0.219 0.282,0.443 0.282,0.68c0,0.237 -0.121,0.461 -0.282,0.681c-0.227,0.309 -0.541,0.598 -0.88,0.862c-1.12,0.869 -2.52,1.461 -2.52,1.461c-0.394,0.168 -0.579,0.624 -0.411,1.018c0.167,0.394 0.623,0.578 1.018,0.411l0,-0c0,-0 2.184,-0.933 3.497,-2.21c0.69,-0.672 1.132,-1.449 1.132,-2.223c-0,-0.773 -0.442,-1.55 -1.132,-2.222c-1.313,-1.277 -3.497,-2.211 -3.497,-2.211l-0,0c-0.395,-0.167 -0.851,0.017 -1.018,0.412c-0.168,0.394 0.017,0.85 0.411,1.017Z" "/><g><path d="M7.284,6.236c0.551,-0 0.999,-0.441 0.999,-0.985c-0,-0.544 -0.448,-0.985 -0.999,-0.985c-0.552,0 -0.999,0.441 -0.999,0.985c-0,0.544 0.447,0.985 0.999,0.985Z" style="fill-rule:nonzero;"/><path d="M4.148,6.236c0.551,-0 0.999,-0.441 0.999,-0.985c0,-0.544 -0.448,-0.985 -0.999,-0.985c-0.552,0 -0.999,0.441 -0.999,0.985c0,0.544 0.447,0.985 0.999,0.985Z" style="fill-rule:nonzero;"/><path d="M1.013,6.236c0.551,-0 0.999,-0.441 0.999,-0.985c-0,-0.544 -0.448,-0.985 -0.999,-0.985c-0.552,0 -0.999,0.441 -0.999,0.985c-0,0.544 0.447,0.985 0.999,0.985Z" style="fill-rule:nonzero;"/></g></svg>
 div.full-width.yellow-background.pt-3
     div.wave
         img(src='/img/svg/curve_up_white.svg' width='100%' height='100%' alt='' aria-hidden='true')
-// Path: views/index.pug
+//- Path: views/index.pug

@@ -17,7 +17,7 @@ Allow: /en-ca/contact
 Allow: /en-ca/policy
 
 # Block everything else
-Disallow: /
+Disallow:
 
 # Also block HTMX fragments and metadata endpoints
 Disallow: /fr-ca/content_

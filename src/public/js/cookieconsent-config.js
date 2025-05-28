@@ -66,19 +66,31 @@ CookieConsent.run({
   guiOptions: {
     consentModal: { layout: 'box', position: 'bottom right' }
   },
-  onConsent: ({ cookie }) => {
+  onConsent: ({cookie}) => {
     if (cookie.categories.includes('analytics')) {
-      const script = document.createElement('script');
-      script.src = "https://www.googletagmanager.com/gtag/js?id=G-97RRFVQN78";
-      script.async = true;
-      document.head.appendChild(script);
+      const loadGA = () => {
+        const script = document.createElement('script');
+        script.src = "https://www.googletagmanager.com/gtag/js?id=G-97RRFVQN78";
+        script.async = true;
+        document.head.appendChild(script);
 
-      script.onload = () => {
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-97RRFVQN78');
+        script.onload = () => {
+          window.dataLayer = window.dataLayer || [];
+
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+
+          gtag('js', new Date());
+          gtag('config', 'G-97RRFVQN78');
+        };
       };
+
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(loadGA);
+      } else {
+        setTimeout(loadGA, 1000);
+      }
     }
   }
 });

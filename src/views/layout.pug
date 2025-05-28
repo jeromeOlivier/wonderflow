@@ -50,8 +50,10 @@ html(lang=locale)
       else if locale === 'en-ca'
         include en-ca/footer
     script(defer src='/js/htmx.min.js')
-    script(defer type="module" src='/js/scripts.js')
-    script(src="/vendor/cookieconsent/cookieconsent.umd.js")
-    script(src="/js/cookieconsent-config.js")
+    if process.env.NODE_ENV === 'production'
+      script(defer type="module" src='/js/scripts.min.js')
+    else
+      script(defer type="module" src='/js/scripts.js')
+    script(src="/js/lazy-cookieconsent.js")
     if process.env.NODE_ENV !== 'production'
-      script(src='http://localhost:35729/livereload.js')
+      script(async src='http://localhost:35729/livereload.js')

@@ -341,18 +341,6 @@ function initializeCanvas() {
     animateCanvas();
 }
 
-// TODO: adjust video src to get the path from pug dynamically or have it here depending on the current language, - video src and poster img
-function initializeVideo() {
-    const video = document.getElementById('hero-logo-video');
-    if (video) {
-        const source = document.createElement('source');
-        source.src = '/video/wonderflow-hero-video-3sec.mp4';
-        source.type = 'video/mp4';
-        video.appendChild(source);
-        video.load(); // triggers load without autoplay delay
-    }
-}
-
 function rebindInteractiveElementHoverListeners(scope = document) {
     const interactiveElements = scope.querySelectorAll('button, input, textarea, .menu, .hero-container, .wave');
     interactiveElements.forEach(el => {
@@ -386,12 +374,13 @@ function rehydratePage(scope = document) {
     }
 
     initializeCursor();
-    initializeVideo();
     rebindInteractiveElementHoverListeners(scope);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
     rehydratePage();
+    // const ccStyle = document.getElementById('cc-css');
+    // if (ccStyle) ccStyle.media = 'all';
 });
 
 document.addEventListener('htmx:load', (event) => {
@@ -451,16 +440,28 @@ document.body.addEventListener('htmx:afterSwap', (e) => {
     const segments = url.pathname.split('/');
     const locale = segments[1];
     const lastSegment = segments[segments.length - 1] || '';
-    const metaKey =
-        lastSegment.startsWith('content_')
-            ? lastSegment.replace('content_', '')
-            : (lastSegment === '' || lastSegment === locale) ? 'index' : lastSegment.replace(/-/g, '_');
-
-    console.log("🔍 HTMX Meta Update Debug");
-    console.log("Effective URL:", url.href);
-    console.log("Locale:", locale);
-    console.log("metaKey:", metaKey);
-    console.log("Meta fetch URL:", `/${locale}/meta_${metaKey}`);
+    const rawSlug = lastSegment.replace('content_', '');
+    const slugToPageKey = {
+      'fr-ca': {
+        'a-propos': 'about',
+        'approche': 'approach',
+        'contact': 'contact',
+        'contact-merci': 'contact_thanks',
+        'politique': 'policy',
+        'ateliers': 'workshops',
+        '': 'index',
+      },
+      'en-ca': {
+        'about': 'about',
+        'approach': 'approach',
+        'contact': 'contact',
+        'contact-thanks': 'contact_thanks',
+        'policy': 'policy',
+        'workshops': 'workshops',
+        '': 'index',
+      }
+    };
+    const metaKey = slugToPageKey[locale]?.[rawSlug] || 'index';
 
     fetch(`/${locale}/meta_${metaKey}`)
       .then(res => res.text())
@@ -497,8 +498,6 @@ document.body.addEventListener('htmx:afterSwap', (e) => {
   }
 });
 
-
-
 // Handle browser back/forward to reload HTMX dynamic content
 window.addEventListener('popstate', function () {
   const path = location.pathname;
@@ -520,11 +519,6 @@ window.addEventListener('popstate', function () {
     swap: 'innerHTML'
   });
 });
-
-
-
-
-
 
 
 
