@@ -359,6 +359,25 @@ function rebindInteractiveElementHoverListeners(scope = document) {
     });
 }
 
+function loadHeroVideoWithDelay() {
+  return new Promise((resolve, reject) => {
+    const video = document.getElementById('hero-logo-video');
+    const source = video?.querySelector('source');
+
+    if (!video || !source) {
+      return reject("Video or source not found");
+    }
+
+    setTimeout(() => {
+      source.src = "/video/hero-video-fr-3s.mp4";
+      video.load();
+
+      video.oncanplaythrough = () => resolve("Video ready");
+      video.onerror = () => reject("Failed to load video");
+    }, 1000);
+  });
+}
+
 function rehydratePage(scope = document) {
     const testimonialElements = scope.querySelectorAll('.testimonial');
     const dotElements = scope.querySelectorAll('.testimonial-dot');
@@ -373,14 +392,17 @@ function rehydratePage(scope = document) {
         initializeCanvas();
     }
 
+    const heroVideo = scope.querySelector('#hero-logo-video');
+    if (heroVideo) {
+        loadHeroVideoWithDelay().catch(console.warn);
+    }
+
     initializeCursor();
     rebindInteractiveElementHoverListeners(scope);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
     rehydratePage();
-    // const ccStyle = document.getElementById('cc-css');
-    // if (ccStyle) ccStyle.media = 'all';
 });
 
 document.addEventListener('htmx:load', (event) => {
