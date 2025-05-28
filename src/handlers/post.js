@@ -47,13 +47,6 @@ const newsletter = asyncHandler(async(req, res) => {
     }
 });
 
-console.log("SMTP Config:");
-console.log("  host:", JSON.stringify(process.env.CONTACT_MAIL_SMTP));
-console.log("  port:", JSON.stringify(process.env.CONTACT_MAIL_PORT));
-console.log("  secure:", JSON.stringify(process.env.CONTACT_MAIL_SECURE));
-console.log("  user:", JSON.stringify(process.env.CONTACT_EMAIL_FROM));
-console.log("  pass:", JSON.stringify(process.env.CONTACT_EMAIL_PASSWORD));
-
 // email transporter setup
 const transporter = nodemailer.createTransport({
   host: process.env.CONTACT_MAIL_SMTP,
