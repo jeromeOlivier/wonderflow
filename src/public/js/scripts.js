@@ -368,8 +368,11 @@ function loadHeroVideoWithDelay() {
       return reject("Video or source not found");
     }
 
+    const lang = document.documentElement.lang || 'en-ca';
+    const localeCode = lang.startsWith('fr') ? 'fr' : 'en';
+
     setTimeout(() => {
-      source.src = "/video/hero-video-fr-3s.mp4";
+      source.src = `/video/hero-video-${localeCode}-3s.mp4`;
       video.load();
 
       video.oncanplaythrough = () => resolve("Video ready");
