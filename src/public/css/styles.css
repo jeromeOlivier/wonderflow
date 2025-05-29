@@ -1157,6 +1157,10 @@ button.testimonial-dot:hover {
     border-radius: 100%;
 }
 
+.img-three-circles {
+    width: clamp(320px, 80%, 480px); height: auto;
+}
+
 .contour {
     position: absolute;
     top: 50%;
