@@ -546,6 +546,8 @@ nav > ul > li > button:hover {
         background  : var(--yellow);
         display     : flex;
         height      : 100vh;
+        height      : 100dvh;
+        padding-top: 60px;
         position    : absolute;
         right       : 0;
         top         : 0;
@@ -564,6 +566,7 @@ nav > ul > li > button:hover {
         list-style      : none;
         margin          : 0;
         padding         : 0;
+        transform       : translateY(-30px);
         width           : 100%;
     }
 
