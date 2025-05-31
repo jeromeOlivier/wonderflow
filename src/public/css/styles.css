@@ -506,7 +506,7 @@ nav > ul > li > button:hover {
         right           : 0;
         top             : 50%;
         transform : translateY(-50%);
-        transform-origin: 20px 0;
+        transform-origin: 22px 4px;
         z-index         : 20;
     }
 
