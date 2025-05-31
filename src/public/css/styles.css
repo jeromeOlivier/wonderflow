@@ -489,6 +489,10 @@ nav > ul > li > button:hover {
     opacity: 1;
 }
 
+#hamburger {
+    display: none;
+}
+
 /* navigation for smaller devices */
 @media (max-width : 960px) {
     #hamburger {
@@ -497,24 +501,27 @@ nav > ul > li > button:hover {
         flex-direction  : column;
         height          : 24px;
         justify-content : space-between;
+        padding-right   : inherit;
         position        : absolute;
-        right           : 5vw;
-        top             : 15px;
+        right           : 0;
+        top             : 50%;
+        transform : translateY(-50%);
+        transform-origin: 20px 0;
         z-index         : 20;
     }
 
     #hamburger, #hamburger > div {
-        transition : transform .5s ease;
+        transition : transform .4s ease;
     }
 
     #hamburger.close {
-        transform : rotate(-315deg) translate(0, -4px);
+        transform : rotate(45deg) translateY(-50%);
     }
 
     #hamburger > div {
         background-color : var(--black);
         border-radius    : 2px;
-        height           : 3px;
+        height           : 2px;
         width            : 28px;
     }
 
@@ -523,7 +530,7 @@ nav > ul > li > button:hover {
     }
 
     #hamburger.close div:nth-child(2) {
-        transform : translate(0px, 6px) scaleX(1.2)
+        opacity: 0;
     }
 
     #hamburger.close div:nth-child(3) {
