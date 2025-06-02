@@ -1294,6 +1294,12 @@ button.testimonial-dot:hover {
     .fs-md-18 {
         font-size: 1.125rem;
     }
+
+    .img-big {
+        max-width: 80%;
+        margin-inline: auto;
+        display: block;
+    }
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
