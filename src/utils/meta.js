@@ -1,24 +1,24 @@
 module.exports = {
   "fr-ca": {
     index: {
-      title: "Stimulez votre créativité professionnelle | Wonderflow",
-      description: "Des ateliers ludiques et originaux pour renforcer votre posture créative, encourager la collaboration et accueillir le changement dans votre milieu professionnel."
+      title: "Stimulez votre développement professionnel | Wonderflow",
+      description: "Des ateliers originaux pour renforcer votre posture de leader, encourager la collaboration et accueillir le changement dans votre milieu professionnel."
     },
     about: {
       title: "Notre mission et fondatrice | Wonderflow",
       description: "Découvrez la vision de Vanessa Gerold : des ateliers qui allient joie, introspection et action pour transformer les milieux professionnels."
     },
     approach: {
-      title: "Une pédagogie unique, vivante et intuitive | Wonderflow",
-      description: "Explorez notre méthode en 3 étapes : ancrage, créativité et transformation — une approche qui connecte le mental, le corps et les émotions."
+      title: "Notre pédagogie unique, structurée et intuitive | Wonderflow",
+      description: "Explorez notre méthode basée sur les neurosciences et des pratiques éprouvées pour renforcer les compétences interpersonnelles et la performance des leaders."
     },
     workshops: {
       title: "Ateliers sur mesure pour leaders et équipes | Wonderflow",
-      description: "Renforcez l’agilité, la collaboration et le leadership avec nos ateliers personnalisés axés sur l’intelligence émotionnelle et la créativité."
+      description: "Des ateliers axés sur la créativité, le leadership  et la collaboration. Des expériences ludiques pour renforcer performance professionnelle et bien être."
     },
     contact: {
-      title: "Contact | Wonderflow",
-      description: "Vous souhaitez en savoir plus sur nos ateliers ou obtenir une offre personnalisée ? Écrivez-nous, nous serons ravis de vous répondre."
+      title: "Contactez Wonderflow | Planifiez votre atelier sur mesure",
+      description: "Prenez contact avec nous pour en savoir plus sur nos ateliers et comment ils peuvent bénéficier à votre organisation."
     },
     "contact-thanks": {
       title: "Merci pour votre message | Wonderflow",
@@ -51,24 +51,24 @@ module.exports = {
   },
   "en-ca": {
     index: {
-      title: "Ignite Your Creative Leadership | Wonderflow",
-      description: "Playful and original workshops to strengthen your creative posture, foster collaboration, and embrace change in your professional environment."
+      title: "Boost  your professional development | Wonderflow",
+      description: "Original workshops to strengthen your leadership posture, encourage collaboration and embrace change in your professional environment."
     },
     about: {
-      title: "Our Mission & Founder | Wonderflow",
-      description: "Discover Vanessa Gerold’s vision: joy-fueled, action-oriented workshops to transform leadership and teamwork in modern organizations."
+      title: "Our mission and founder | Wonderflow",
+      description: "Discover Vanessa Gerold's vision: To offer workshops that combine joy, introspection and action to transform professional environments."
     },
     approach: {
-      title: "A Unique Experiential Learning Method | Wonderflow",
-      description: "Learn about our 3-step approach—Anchor, Create, Transform—designed to engage the mind, body, and emotions for lasting change."
+      title: "Our unique, structured and intuitive pedagogy | Wonderflow",
+      description: "Explore our neuroscience-based method and proven practices for strengthening the interpersonal skills and performance of leaders and managers."
     },
     workshops: {
-      title: "Tailored Workshops for Leaders and Teams | Wonderflow",
-      description: "Empower your team with creativity, emotional intelligence, and authentic leadership through customized professional workshops."
+      title: "Tailor-made workshops for leaders and teams | Wonderflow",
+      description: "Professional workshops focusing on creativity, leadership and collaboration. Playful experiences to enhance performance and well-being at work."
     },
     contact: {
-      title: "Contact | Wonderflow",
-      description: "Have questions or want a custom workshop proposal? Reach out to us — we’d love to connect."
+      title: "Contact Wonderflow | Plan your tailor-made workshop",
+      description: "Contact us to find out more about our workshops and how they can benefit your organization."
     },
     "contact-thanks": {
       title: "Thanks for Reaching Out | Wonderflow",
