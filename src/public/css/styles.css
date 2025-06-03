@@ -1245,10 +1245,12 @@ button.testimonial-dot:hover {
     .navigation {
         overflow: auto;
         top: 60px;
+        height: calc(100vh - 60px);
+        height: calc(100dvh - 60px);
     }
 
     .navigation > ul {
-        padding-top: 180px;
+        transform: translateY(30px);
         height: auto;
     }
 }
