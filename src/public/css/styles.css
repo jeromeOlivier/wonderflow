@@ -112,6 +112,9 @@
     font-size: 1rem;
 }
 
+#cc-main .cm__btn {
+    font-weight: normal;
+}
 
 .yellow-background {
     background-color : var(--yellow);
@@ -187,7 +190,8 @@ body {
     background-color : var(--white);
     display          : flex;
     flex-direction   : column;
-    height           : 100vh;
+    min-height       : 100vh;
+    min-height       : 100dvh;
 }
 
 main {
@@ -1234,6 +1238,18 @@ button.testimonial-dot:hover {
     .card-wrapper-workshops {
         margin-inline: auto;
         max-width: 90%;
+    }
+}
+
+@media (max-width: 960px) and (orientation: landscape) {
+    .navigation {
+        overflow: auto;
+        top: 60px;
+    }
+
+    .navigation > ul {
+        padding-top: 120px;
+        height: auto;
     }
 }
 
