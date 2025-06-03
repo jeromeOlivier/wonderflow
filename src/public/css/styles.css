@@ -1300,6 +1300,14 @@ button.testimonial-dot:hover {
         margin-inline: auto;
         display: block;
     }
+
+    .outline-white {
+        outline: 16px solid var(--white);
+    }
+
+    .outline-yellow {
+        outline: 16px solid var(--yellow);
+    }
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
