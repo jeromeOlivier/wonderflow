@@ -52,6 +52,8 @@ const transporter = nodemailer.createTransport({
   host: process.env.CONTACT_MAIL_SMTP,
   port: Number(process.env.CONTACT_MAIL_PORT),
   secure: process.env.CONTACT_MAIL_SECURE === "true",
+  // container egress may lack working IPv6; force IPv4 for the SMTP connection
+  family: 4,
   // fail fast instead of the 2-minute default so the form never hangs
   connectionTimeout: 10000,
   greetingTimeout: 10000,
