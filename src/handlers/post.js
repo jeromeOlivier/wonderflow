@@ -52,6 +52,10 @@ const transporter = nodemailer.createTransport({
   host: process.env.CONTACT_MAIL_SMTP,
   port: Number(process.env.CONTACT_MAIL_PORT),
   secure: process.env.CONTACT_MAIL_SECURE === "true",
+  // fail fast instead of the 2-minute default so the form never hangs
+  connectionTimeout: 10000,
+  greetingTimeout: 10000,
+  socketTimeout: 20000,
   auth: {
     user: process.env.CONTACT_EMAIL_FROM,
     pass: process.env.CONTACT_EMAIL_PASSWORD,
