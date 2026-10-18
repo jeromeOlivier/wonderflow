@@ -417,6 +417,7 @@ document.addEventListener('htmx:load', (event) => {
 
 // Enable View Transitions when HTMX swaps <main>
 document.body.addEventListener('htmx:beforeSwap', (e) => {
+  if (e.detail.xhr.status >= 400) return;
   if (!document.startViewTransition || e.detail.target.tagName !== 'MAIN') return;
 
   const html = e.detail.xhr.responseText;
@@ -451,6 +452,19 @@ document.body.addEventListener('htmx:beforeSwap', (e) => {
             if (cleanUrl) history.pushState({}, '', cleanUrl);
         });
     });
+});
+
+// Show the form's inline error message when the request fails
+const showFormError = (e) => {
+  const form = e.detail.elt?.closest?.('form');
+  const error = form?.querySelector('.form-error');
+  if (error) error.hidden = false;
+};
+document.body.addEventListener('htmx:responseError', showFormError);
+document.body.addEventListener('htmx:sendError', showFormError);
+document.body.addEventListener('htmx:beforeRequest', (e) => {
+  const error = e.detail.elt?.querySelector?.('.form-error');
+  if (error) error.hidden = true;
 });
 
 document.body.addEventListener('htmx:afterSwap', (e) => {
